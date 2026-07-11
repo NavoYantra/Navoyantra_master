@@ -112,7 +112,7 @@ export default function Footer() {
                     <p>© {new Date().getFullYear()} All rights reserved.</p>
                     <Link
                         href="/contact"
-                        className="tracking-[0.3em] uppercase transition hover:translate-x-2"
+                        className="tracking-[0.3em] uppercase transition hover:translate-x-2 hover:text-blue-500 hover:font-semibold"
                     >
                         Let's Innovate →
                     </Link>
