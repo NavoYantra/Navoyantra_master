@@ -2,7 +2,8 @@ import {ArrowRight} from "react-feather";
 
 function Hero() {
     return (
-        <section style={{backgroundImage: `url(/hero-img.jpeg)`,}} className={"backdrop-blur-3xl w-svw h-svh flex items-center justify-center bg-cover"}>
+        <section style={{backgroundImage: `url(/hero-img.png)`,}}
+                 className={"backdrop-blur-3xl w-svw h-svh flex items-center justify-center bg-cover"}>
             <div className={"bg-black/40 backdrop-blur-[1px] absolute w-full h-full"}></div>
             <div className={"z-999 w-[50%] h-[50%] flex items-end justify-center gap-2"}>
                 <div

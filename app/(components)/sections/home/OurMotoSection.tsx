@@ -1,112 +1,116 @@
 "use client";
 
-import {useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import gsap from "gsap";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {useGSAP} from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger);
+const AUTO_ADVANCE_MS = 3000;
 
-
+const data = [
+    {
+        image: "/moto/innovation.jpeg",
+        title: "Innovation",
+        desc: "We build scalable digital experiences that help businesses grow faster with modern technology.",
+    },
+    {
+        image: "/moto/quality.jpeg",
+        title: "Quality",
+        desc: "Every product is crafted with attention to detail, performance and long-term maintainability.",
+    },
+    {
+        image: "/moto/trust.jpeg",
+        title: "Trust",
+        desc: "We believe transparency and commitment create lasting relationships with our clients.",
+    },
+    {
+        image: "/moto/growth.jpeg",
+        title: "Growth",
+        desc: "Continuous learning and innovation keep us ahead while delivering exceptional results.",
+    },
+];
 
 export default function OurMoto() {
-    const data = [
-        {
-            image: "/ct-card-bg.png",
-            title: "Innovation",
-            desc: "We build scalable digital experiences that help businesses grow faster with modern technology.",
-        },
-        {
-            image: "/ct-card-bg.png",
-            title: "Quality",
-            desc: "Every product is crafted with attention to detail, performance and long-term maintainability.",
-        },
-        {
-            image: "/ct-card-bg.png",
-            title: "Trust",
-            desc: "We believe transparency and commitment create lasting relationships with our clients.",
-        },
-        {
-            image: "/ct-card-bg.png",
-            title: "Growth",
-            desc: "Continuous learning and innovation keep us ahead while delivering exceptional results.",
-        },
-    ];
+    const [active, setActive] = useState(0);
+    const [paused, setPaused] = useState(false);
 
-    const section = useRef<HTMLDivElement>(null);
     const image = useRef<HTMLImageElement>(null);
     const title = useRef<HTMLHeadingElement>(null);
     const desc = useRef<HTMLParagraphElement>(null);
+    const progressFill = useRef<HTMLDivElement>(null);
 
+    const activeRef = useRef(active);
+    activeRef.current = active;
 
+    // Animate content whenever the active slide changes
+    useEffect(() => {
+        const tl = gsap.timeline();
 
-    useGSAP(() => {
-        let current = 0;
+        tl.to([image.current, title.current, desc.current], {
+            opacity: 0,
+            y: 20,
+            duration: 0.25,
+            ease: "power1.in",
+        }).fromTo(
+            [image.current, title.current, desc.current],
+            {opacity: 0, y: 20},
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.4,
+                stagger: 0.06,
+                ease: "power2.out",
+            }
+        );
 
-        const changeContent = (index: number) => {
-            if (index === current) return;
-
-            current = index;
-
-            const tl = gsap.timeline();
-
-            tl.to([image.current, title.current, desc.current], {
-                opacity: 0,
-                y: 30,
-                duration: 0.25,
-            });
-
-            tl.call(() => {
-                if (image.current) image.current.src  = data[index].image;
-                if (title.current) title.current.innerText = data[index].title;
-                if (desc.current) desc.current.innerText = data[index].desc;
-            });
-
-            tl.fromTo(
-                [image.current, title.current, desc.current],
-                {
-                    opacity: 0,
-                    y: 30,
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.35,
-                    stagger: 0.05,
-                }
-            );
+        return () => {
+            tl.kill();
         };
+    }, [active]);
 
-        ScrollTrigger.create({
-            trigger: section.current,
-            start: "top top",
-            end: `+=${data.length * window.innerHeight}`,
-            pin: true,
-            pinSpacing: true, // <-- ensure this
-            scrub: 1,
-            invalidateOnRefresh: true,
-            anticipatePin: 1,
-            snap: {
-                snapTo: 1 / (data.length - 1),
-                duration: 0.2,
-            },
-            onUpdate: (self) => {
-                const index = Math.min(
-                    data.length - 1,
-                    Math.floor(self.progress * data.length)
-                );
+    // Auto-advance every AUTO_ADVANCE_MS, paused on hover
+    useEffect(() => {
+        if (paused) return;
 
-                changeContent(index);
-            },
-        });
-    }, []);
+        const id = setInterval(() => {
+            setActive((prev) => (prev + 1) % data.length);
+        }, AUTO_ADVANCE_MS);
+
+        return () => clearInterval(id);
+    }, [paused]);
+
+    // Progress bar that fills across each interval, restarts on slide change / pause
+    useEffect(() => {
+        if (!progressFill.current) return;
+
+        gsap.killTweensOf(progressFill.current);
+
+        if (paused) return;
+
+        gsap.fromTo(
+            progressFill.current,
+            {scaleX: 0},
+            {
+                scaleX: 1,
+                duration: AUTO_ADVANCE_MS / 1000,
+                ease: "none",
+                transformOrigin: "left center",
+            }
+        );
+    }, [active, paused]);
+
+    const goTo = (index: number) => {
+        if (index === activeRef.current) return;
+        setActive(index);
+    };
+
+    const current = data[active];
 
     return (
         <section
-            ref={section}
-            className="w-full h-screen bg-[#f7f7f7] flex flex-col justify-center"
+            className="w-full py-24 bg-[#f7f7f7] flex flex-col justify-center"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
         >
-            <h2 className="text-4xl font-semibold text-center mb-16">
+            <h2 className="text-6xl font-semibold text-center mb-24">
                 Our Moto
             </h2>
 
@@ -118,27 +122,27 @@ export default function OurMoto() {
                         className="w-90 h-90 rounded-full bg-gray-200 overflow-hidden flex items-center justify-center">
                         <img
                             ref={image}
-                            src={data[0].image}
-                            alt=""
+                            src={current.image}
+                            alt={current.title}
                             className="w-full h-full object-cover"
                         />
                     </div>
                 </div>
 
                 {/* Right */}
-                <div className="bg-gray-200 p-10 min-h-87.5 flex flex-col justify-start">
+                <div className="bg-linear-to-br from-blue-200 to-blue-500 p-10 min-h-87.5 flex flex-col justify-start">
                     <h3
                         ref={title}
-                        className="text-3xl font-semibold mb-6"
+                        className="text-6xl font-semibold mb-6"
                     >
-                        {data[0].title}
+                        {current.title}
                     </h3>
 
                     <p
                         ref={desc}
                         className="text-lg leading-8 text-gray-700"
                     >
-                        {data[0].desc}
+                        {current.desc}
                     </p>
                 </div>
 

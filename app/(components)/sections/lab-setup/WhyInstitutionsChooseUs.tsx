@@ -1,68 +1,39 @@
 "use client";
 
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
+import {useRef} from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Check } from "react-feather";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const reasons = [
     {
         title: "Practical Learning",
-        description:
-            "Students learn by building real projects instead of only studying theory. From assembling robotic arms to programming IoT gateways, every concept is reinforced by hands-on hardware.",
+        description: "Students learn by building real projects instead of only studying theory. From assembling robotic arms to programming IoT gateways, every concept is reinforced by hands-on hardware.",
     },
     {
         title: "Industry-Relevant Curriculum",
-        description:
-            "Aligned with emerging technologies and industry expectations. Our syllabus maps directly to NEP 2020 guidelines and real-world job requirements.",
+        description: "Aligned with emerging technologies and industry expectations. Our syllabus maps directly to NEP 2020 guidelines and real-world job requirements.",
     },
     {
         title: "Complete Ecosystem",
-        description:
-            "Hardware + Software + Curriculum + LMS + Teacher Training + Support. A single-vendor, fully integrated solution with no third-party dependency.",
+        description: "Hardware + Software + Curriculum + LMS + Teacher Training + Support. A single-vendor, fully integrated solution with no third-party dependency.",
     },
     {
         title: "Scalable Solutions",
-        description:
-            "Labs can be expanded as your institution grows. Start with a single robotics bench and scale to a full multi-discipline innovation center.",
+        description: "Labs can be expanded as your institution grows. Start with a single robotics bench and scale to a full multi-discipline innovation center.",
     },
     {
         title: "Affordable Packages",
-        description:
-            "Solutions available for institutions of every size and budget. From government-aided schools to private engineering colleges, we have tiered pricing models.",
+        description: "Solutions available for institutions of every size and budget. From government-aided schools to private engineering colleges, we have tiered pricing models.",
     },
 ];
 
 export default function WhyInstitutionsChooseUs() {
     const sectionRef = useRef<HTMLDivElement>(null);
 
-    useGSAP(
-        () => {
-            const items = sectionRef.current?.querySelectorAll(".reason-card");
-            if (!items || items.length === 0) return;
-
-            gsap.from(items, {
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.12,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 75%",
-                    toggleActions: "play none none none",
-                },
-            });
-        },
-        { scope: sectionRef }
-    );
-
     return (
         <section
-            ref={sectionRef}
             className="relative w-full py-24 px-6 overflow-hidden"
         >
             {/* Parallax background with fixed attachment */}
@@ -102,9 +73,6 @@ export default function WhyInstitutionsChooseUs() {
                                     <span className="text-[10px] font-black text-zinc-600 uppercase tracking-widest group-hover:text-blue-400 transition-colors">
                                         0{idx + 1}
                                     </span>
-                                    <div className="w-7 h-7 flex items-center justify-center bg-blue-600/20 border border-blue-500/30 text-blue-400">
-                                        <Check size={12} />
-                                    </div>
                                 </div>
                                 <h3 className="text-lg font-bold uppercase tracking-tight text-white">
                                     {reason.title}

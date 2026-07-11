@@ -1,35 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { CheckSquare, Package, Cpu, Shield } from "react-feather";
+import {Cpu, Package, Shield} from "react-feather";
 
 export default function WhyChooseSetups() {
-    const sectionRef = useRef<HTMLDivElement>(null);
-
-    useGSAP(() => {
-        const trigger = sectionRef.current;
-        if (!trigger) return;
-
-        // Slide in left content and stagger grid cards
-        gsap.from(".left-panel", {
-            x: -40,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power2.out"
-        });
-
-        gsap.from(".grid-item", {
-            scale: 0.95,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power2.out"
-        });
-    }, { scope: sectionRef });
-
     const hardwareCategories = [
         {
             title: "robotic hardware kits",
@@ -68,7 +41,6 @@ export default function WhyChooseSetups() {
 
     return (
         <section
-            ref={sectionRef}
             className="w-full bg-white py-20 px-6 border-b-2 border-zinc-200"
         >
             <div className="max-w-7xl mx-auto">
@@ -97,7 +69,7 @@ export default function WhyChooseSetups() {
                                 <ul className="grid sm:grid-cols-2 gap-2">
                                     {includedItems.map((item, idx) => (
                                         <li key={idx} className="flex items-center gap-2 text-xs font-bold text-zinc-700 uppercase tracking-wider">
-                                            <span className="w-2 h-2 bg-blue-600 flex-shrink-0" />
+                                            <span className="w-2 h-2 bg-blue-600 shrink-0"/>
                                             <span>{item}</span>
                                         </li>
                                     ))}

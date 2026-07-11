@@ -1,17 +1,10 @@
 "use client";
 
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
+import {useRef} from "react";
+import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-    FileText,
-    Layout,
-    Tool,
-    Users,
-    BookOpen,
-    Headphones,
-} from "react-feather";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {BookOpen, FileText, Headphones, Layout, Tool, Users,} from "react-feather";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,16 +76,20 @@ export default function OurProcessPipeline() {
                 });
             });
 
-            // Animate the connecting line
-            gsap.from(".pipeline-line", {
+            // Blue line fills as you scroll through the pipeline
+            gsap.set(".pipeline-line-fill", {
                 scaleY: 0,
-                duration: 1.5,
-                ease: "power2.out",
                 transformOrigin: "top center",
+            });
+
+            gsap.to(".pipeline-line-fill", {
+                scaleY: 1,
+                ease: "none",
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: "top 70%",
-                    toggleActions: "play none none none",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: true,
                 },
             });
         },
@@ -121,8 +118,13 @@ export default function OurProcessPipeline() {
 
                 {/* Pipeline Steps */}
                 <div className="relative">
-                    {/* Vertical connecting line */}
-                    <div className="pipeline-line absolute left-1/2 top-0 bottom-0 w-0.5 bg-zinc-200 -translate-x-1/2 hidden md:block" />
+                    {/* Vertical connecting line (static track) */}
+                    <div
+                        className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-zinc-200 -translate-x-1/2 hidden md:block"/>
+
+                    {/* Vertical connecting line (blue fill, driven by scroll progress) */}
+                    <div
+                        className="pipeline-line-fill absolute left-1/2 top-0 bottom-0 w-0.5 bg-blue-600 -translate-x-1/2 hidden md:block"/>
 
                     <div className="space-y-8 md:space-y-0">
                         {steps.map((item, idx) => {

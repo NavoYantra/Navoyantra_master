@@ -3,32 +3,32 @@
 const categories = [
     {
         title: "Robotics Kits",
-        image: "/ct-card-bg.png",
+        image: "/product-category/robotic.jpeg",
         className: "col-span-3 row-span-1",
     },
     {
         title: "AI & Smart Learning Kits",
-        image: "/ct-card-bg.png",
+        image: "/product-category/ai.png",
         className: "col-span-4 row-span-1",
     },
     {
         title: "IoT Developement Kits",
-        image: "/ct-card-bg.png",
+        image: "/product-category/iot.png",
         className: "col-span-3 row-span-1",
     },
     {
         title: "Electronic Components",
-        image: "/ct-card-bg.png",
+        image: "/product-category/ec.png",
         className: "col-span-3 row-span-1",
     },
     {
         title: "Drones",
-        image: "/ct-card-bg.png",
+        image: "/product-category/drone.png",
         className: "col-span-3 row-span-1",
     },
     {
         title: "Other Accessories",
-        image: "/ct-card-bg.png",
+        image: "/product-category/acces.png",
         className: "col-span-4 row-span-1",
     },
 ];

@@ -15,7 +15,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
             lang="en"
             className={`h-full antialiased`}
         >
-        <body className="min-h-full flex flex-col">
+        <body className="min-h-full flex flex-col bg-[#f8f7f7ff]">
         <LenisProvider>
             <Header />
             {children}
