@@ -1,0 +1,123 @@
+import Link from "next/link";
+import Image from "next/image";
+
+export default function Footer() {
+    const companyLinks = [
+        "About",
+        "Products",
+        "Services",
+        "Contact",
+    ];
+
+    const resources = [
+        "Blogs",
+        "Gallery",
+        "FAQs",
+        "Privacy Policy",
+    ];
+
+    const social = [
+        "Instagram",
+        "LinkedIn",
+        "GitHub",
+    ];
+
+    return (
+        <footer className="w-full border-t border-neutral-200 bg-white">
+            <div className="mx-auto max-w-7xl px-6 py-20">
+                {/* Top */}
+                <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-4">
+                    {/* Brand */}
+                    <div className="space-y-6">
+                        <Image
+                            src="/logo.png"
+                            width={220}
+                            height={70}
+                            alt="Logo"
+                            priority
+                            className="logo-img w-36 lg:w-48"
+                        />
+                        <p className="max-w-sm text-neutral-600 leading-8">Empowering students through Robotics, AI, IoT
+                            and Embedded Systems with practical STEM learning kits.</p>
+                        <div>
+                            <p className="mb-3 text-xs uppercase tracking-[0.35em] text-neutral-500">Office</p>
+                            <p className="text-neutral-700 leading-7">New Delhi, India</p>
+                        </div>
+                    </div>
+
+                    {/* Company */}
+                    <div>
+                        <h3 className="mb-6 text-xs uppercase tracking-[0.35em] text-neutral-500">Company</h3>
+                        <div className="space-y-4">
+
+                            {companyLinks.map((item) => (
+                                <Link
+                                    key={item}
+                                    href="/"
+                                    className="block transition hover:translate-x-2 hover:text-black text-neutral-700"
+                                >
+                                    {item}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Resources */}
+                    <div>
+                        <h3 className="mb-6 text-xs uppercase tracking-[0.35em] text-neutral-500">Resources</h3>
+                        <div className="space-y-4">
+                            {resources.map((item) => (
+                                <Link
+                                    key={item}
+                                    href="/"
+                                    className="block transition hover:translate-x-2 hover:text-black text-neutral-700"
+                                >
+                                    {item}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Social */}
+                    <div>
+                        <h3 className="mb-6 text-xs uppercase tracking-[0.35em] text-neutral-500">Connect</h3>
+                        <div className="space-y-4">
+                            {social.map((item) => (
+                                <Link
+                                    key={item}
+                                    href="/"
+                                    className="block transition hover:translate-x-2 hover:text-black text-neutral-700"
+                                >
+                                    {item}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Divider */}
+                <div className="my-14 border-t border-neutral-200"/>
+                {/* Bottom */}
+                <div className="flex flex-col items-center justify-between gap-5 text-sm text-neutral-500 md:flex-row">
+                    <div className="flex items-center gap-3">
+                        <Image
+                            src="/logo.png"
+                            width={220}
+                            height={70}
+                            alt="Logo"
+                            priority
+                            className="logo-img w-36 lg:w-48"
+                        />
+                    </div>
+                    <p>© {new Date().getFullYear()} All rights reserved.</p>
+                    <Link
+                        href="/contact"
+                        className="tracking-[0.3em] uppercase transition hover:translate-x-2"
+                    >
+                        Let's Innovate →
+                    </Link>
+                </div>
+            </div>
+        </footer>
+    );
+}
