@@ -1,34 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import {useState} from "react";
 
 const labCategories = [
     {
-        image: "/ct-card-bg.png",
+        image: "/wwo/robotics-kit.jpeg",
         title: "Robotics Lab",
         description:
             "End-to-end autonomous robotics workspace featuring multi-axis manipulators, line-followers, obstacle navigators, and programmable chassis kits.",
     },
     {
-        image: "/ct-card-bg.png",
+        image: "/wwo/labsetup.png",
         title: "AI Innovation Lab",
         description:
             "Edge AI workstations with neural compute modules, vision cameras, TinyML boards, and curated datasets for hands-on deep learning.",
     },
     {
-        image: "/ct-card-bg.png",
+        image: "/wwo/embedd.png",
         title: "IoT & Embedded Systems Lab",
         description:
             "Connected device benches with ESP32/STM32 boards, sensor arrays, MQTT gateways, and cloud dashboard integrations.",
     },
     {
-        image: "/ct-card-bg.png",
+        image: "/wwo/STEM.png",
         title: "STEM Innovation Lab",
         description:
             "Cross-disciplinary maker spaces with 3D printers, laser cutters, soldering stations, and modular electronic project kits.",
     },
     {
-        image: "/ct-card-bg.png",
+        image: "/wwo/industry4.jpeg",
         title: "Industry 4.0 Lab",
         description:
             "Industrial-grade IIoT testbeds featuring PLCs, SCADA simulators, Modbus interfaces, and predictive maintenance sensor rigs.",
@@ -53,7 +53,7 @@ export default function WhatWeOfferLab() {
                     </p>
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-3 h-auto md:h-[500px]">
+                <div className="flex flex-col md:flex-row gap-3 h-auto md:h-125">
                     {labCategories.map((category, index) => {
                         const isActive = active === index;
                         return (
@@ -62,9 +62,9 @@ export default function WhatWeOfferLab() {
                                 onMouseEnter={() => setActive(index)}
                                 className={`relative overflow-hidden cursor-pointer transition-all duration-500 ease-in-out bg-cover bg-center border-2 ${
                                     isActive
-                                        ? "flex-[5] border-blue-500"
+                                        ? "flex-5 border-blue-500"
                                         : "flex-1 border-zinc-200 hover:border-zinc-400"
-                                } min-h-[120px] md:min-h-0`}
+                                } min-h-30 md:min-h-0`}
                                 style={{
                                     backgroundImage: `url(${category.image})`,
                                 }}
