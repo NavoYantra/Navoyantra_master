@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/app/(components)/site/Header";
 import LenisProvider from "@/app/(components)/providers/LenisProvider";
 import Footer from "@/app/(components)/site/Footer";
+import {Analytics} from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
     title: "NavoYantra",
@@ -21,6 +22,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
             {children}
             <Footer />
         </LenisProvider>
+        <Analytics />
         </body>
         </html>
     );
