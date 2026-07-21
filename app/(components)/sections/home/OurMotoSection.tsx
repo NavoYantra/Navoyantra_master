@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 const AUTO_ADVANCE_MS = 3000;
@@ -46,18 +46,18 @@ export default function OurMoto() {
 
         tl.to([image.current, title.current, desc.current], {
             opacity: 0,
-            y: 20,
-            duration: 0.25,
-            ease: "power1.in",
+            y: -15,
+            duration: 0.35,
+            ease: "power2.inOut",
         }).fromTo(
             [image.current, title.current, desc.current],
-            {opacity: 0, y: 20},
+            { opacity: 0, y: 20 },
             {
                 opacity: 1,
                 y: 0,
-                duration: 0.4,
-                stagger: 0.06,
-                ease: "power2.out",
+                duration: 0.7,
+                stagger: 0.1,
+                ease: "power3.out",
             }
         );
 
@@ -66,7 +66,6 @@ export default function OurMoto() {
         };
     }, [active]);
 
-    // Auto-advance every AUTO_ADVANCE_MS, paused on hover
     useEffect(() => {
         if (paused) return;
 
@@ -77,7 +76,6 @@ export default function OurMoto() {
         return () => clearInterval(id);
     }, [paused]);
 
-    // Progress bar that fills across each interval, restarts on slide change / pause
     useEffect(() => {
         if (!progressFill.current) return;
 
@@ -87,7 +85,7 @@ export default function OurMoto() {
 
         gsap.fromTo(
             progressFill.current,
-            {scaleX: 0},
+            { scaleX: 0 },
             {
                 scaleX: 1,
                 duration: AUTO_ADVANCE_MS / 1000,
@@ -106,15 +104,25 @@ export default function OurMoto() {
 
     return (
         <section
-            className="w-full py-24 bg-[#f7f7f7] flex flex-col justify-center"
+            className="relative w-full py-24 flex flex-col justify-center text-zinc-900"
+            style={{ clipPath: "inset(0)" }}
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
         >
-            <h2 className="text-6xl font-semibold text-center mb-24">
+            {/* Fixed Background Image */}
+            <div
+                className="fixed top-0 left-0 w-full h-screen bg-cover bg-center -z-20"
+                style={{ backgroundImage: `url('/our moto.jpg')` }}
+            />
+
+            {/* Black overlay for contrast */}
+            <div className="fixed top-0 left-0 w-full h-screen bg-black/60 -z-10" />
+
+            <h2 className="relative z-10 text-6xl font-semibold text-center mb-24 text-white">
                 Our Moto
             </h2>
 
-            <div className="max-w-7xl mx-auto w-full px-10 grid md:grid-cols-2 gap-20 items-center">
+            <div className="relative z-10 max-w-7xl mx-auto w-full px-10 grid md:grid-cols-2 gap-20 items-center">
 
                 {/* Left */}
                 <div className="flex justify-center">
@@ -130,22 +138,41 @@ export default function OurMoto() {
                 </div>
 
                 {/* Right */}
-                <div className="bg-linear-to-br from-blue-200 to-blue-500 p-10 min-h-87.5 flex flex-col justify-start">
+                <div className="p-10 min-h-87.5 flex flex-col justify-start">
                     <h3
                         ref={title}
-                        className="text-6xl font-semibold mb-6"
+                        className="text-6xl font-semibold mb-6 text-white"
                     >
                         {current.title}
                     </h3>
 
                     <p
                         ref={desc}
-                        className="text-lg leading-8 text-gray-700"
+                        className="text-lg leading-8 text-white"
                     >
                         {current.desc}
                     </p>
                 </div>
+            </div>
 
+            {/* Dots Navigation */}
+            <div className="relative z-10 mt-16 flex justify-center items-center gap-3">
+                {data.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => goTo(index)}
+                        className={`relative h-2 rounded-full overflow-hidden transition-all duration-300 cursor-pointer ${active === index ? "w-16 bg-gray-300" : "w-6 bg-gray-300 hover:bg-gray-400"
+                            }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                    >
+                        {active === index && (
+                            <div
+                                ref={progressFill}
+                                className="absolute top-0 left-0 w-full h-full bg-blue-600 origin-left"
+                            />
+                        )}
+                    </button>
+                ))}
             </div>
         </section>
     );

@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import { useState } from "react";
 
 export default function WhatWeOfferSection() {
     const [active, setActive] = useState(0);
@@ -52,8 +52,8 @@ export default function WhatWeOfferSection() {
                         <div
                             key={`${category.title[0]}-${index}`}
                             onMouseEnter={() => setActive(index)}
-                            className={` relative overflow-hidden cursor-pointer transition-all duration-500 ease-in-out bg-cover bg-center ${isActive ? "flex-5" : "flex-1"} `}
-                            style={{backgroundImage: `url(${category.image})`,}}
+                            className={`rounded-lg relative overflow-hidden cursor-pointer transition-all duration-500 ease-in-out bg-cover bg-center ${isActive ? "flex-5" : "flex-1"} `}
+                            style={{ backgroundImage: `url(${category.image})`, }}
                         >
                             {/* Dark Overlay */}
                             <div className="absolute inset-0 bg-black/45" />
@@ -61,7 +61,7 @@ export default function WhatWeOfferSection() {
                             {isActive ? (
                                 <div className="relative h-full p-8 flex flex-col justify-between text-white">
                                     <div>
-                                        <p className="text-sm opacity-80">0{index+1} STEM Kit</p>
+                                        <p className="text-sm opacity-80">0{index + 1} STEM Kit</p>
                                         <h3 className="text-4xl font-bold mt-3">{category.title}</h3>
                                     </div>
 
@@ -69,10 +69,10 @@ export default function WhatWeOfferSection() {
                                 </div>
                             ) : (
                                 <div className="relative h-full flex flex-col items-center justify-start py-8 text-white">
-                                    <span className="text-lg">0{index+1}</span>
+                                    <span className="text-lg">0{index + 1}</span>
                                     <h3
                                         className="mt-16 text-2xl whitespace-nowrap"
-                                        style={{writingMode: "vertical-rl",}}
+                                        style={{ writingMode: "vertical-rl", }}
                                     >
                                         {category.title}
                                     </h3>
