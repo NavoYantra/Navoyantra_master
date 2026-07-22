@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { FaGithub,FaLinkedin,FaInstagram,FaPinterest,FaFacebook,FaYoutube } from "react-icons/fa6";
 
 export default function Footer() {
     const companyLinks = [
@@ -17,9 +18,11 @@ export default function Footer() {
     ];
 
     const social = [
-        "Instagram",
-        "LinkedIn",
-        "GitHub",
+        {title: "Facebook", url: "https://www.facebook.com/share/196QB9vSGs/", icn: <FaFacebook />},
+        {title: "Instagram", url: "https://www.instagram.com/navoyantra?igsh=MWMwYWZocmU4bG40cQ==", icn: <FaInstagram />},
+        {title: "LinkedIn", url: "https://www.linkedin.com/company/125584049/admin/dashboard/", icn: <FaLinkedin />},
+        {title: "YouTube", url: "https://www.youtube.com/@NavoYantraTechnology", icn: <FaYoutube />},
+        {title: "Pinterest", url: "https://pin.it/3bzKwscKZ", icn: <FaPinterest />},
     ];
 
     return (
@@ -84,11 +87,12 @@ export default function Footer() {
                         <div className="space-y-4">
                             {social.map((item) => (
                                 <Link
-                                    key={item}
-                                    href="/"
-                                    className="block transition hover:translate-x-2 hover:text-black text-neutral-700"
+                                    key={item.title}
+                                    href={item.url}
+                                    className="block transition hover:translate-x-2 hover:text-black text-neutral-700 flex items-center gap-2"
                                 >
-                                    {item}
+                                    <span>{item.icn}</span>
+                                    <span>{item.title}</span>
                                 </Link>
                             ))}
                         </div>
