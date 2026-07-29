@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Eye } from "react-feather";
+import {Eye} from "react-feather";
 
 interface ICourseProp {
     image: string;
@@ -18,9 +18,10 @@ function FeaturedCourseCard({ course }: { course: ICourseProp }) {
                 {/* Thumbnail */}
                 <div className="relative h-48 overflow-hidden bg-zinc-100">
                     <Image
-                        src="/ct-card-bg.png"
+                        src={course.image}
                         alt={course.title}
                         fill
+                        sizes={undefined}
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         priority
                     />

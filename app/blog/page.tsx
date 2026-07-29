@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import {useMemo, useState} from "react";
 import Image from "next/image";
-import {Search, Calendar, User, Clock, ArrowRight, X, Share2, BookOpen, Tag, Heart} from "react-feather";
+import {ArrowRight, BookOpen, Calendar, Clock, Heart, Search, Share2, Tag, User, X} from "react-feather";
 
 const blogPosts = [
     {
@@ -290,7 +290,7 @@ export default function BlogPage() {
                                             {/* Image block */}
                                             <div className="relative h-48 w-full bg-zinc-100 overflow-hidden">
                                                 <Image
-                                                    src="/ct-card-bg.png"
+                                                    src="/mobile-logo.webp"
                                                     alt={post.title}
                                                     fill
                                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -387,7 +387,7 @@ export default function BlogPage() {
                             {/* Top Hero Layout */}
                             <div className="relative h-48 sm:h-64 w-full bg-zinc-100 border-b-2 border-zinc-950">
                                 <Image
-                                    src="/ct-card-bg.png"
+                                    src="/mobile-logo.webp"
                                     alt={selectedPost.title}
                                     fill
                                     className="object-cover"

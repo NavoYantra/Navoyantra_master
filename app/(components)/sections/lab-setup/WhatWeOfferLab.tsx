@@ -4,31 +4,31 @@ import {useState} from "react";
 
 const labCategories = [
     {
-        image: "/wwo/robotics-kit.jpeg",
+        image: "/wwo/robotics-kit.webp",
         title: "Robotics Lab",
         description:
             "End-to-end autonomous robotics workspace featuring multi-axis manipulators, line-followers, obstacle navigators, and programmable chassis kits.",
     },
     {
-        image: "/wwo/labsetup.png",
+        image: "/wwo/labsetup.webp",
         title: "AI Innovation Lab",
         description:
             "Edge AI workstations with neural compute modules, vision cameras, TinyML boards, and curated datasets for hands-on deep learning.",
     },
     {
-        image: "/wwo/embedd.png",
+        image: "/wwo/embedd.webp",
         title: "IoT & Embedded Systems Lab",
         description:
             "Connected device benches with ESP32/STM32 boards, sensor arrays, MQTT gateways, and cloud dashboard integrations.",
     },
     {
-        image: "/wwo/STEM.png",
+        image: "/wwo/STEM.webp",
         title: "STEM Innovation Lab",
         description:
             "Cross-disciplinary maker spaces with 3D printers, laser cutters, soldering stations, and modular electronic project kits.",
     },
     {
-        image: "/wwo/industry4.jpeg",
+        image: "/wwo/industry4.webp",
         title: "Industry 4.0 Lab",
         description:
             "Industrial-grade IIoT testbeds featuring PLCs, SCADA simulators, Modbus interfaces, and predictive maintenance sensor rigs.",

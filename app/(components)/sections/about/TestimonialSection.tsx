@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "react-feather";
+import {useState} from "react";
+import {ChevronLeft, ChevronRight} from "react-feather";
 
 const testimonials = [
     {
@@ -46,7 +46,7 @@ export default function TestimonialSection() {
         <section
             className="relative bg-fixed bg-center bg-cover mt-10"
             style={{
-                backgroundImage: "url('/ct-card-bg.png')",
+                backgroundImage: "url('/mobile-logo.webp')",
             }}
         >
             {/* Overlay */}

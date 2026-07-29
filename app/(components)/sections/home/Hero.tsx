@@ -1,21 +1,21 @@
 "use client";
 
-import { PhoneCall } from "react-feather";
+import {PhoneCall} from "react-feather";
 
 function Hero() {
     return (
         <section className="relative w-full bg-background overflow-hidden">
             {/* Top part with background image - Lag-free Fixed Background Trick */}
-            <div className="relative w-full h-[40vh] md:h-[65vh] min-h-[300px] md:min-h-[500px]" style={{ clipPath: "inset(0)" }}>
+            <div className="relative w-full h-[40vh] md:h-[65vh] min-h-75 md:min-h-125" style={{ clipPath: "inset(0)" }}>
                 <div
                     className="fixed top-0 left-0 w-full h-screen bg-cover bg-center"
-                    style={{ backgroundImage: `url(/hero.jpg)` }}
+                    style={{ backgroundImage: `url(/hero.webp)` }}
                 />
                 <div className="absolute inset-0 bg-black/10" />
             </div>
 
             {/* Floating Content over the boundary */}
-            <div className="relative z-10 max-w-7xl mx-auto px-4 -mt-[15vh] md:-mt-[35vh] flex flex-col md:flex-row">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 mt-[-15vh] md:mt-[-35vh] flex flex-col md:flex-row">
                 {/* Left White Box */}
                 <div className="bg-surface p-10 md:p-16 md:w-[60%] shadow-2xl flex flex-col justify-center">
                     <p className="text-accent text-xs font-bold tracking-widest uppercase mb-4">
@@ -43,15 +43,10 @@ function Hero() {
                 {/* Right Video Box */}
                 <div className="bg-zinc-900 p-2 md:p-3 md:w-[40%] flex flex-col justify-center shadow-xl mt-8 md:mt-auto md:mb-12 relative border border-zinc-800">
                     <div className="relative w-full aspect-video bg-black rounded-sm overflow-hidden">
-                        <video
-                            controls
+                        <img
                             className="w-full h-full object-cover"
-                            poster="/hero-img.png"
-                        >
-                            {/* Replace this src with your actual video path */}
-                            <source src="/intro-video.mp4" type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
+                            src={"/hero.webp"}
+                            alt={"Video-Image"}/>
                     </div>
                 </div>
             </div>

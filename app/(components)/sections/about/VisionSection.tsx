@@ -69,7 +69,7 @@ export default function Vision2030Section() {
 
                         <div className="relative flex justify-center">
                             <Image
-                                src="/ct-card-bg.png"
+                                src="/mobile-logo.webp"
                                 alt="Vision 2030"
                                 width={500}
                                 height={500}

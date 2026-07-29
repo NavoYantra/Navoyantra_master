@@ -1,28 +1,28 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import gsap from "gsap";
 
 const AUTO_ADVANCE_MS = 3000;
 
 const data = [
     {
-        image: "/moto/innovation.jpeg",
+        image: "/moto/innovation.webp",
         title: "Innovation",
         desc: "We build scalable digital experiences that help businesses grow faster with modern technology.",
     },
     {
-        image: "/moto/quality.jpeg",
+        image: "/moto/quality.webp",
         title: "Quality",
         desc: "Every product is crafted with attention to detail, performance and long-term maintainability.",
     },
     {
-        image: "/moto/trust.jpeg",
+        image: "/moto/trust.webp",
         title: "Trust",
         desc: "We believe transparency and commitment create lasting relationships with our clients.",
     },
     {
-        image: "/moto/growth.jpeg",
+        image: "/moto/growth.webp",
         title: "Growth",
         desc: "Continuous learning and innovation keep us ahead while delivering exceptional results.",
     },
@@ -112,7 +112,7 @@ export default function OurMoto() {
             {/* Fixed Background Image */}
             <div
                 className="fixed top-0 left-0 w-full h-screen bg-cover bg-center -z-20"
-                style={{ backgroundImage: `url('/our moto.jpg')` }}
+                style={{ backgroundImage: `url('/our-moto.webp')` }}
             />
 
             {/* Black overlay for contrast */}

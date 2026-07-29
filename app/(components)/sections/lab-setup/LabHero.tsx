@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
+import {useRef} from "react";
+import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
-import { Download, Compass } from "react-feather";
+import {Compass, Download} from "react-feather";
 
 export default function LabHero() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -34,7 +34,7 @@ export default function LabHero() {
             className="relative w-full min-h-[70vh] bg-zinc-50 border-b-2 border-zinc-200 flex items-center justify-center py-20 px-6 overflow-hidden"
         >
             {/* Background grid lines for a boxy technical schematic feel */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-40 pointer-events-none" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-40 pointer-events-none" />
             
             {/* Boxy layout container */}
             <div className="max-w-4xl w-full text-center relative z-10 space-y-8">

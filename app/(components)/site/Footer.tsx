@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaGithub,FaLinkedin,FaInstagram,FaPinterest,FaFacebook,FaYoutube } from "react-icons/fa6";
+import {FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaYoutube} from "react-icons/fa6";
 
 export default function Footer() {
     const companyLinks = [
@@ -33,7 +33,7 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="space-y-6">
                         <Image
-                            src="/logo.png"
+                            src="/logo.webp"
                             width={220}
                             height={70}
                             alt="Logo"
@@ -97,7 +97,7 @@ export default function Footer() {
                                 <Link
                                     key={item.title}
                                     href={item.url}
-                                    className="block transition hover:translate-x-2 hover:text-black text-neutral-700 flex items-center gap-2"
+                                    className="block transition hover:translate-x-2 hover:text-black text-neutral-700 items-center gap-2"
                                 >
                                     <span>{item.icn}</span>
                                     <span>{item.title}</span>
@@ -113,7 +113,7 @@ export default function Footer() {
                 <div className="flex flex-col items-center justify-between gap-5 text-sm text-neutral-500 md:flex-row">
                     <div className="flex items-center gap-3">
                         <Image
-                            src="/logo.png"
+                            src="/logo.webp"
                             width={220}
                             height={70}
                             alt="Logo"

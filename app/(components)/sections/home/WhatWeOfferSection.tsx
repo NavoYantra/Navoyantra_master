@@ -1,38 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import {useState} from "react";
 
 export default function WhatWeOfferSection() {
     const [active, setActive] = useState(0);
 
     const categories = [
         {
-            image: "/wwo/robotics-kit.jpeg",
+            image: "/wwo/robotics-kit.webp",
             title: "Robotic Kits",
             description: "Build real robots and learn robotics from scratch.",
         },
         {
-            image: "/wwo/ai.png",
+            image: "/wwo/ai.webp",
             title: "AI & IoT Solutions",
             description: "Hands-on Artificial Intelligence projects.",
         },
         {
-            image: "/wwo/labsetup.png",
+            image: "/wwo/labsetup.webp",
             title: "Innovation Lab Setup",
             description: "Microcontrollers, sensors and electronics.",
         },
         {
-            image: "/wwo/STEM.png",
+            image: "/wwo/STEM.webp",
             title: "STEM Education",
             description: "Internet of Things practical solutions.",
         },
         {
-            image: "/wwo/embedd.png",
+            image: "/wwo/embedd.webp",
             title: "Embedded Systems Development",
             description: "Coding projects for beginners.",
         },
         {
-            image: "/wwo/LMS.png",
+            image: "/wwo/LMS.webp",
             title: "Learning Management System",
             description: "Coding projects for beginners.",
         }

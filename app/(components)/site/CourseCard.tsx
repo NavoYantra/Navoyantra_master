@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { BookOpen, Clock, Users } from "react-feather";
+import {BookOpen, Clock, Users} from "react-feather";
 
 type Props = {
     course: {
@@ -21,7 +21,7 @@ export default function CourseCard({ course }: Props) {
             {/* Boxy Image Section */}
             <div className="relative w-full md:w-56 h-48 md:h-auto min-h-[180px] bg-zinc-100 flex-shrink-0">
                 <Image
-                    src="/ct-card-bg.png"
+                    src="/mobile-logo.webp"
                     alt={course.title}
                     fill
                     className="object-cover"

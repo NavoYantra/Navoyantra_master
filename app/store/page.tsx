@@ -1,18 +1,8 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import {useEffect, useMemo, useState} from "react";
 import Image from "next/image";
-import {
-    Search,
-    Sliders,
-    ShoppingCart,
-    Heart,
-    X,
-    Check,
-    ChevronDown,
-    ShoppingBag,
-    Eye
-} from "react-feather";
+import {Check, ChevronDown, Heart, Search, ShoppingBag, ShoppingCart, Sliders, X} from "react-feather";
 
 const products = [
     {
@@ -27,7 +17,7 @@ const products = [
             "Dual high-torque DC motors",
             "Comprehensive video tutorials and documentation"
         ],
-        image: "/ct-card-bg.png",
+        image: "/mobile-logo.webp",
         inStock: true,
         popularity: 95
     }
@@ -211,7 +201,7 @@ export default function StorePage() {
                             placeholder="SEARCH HARDWARE..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full bg-zinc-50 border border-zinc-200 rounded-none pl-10 pr-4 py-2.5 text-sm font-bold uppercase tracking-wider placeholder-zinc-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
+                            className="w-full bg-zinc-50 border border-zinc-200 rounded-none pl-10 pr-4 py-2.5 text-sm font-bold uppercase tracking-wider placeholder-zinc-400 focus:outline-none transition-all"
                         />
                     </div>
 
@@ -222,7 +212,7 @@ export default function StorePage() {
                             <select
                                 value={sortBy}
                                 onChange={(e) => setSortBy(e.target.value)}
-                                className="appearance-none bg-zinc-50 border border-zinc-200 rounded-none pl-4 pr-10 py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-700 cursor-pointer focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
+                                className="appearance-none bg-zinc-50 border border-zinc-200 rounded-none pl-4 pr-10 py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-700 cursor-pointer focus:outline-none transition-all"
                             >
                                 <option value="popularity">SORT BY: POPULARITY</option>
                                 <option value="price-low">PRICE: LOW TO HIGH</option>
@@ -282,7 +272,7 @@ export default function StorePage() {
                                                 {/* Image and stock layer */}
                                                 <div className="relative h-44 w-full bg-zinc-100 overflow-hidden">
                                                     <Image
-                                                        src="/ct-card-bg.png"
+                                                        src="/mobile-logo.webp"
                                                         alt={product.name}
                                                         fill
                                                         className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -381,9 +371,9 @@ export default function StorePage() {
 
                         <div className="grid md:grid-cols-2">
                             {/* Left Image Side */}
-                            <div className="relative h-64 md:h-full min-h-[280px] bg-zinc-100 border-b-2 md:border-b-0 md:border-r-2 border-zinc-950">
+                            <div className="relative h-64 md:h-full min-h-70 bg-zinc-100 border-b-2 md:border-b-0 md:border-r-2 border-zinc-950">
                                 <Image
-                                    src="/ct-card-bg.png"
+                                    src="/mobile-logo.webp"
                                     alt={selectedProduct.name}
                                     fill
                                     className="object-cover"
@@ -429,7 +419,7 @@ export default function StorePage() {
                                         <ul className="space-y-1">
                                             {selectedProduct.features.map((feat: string, idx: number) => (
                                                 <li key={idx} className="flex items-start gap-1.5 text-xs text-zinc-700">
-                                                    <Check size={12} className="text-emerald-500 mt-0.5 flex-shrink-0" />
+                                                    <Check size={12} className="text-emerald-500 mt-0.5 shrink-0" />
                                                     <span>{feat}</span>
                                                 </li>
                                             ))}
@@ -474,7 +464,7 @@ export default function StorePage() {
 
             {/* Custom Toast Alert */}
             {toastMessage && (
-                <div className="fixed bottom-5 right-5 z-[9999] bg-zinc-900 text-white border-l-4 border-blue-600 p-4 shadow-xl flex items-center justify-between gap-4 max-w-sm rounded-none animate-in slide-in-from-bottom-5">
+                <div className="fixed bottom-5 right-5 z-9999 bg-zinc-900 text-white border-l-4 border-blue-600 p-4 shadow-xl flex items-center justify-between gap-4 max-w-sm rounded-none animate-in slide-in-from-bottom-5">
                     <span className="text-xs font-bold uppercase tracking-wider">{toastMessage}</span>
                     <button onClick={() => setToastMessage(null)} className="text-zinc-400 hover:text-white transition-colors">
                         <X size={14} />

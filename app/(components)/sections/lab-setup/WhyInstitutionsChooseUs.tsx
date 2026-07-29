@@ -1,6 +1,5 @@
 "use client";
 
-import {useRef} from "react";
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
@@ -30,8 +29,6 @@ const reasons = [
 ];
 
 export default function WhyInstitutionsChooseUs() {
-    const sectionRef = useRef<HTMLDivElement>(null);
-
     return (
         <section
             className="relative w-full py-24 px-6 overflow-hidden"
@@ -39,7 +36,7 @@ export default function WhyInstitutionsChooseUs() {
             {/* Parallax background with fixed attachment */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-fixed"
-                style={{ backgroundImage: "url(/ct-card-bg.png)" }}
+                style={{ backgroundImage: "url(/mobile-logo.webp)" }}
             />
             <div className="absolute inset-0 bg-zinc-950/85" />
 

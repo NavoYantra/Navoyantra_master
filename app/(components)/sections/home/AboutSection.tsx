@@ -67,8 +67,8 @@ function AboutSection() {
         <section
             ref={sectionRef}
             id="info-section"
-            className="min-h-screen bg-zinc-100 px-8 py-20"
-            style={{backgroundImage: 'url(/hc.jpg)'}}
+            className="min-h-screen bg-zinc-100 px-8 py-20 bg-cover"
+            style={{backgroundImage: 'url(/hc.webp)'}}
         >
             <div className="mx-auto max-w-7xl">
                 <div className="info-heading mb-16">
@@ -87,7 +87,7 @@ function AboutSection() {
                 <div className="grid auto-rows-55 grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
                     {/* Large Card */}
                     <div
-                        style={{backgroundImage: `url(/card-bg.jpg)`}}
+                        style={{backgroundImage: `url(/card-bg.webp)`}}
                         className="info-card col-span-1 row-span-2 backdrop-blur-3xl bg-blend-overlay bg-zinc-900/60 p-14 text-white lg:col-span-2">
                         <h3 className="text-3xl font-bold">
                             Building the Future

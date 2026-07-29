@@ -1,13 +1,13 @@
 "use client";
 
-import { Poppins } from "next/font/google";
-import { motion, AnimatePresence } from "framer-motion";
+import {Poppins} from "next/font/google";
+import {AnimatePresence, motion} from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
-import { Heart, ShoppingCart, X } from "react-feather";
-import { usePathname } from "next/navigation";
+import {useEffect, useState} from "react";
+import {HiOutlineMenuAlt3, HiOutlineX} from "react-icons/hi";
+import {Heart, ShoppingCart, X} from "react-feather";
+import {usePathname} from "next/navigation";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -107,7 +107,7 @@ export default function Header() {
                     >
                         {/* Desktop Logo */}
                         <Image
-                            src="/logo.png"
+                            src="/logo.webp"
                             width={220}
                             height={70}
                             alt="Logo"
@@ -116,7 +116,7 @@ export default function Header() {
                         />
                         {/* Mobile Logo */}
                         <Image
-                            src="/mobile-logo.png"
+                            src="/mobile-logo.web"
                             width={124}
                             height={26}
                             alt="Logo"
