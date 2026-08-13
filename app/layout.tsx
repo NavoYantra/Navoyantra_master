@@ -3,6 +3,12 @@ import "./globals.css";
 import Header from "@/app/(components)/site/Header";
 import LenisProvider from "@/app/(components)/providers/LenisProvider";
 import Footer from "@/app/(components)/site/Footer";
+import {Poppins} from "next/font/google";
+
+const poppins = Poppins({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700"]
+});
 
 export const metadata: Metadata = {
     title: {
@@ -55,7 +61,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
             lang="en"
             className={`h-full antialiased`}
         >
-        <body className="min-h-full flex flex-col bg-[#f8f7f7ff]">
+        <body className={`min-h-full flex flex-col ${poppins.className}`}>
         <LenisProvider>
             <Header />
             {children}

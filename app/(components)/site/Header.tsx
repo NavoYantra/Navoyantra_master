@@ -4,9 +4,9 @@ import {Poppins} from "next/font/google";
 import {AnimatePresence, motion} from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {HiOutlineMenuAlt3, HiOutlineX} from "react-icons/hi";
-import {Heart, ShoppingCart, X} from "react-feather";
+import {Heart} from "react-feather";
 import {usePathname} from "next/navigation";
 
 const poppins = Poppins({
@@ -16,8 +16,7 @@ const poppins = Poppins({
 
 export default function Header() {
     const headerOptions = [
-        "Store",
-        //"Courses",
+        "services",
         "Lab Setup",
         "About",
         "Contact",
@@ -26,69 +25,9 @@ export default function Header() {
 
     const [open, setOpen] = useState(false);
     const [wishlistOpen, setWishlistOpen] = useState(false);
-    const [wishlistItems, setWishlistItems] = useState<any[]>([]);
-    const [cartCount, setCartCount] = useState<number>(0);
+    const [wishlistItems, _] = useState<any[]>([]);
     const pathname = usePathname();
 
-    useEffect(() => {
-        const updateWishlist = () => {
-            const items = localStorage.getItem("wishlist");
-            if (items) {
-                try {
-                    setWishlistItems(JSON.parse(items));
-                } catch (e) {
-                    console.error(e);
-                }
-            } else {
-                setWishlistItems([]);
-            }
-        };
-
-        const updateCart = () => {
-            const items = localStorage.getItem("cart");
-            if (items) {
-                try {
-                    const parsed = JSON.parse(items);
-                    const count = parsed.reduce((acc: number, curr: any) => acc + (curr.quantity || 1), 0);
-                    setCartCount(count);
-                } catch (e) {
-                    console.error(e);
-                }
-            } else {
-                setCartCount(0);
-            }
-        };
-
-        updateWishlist();
-        updateCart();
-
-        window.addEventListener("wishlist-updated", updateWishlist);
-        window.addEventListener("cart-updated", updateCart);
-        window.addEventListener("storage", () => {
-            updateWishlist();
-            updateCart();
-        });
-
-        return () => {
-            window.removeEventListener("wishlist-updated", updateWishlist);
-            window.removeEventListener("cart-updated", updateCart);
-        };
-    }, []);
-
-    useEffect(() => {
-        const handleClick = (e: MouseEvent) => {
-            const target = e.target as HTMLElement;
-            if (!target.closest('.wishlist-container')) {
-                setWishlistOpen(false);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClick);
-
-        return () => {
-            document.removeEventListener("mousedown", handleClick);
-        };
-    }, []);
 
     const toggleMenu = () => {
         setOpen(!open);
@@ -147,27 +86,10 @@ export default function Header() {
                         ))}
 
                         {/* Shopping Cart */}
-                        <div className="relative cursor-pointer">
-                            <ShoppingCart />
-                            {cartCount > 0 && (
-                                <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-semibold text-white">
-                                    {cartCount}
-                                </span>
-                            )}
-                        </div>
-
-                        {/* Wishlist */}
-                        <div className="relative wishlist-container">
-                            <Heart
-                                onClick={() => setWishlistOpen(!wishlistOpen)}
-                                className={`cursor-pointer hover:text-red-500 transition ${wishlistItems.length > 0 ? "text-red-500 fill-current" : ""}`}
-                            />
-                            {wishlistItems.length > 0 && (
-                                <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-semibold text-white">
-                                    {wishlistItems.length}
-                                </span>
-                            )}
-                        </div>
+                       <Link
+                           className={"bg-blue-700 p-4 rounded-lg text-white"}
+                           href={"https://shop.navoyantra.com"}>Explore Store
+                       </Link>
                     </ul>
                 </nav>
 
@@ -186,58 +108,10 @@ export default function Header() {
                         )}
                     </div>
 
-                    <button className="relative">
-                        <ShoppingCart size={24} strokeWidth={2} />
-                        {cartCount > 0 && (
-                            <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-[10px] font-semibold text-white">
-                                {cartCount}
-                            </span>
-                        )}
-                    </button>
-
                     <button onClick={toggleMenu} className="text-3xl">
                         <HiOutlineMenuAlt3 />
                     </button>
                 </div>
-
-                {wishlistOpen && (
-                    <div className="absolute right-5 lg:right-10 top-full mt-2 w-80 rounded-2xl border border-gray-200 bg-white shadow-2xl overflow-hidden z-[999] wishlist-container">
-                        <div className="flex items-center justify-between px-5 py-4">
-                            <h3 className="font-semibold text-lg">My Wishlist</h3>
-                            <button
-                                onClick={() => setWishlistOpen(false)}
-                                className="hover:text-red-500 transition"
-                            >
-                                <X size={18} />
-                            </button>
-                        </div>
-
-                        {wishlistItems.length === 0 ? (
-                            <div className="flex flex-col items-center justify-center py-12 px-6">
-                                <Heart size={42} className="text-gray-300" />
-                                <h4 className="mt-5 text-lg font-semibold">No Wishlist Items</h4>
-                            </div>
-                        ) : (
-                            <div className="max-h-96 overflow-y-auto">
-                                {wishlistItems.map((item, index) => (
-                                    <div key={index} className="flex items-center gap-4 border-b p-4">
-                                        <Image
-                                            src={item.image}
-                                            alt={item.name}
-                                            width={60}
-                                            height={60}
-                                            className="rounded-lg object-cover"
-                                        />
-                                        <div className="flex-1">
-                                            <h4 className="font-medium">{item.name}</h4>
-                                            <p className="text-blue-600 font-semibold">₹{item.price}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                )}
             </header>
 
             <AnimatePresence>

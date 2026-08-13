@@ -1,85 +1,99 @@
-"use client";
-
-import {useState} from "react";
+import Image from "next/image";
+import Badge from "@/app/(components)/site/Badge";
 
 export default function WhatWeOfferSection() {
-    const [active, setActive] = useState(0);
-
     const categories = [
         {
-            image: "/wwo/robotics-kit.webp",
-            title: "Robotic Kits",
-            description: "Build real robots and learn robotics from scratch.",
+            icn: "/vector-icons/roboauto.svg",
+            title: "Robotics & Automation",
+            description: "Robotic systems, automation platforms and custom engineering.",
+            accent: "blue",
         },
         {
-            image: "/wwo/ai.webp",
+            icn: "/vector-icons/aiiot.svg",
             title: "AI & IoT Solutions",
-            description: "Hands-on Artificial Intelligence projects.",
+            description: "Connected devices, intelligent systems and edge applications.",
+            accent: "orange",
         },
         {
-            image: "/wwo/labsetup.webp",
-            title: "Innovation Lab Setup",
-            description: "Microcontrollers, sensors and electronics.",
+            icn: "/vector-icons/embedded.svg",
+            title: "Embedded Systems",
+            description: "Electronics, firmware, PCB and microcontroller-based development.",
+            accent: "orange",
         },
         {
-            image: "/wwo/STEM.webp",
-            title: "STEM Education",
-            description: "Internet of Things practical solutions.",
+            icn: "/vector-icons/stem.svg",
+            title: "STEM & Robotics Education",
+            description: "Hands-on kits, programs and project-based technology learning.",
+            accent: "blue",
         },
         {
-            image: "/wwo/embedd.webp",
-            title: "Embedded Systems Development",
-            description: "Coding projects for beginners.",
+            icn: "/vector-icons/labsetup.svg",
+            title: "Robotics Lab Setup",
+            description: "Complete lab planning, equipment, installation and training.",
+            accent: "orange",
         },
         {
-            image: "/wwo/LMS.webp",
-            title: "Learning Management System",
-            description: "Coding projects for beginners.",
-        }
+            icn: "/vector-icons/industrialpro.svg",
+            title: "Industrial Projects",
+            description: "Custom automation, electronics and engineering solutions.",
+            accent: "orange",
+        },
+        {
+            icn: "/vector-icons/oem.svg",
+            title: "OEM / ODM Solutions",
+            description: "Prototype-to-product engineering and manufacturing support.",
+            accent: "blue",
+        },
+        {
+            icn: "/vector-icons/custom.svg",
+            title: "Custom Technology",
+            description: "End-to-end development of tailored hardware and software.",
+            accent: "orange",
+        },
     ];
 
     return (
-        <section className="w-full py-20 px-6">
-            <div className="text-center mb-12">
-                <h2 className="text-5xl font-bold">What We Offer?</h2>
-                <p className="mt-3 text-gray-500">Explore our STEM Kits</p>
+        <section className="p-16">
+            {/*----------------------------BADGE------------------------------*/}
+            <Badge text="SOLUTIONS" />
+
+            {/*-------------------------SECTION HEADING------------------------*/}
+            <div className="my-8">
+                <h2 className="text-4xl font-bold text-gray-900">Solutions for Every Industry</h2>
+                <p className="text-sm text-blue-700 mt-1">Practical engineering solutions designed for learning, innovation and real-world deployment.</p>
             </div>
 
-            <div className="flex flex-col md:flex-row gap-4 h-[70vh] md:h-137.5">
-                {categories.map((category, index) => {
-                    const isActive = active === index;
-                    return (
-                        <div
-                            key={`${category.title[0]}-${index}`}
-                            onMouseEnter={() => setActive(index)}
-                            className={`rounded-lg relative overflow-hidden cursor-pointer transition-all duration-500 ease-in-out bg-cover bg-center ${isActive ? "flex-5" : "flex-1"} `}
-                            style={{ backgroundImage: `url(${category.image})`, }}
-                        >
-                            {/* Dark Overlay */}
-                            <div className="absolute inset-0 bg-black/45" />
-                            {/* Expanded */}
-                            {isActive ? (
-                                <div className="relative h-full p-8 flex flex-col justify-between text-white">
-                                    <div>
-                                        <p className="text-sm opacity-80">0{index + 1} STEM Kit</p>
-                                        <h3 className="text-4xl font-bold mt-3">{category.title}</h3>
-                                    </div>
-
-                                    <p className="max-w-sm text-lg">{category.description}</p>
-                                </div>
-                            ) : (
-                                <div className="relative h-full flex flex-col items-center justify-start py-8 text-white">
-                                    <span className="text-lg">0{index + 1}</span>
-                                    <h3
-                                        className="mt-4 md:mt-16 text-xl md:text-2xl whitespace-nowrap [writing-mode:horizontal-tb] md:[writing-mode:vertical-rl]"
-                                    >
-                                        {category.title}
-                                    </h3>
-                                </div>
-                            )}
+            {/*------------------------CARDS GRID--------------------------*/}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+                {categories.map((category, index) => (
+                    <div
+                        key={`${category.title}-${index}`}
+                        id={`card-${index}`}
+                        className={`bg-white rounded-md border border-gray-200 border-l-4 ${(index+1) % 2 === 0 ? 'border-l-blue-700':'border-l-orange-500'} p-5 flex flex-col justify-between min-h-42.5`}
+                    >
+                        <div>
+                            <h5 className="text-base font-semibold text-gray-900 mb-2">
+                                {category.title}
+                            </h5>
+                            <p className="text-xs text-gray-500 leading-relaxed pr-2">
+                                {category.description}
+                            </p>
                         </div>
-                    );
-                })}
+                        <div className="flex items-center justify-end mt-4">
+                            <div
+                                className={`w-14 h-14 rounded-md flex items-center justify-center`}
+                            >
+                                <Image
+                                    width={32}
+                                    height={32}
+                                    src={category.icn}
+                                    alt={category.title}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </section>
     );

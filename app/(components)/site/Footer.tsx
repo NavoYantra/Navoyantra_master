@@ -40,8 +40,7 @@ export default function Footer() {
                             priority
                             className="logo-img w-36 lg:w-48"
                         />
-                        <p className="max-w-sm text-neutral-600 leading-8">Empowering students through Robotics, AI, IoT
-                            and Embedded Systems with practical STEM learning kits.</p>
+                        <p className="max-w-sm text-neutral-600 leading-8">Empowering Education thorught Technology.</p>
                         <div>
                             <p className="mb-3 text-xs uppercase tracking-[0.35em] text-neutral-500">Office</p>
                             <p className="mt-4 text-gray-500 leading-7">
@@ -97,7 +96,7 @@ export default function Footer() {
                                 <Link
                                     key={item.title}
                                     href={item.url}
-                                    className="block transition hover:translate-x-2 hover:text-black text-neutral-700 items-center gap-2"
+                                    className="flex transition hover:translate-x-2 hover:text-black text-neutral-700 items-center gap-2"
                                 >
                                     <span>{item.icn}</span>
                                     <span>{item.title}</span>

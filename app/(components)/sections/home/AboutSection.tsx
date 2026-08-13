@@ -5,6 +5,7 @@ import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {ArrowRight} from "react-feather";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,8 +79,8 @@ function AboutSection() {
                     </h2>
 
                     <p className="mt-6 max-w-2xl text-lg text-zinc-600">
-                        We build industrial-grade IoT products, automation systems,
-                        intelligent monitoring platforms and engineering lab setups for
+                        We build IoT products, automation systems,
+                        intelligent monitoring platforms and setup labs for
                         industries and educational institutions.
                     </p>
                 </div>
@@ -100,11 +101,12 @@ function AboutSection() {
                             we help transform ideas into real-world innovations.
                         </p>
 
-                        <button
+                        <Link
+                            href={"/contact"}
                             className={"mt-24 w-max flex items-center justify-center gap-2 bg-blue-700 text-white cursor-pointer p-2 px-5"}>
                             <span>Get Custom Quote</span>
                             <ArrowRight/>
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Card */}
