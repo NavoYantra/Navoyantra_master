@@ -64,7 +64,7 @@ export default function WhyChooseSetups() {
                                     What's Included:
                                 </span>
                                 <h3 className="text-xl font-bold uppercase tracking-tight text-zinc-950">
-                                    Complete Turnkey Solution
+                                    Complete Solutions
                                 </h3>
                                 <ul className="grid sm:grid-cols-2 gap-2">
                                     {includedItems.map((item, idx) => (
