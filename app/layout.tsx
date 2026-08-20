@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/app/(components)/site/Header";
 import LenisProvider from "@/app/(components)/providers/LenisProvider";
 import Footer from "@/app/(components)/site/Footer";
+import ThemeProvider from "@/app/(components)/providers/ThemeProvider";
 import {Poppins} from "next/font/google";
 
 const poppins = Poppins({
@@ -12,24 +13,24 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
     title: {
-        default: "NavoYantra | Robotics, AI & STEM Labs",
+        default: "NavoYantra Technologies | STEM, Robotics & AI Lab Setup India",
         template: "%s | NavoYantra"
     },
     description: "NavoYantra provides cutting-edge educational solutions, bringing Robotics, AI, and comprehensive STEM Lab setups directly to your institution to prepare students for the future of technology.",
-    keywords: ["Robotics", "AI", "STEM Labs", "Education", "IOT", "NavoYantra", "Tech Education"],
+    keywords: ["STEM Lab Setup India", "Robotics Lab Setup for Schools", "AI Lab Setup", "IoT Lab Setup Company", "Drone Lab for Schools", "STEM Kits Manufacturer India", "ATL Lab Consultation", "Teacher Training STEM", "Robotics Curriculum India", "Educational Electronics Manufacturer"],
     authors: [{ name: "NavoYantra" }],
     creator: "NavoYantra",
     openGraph: {
         type: "website",
         locale: "en_IN",
         url: "https://www.navoyantra.com",
-        title: "NavoYantra | Robotics, AI & STEM Labs",
+        title: "NavoYantra Technologies | STEM, Robotics & AI Lab Setup India",
         description: "NavoYantra provides cutting-edge educational solutions, bringing Robotics, AI, and comprehensive STEM Lab setups directly to your institution.",
         siteName: "NavoYantra",
     },
     twitter: {
         card: "summary_large_image",
-        title: "NavoYantra | Robotics, AI & STEM Labs",
+        title: "NavoYantra Technologies | STEM, Robotics & AI Lab Setup India",
         description: "NavoYantra provides cutting-edge educational solutions, bringing Robotics, AI, and comprehensive STEM Lab setups directly to your institution.",
     },
     robots: {
@@ -60,14 +61,18 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
         <html
             lang="en"
             className={`h-full antialiased`}
+            suppressHydrationWarning
         >
-        <body className={`min-h-full flex flex-col ${poppins.className}`}>
-        <LenisProvider>
-            <Header />
-            {children}
-            <Footer />
-        </LenisProvider>
+        <body className={`min-h-full flex flex-col ${poppins.className} bg-background text-foreground transition-colors duration-300`}>
+        <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light">
+            <LenisProvider>
+                <Header />
+                {children}
+                <Footer />
+            </LenisProvider>
+        </ThemeProvider>
         </body>
         </html>
     );
 }
+

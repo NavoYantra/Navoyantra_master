@@ -1,26 +1,57 @@
 "use client";
 
-import {ArrowRight, CheckCircle, Cpu, Mail, MapPin, Phone, Settings, Zap} from "react-feather";
+import { ArrowRight, CheckCircle, Cpu, Mail, MapPin, Phone, Settings, Zap } from "react-feather";
+import { FormEvent, useState } from "react";
+import Badge from "@/app/(components)/site/Badge";
 
 export default function Page() {
+    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus("submitting");
+
+        const formData = new FormData(e.currentTarget);
+        // NOTE: Replace 'YOUR_ACCESS_KEY_HERE' with your actual Web3Forms access key
+        // You can get one at https://web3forms.com/
+        formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setStatus("success");
+                (e.target as HTMLFormElement).reset();
+            } else {
+                setStatus("error");
+            }
+        } catch (error) {
+            setStatus("error");
+        }
+    };
+
     return (
-        <section className="py-24">
-            <div className="max-w-7xl mx-auto px-6">
+        <main className="w-full bg-[#040b16] min-h-screen pt-28 pb-20 overflow-hidden relative text-white">
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
+
+            <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
 
                 {/* Header */}
                 <div className="text-center mb-20">
-                    <span className="uppercase tracking-[0.25em] text-blue-500 text-sm font-semibold">
-                        Contact
-                    </span>
+                    <Badge text="CONTACT US" />
 
-                    <h2 className="text-5xl font-bold mt-4">
-                        Let's Build Something Amazing
-                    </h2>
+                    <h1 className="text-5xl md:text-6xl font-extrabold mt-6 leading-tight">
+                        Let's Build Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Innovation Lab</span>
+                    </h1>
 
-                    <p className="max-w-2xl mx-auto mt-6 text-gray-500 leading-8">
-                        Whether you're looking for STEM solutions, Industrial IoT,
-                        Drone Technology or custom hardware development,
-                        our team is ready to help.
+                    <p className="max-w-3xl mx-auto mt-6 text-slate-400 text-lg md:text-xl font-light leading-relaxed">
+                        Whether you're planning a new STEM lab, upgrading an existing laboratory or implementing LMS for your institution, our team is ready to help.
                     </p>
                 </div>
 
@@ -28,206 +59,155 @@ export default function Page() {
                 <div className="grid md:grid-cols-3 gap-8 mb-24">
 
                     {/* Address */}
-                    <div className="rounded-2xl border border-gray-200 bg-white p-8 text-center hover:shadow-xl transition">
-                        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
-                            <MapPin className="text-blue-500" size={28} />
+                    <div className="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-8 text-center hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300">
+                        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 mb-6">
+                            <MapPin className="text-primary" size={28} />
                         </div>
-
-                        <h3 className="mt-6 text-xl font-semibold">
-                            Visit Us
-                        </h3>
-
-                        <p className="mt-4 text-gray-500 leading-7">
-                            1/10726-A KH No. 1622/62,
-                            <br />
-                            Gali No. 2, Subhash Park,
-                            <br />
-                            Naveen Shahdara,
-                            <br />
-                            Delhi - 110032
+                        <h3 className="text-xl font-bold mb-4">Head Office</h3>
+                        <p className="text-slate-400 leading-relaxed font-light">
+                            1/10726-A KH No. 1622/62,<br />
+                            Gali No. 2, Subhash Park,<br />
+                            Naveen Shahdara,<br />
+                            Delhi – 110032, India
                         </p>
                     </div>
 
                     {/* Email */}
-                    <div className="rounded-2xl border border-gray-200 bg-white p-8 text-center hover:shadow-xl transition">
-                        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
-                            <Mail className="text-blue-500" size={28} />
+                    <div className="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-8 text-center hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300">
+                        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 mb-6">
+                            <Mail className="text-accent" size={28} />
                         </div>
-
-                        <h3 className="mt-6 text-xl font-semibold">
-                            Email
-                        </h3>
-
-                        <p className="mt-4 text-gray-500 leading-7">
-                            contact@navoyantra.com
-                            <br />
-                            info@navoyantra.com
-                        </p>
+                        <h3 className="text-xl font-bold mb-4">Email</h3>
+                        <div className="flex flex-col gap-2 text-slate-400 font-light">
+                            <a href="mailto:info@navoyantra.com" className="hover:text-white transition-colors">info@navoyantra.com</a>
+                            <a href="mailto:contact@navoyantra.com" className="hover:text-white transition-colors">contact@navoyantra.com</a>
+                            <a href="mailto:navoyantra@gmail.com" className="hover:text-white transition-colors">navoyantra@gmail.com</a>
+                        </div>
                     </div>
 
                     {/* Phone */}
-                    <div className="rounded-2xl border border-gray-200 bg-white p-8 text-center hover:shadow-xl transition">
-                        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
-                            <Phone className="text-blue-500" size={28} />
+                    <div className="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-8 text-center hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300">
+                        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 mb-6">
+                            <Phone className="text-green-500" size={28} />
                         </div>
-
-                        <h3 className="mt-6 text-xl font-semibold">
-                            Call Us
-                        </h3>
-
-                        <p className="mt-4 text-gray-500 leading-7">
-                            +91 87965999674
-                        </p>
+                        <h3 className="text-xl font-bold mb-4">Call Us</h3>
+                        <div className="flex flex-col gap-2 text-slate-400 font-light">
+                            <a href="tel:+918796599974" className="hover:text-white transition-colors">+91 87965 99974</a>
+                            <a href="tel:+919582528010" className="hover:text-white transition-colors">+91 95825 28010</a>
+                            <a href="tel:+919773667712" className="hover:text-white transition-colors">+91 97736 67712</a>
+                        </div>
                     </div>
 
                 </div>
 
                 {/* Bottom Section */}
-                <div className="grid lg:grid-cols-2 gap-14 items-stretch">
+                <div className="grid lg:grid-cols-2 gap-16 items-stretch">
 
                     {/* Map */}
-                    <div className="overflow-hidden rounded-3xl shadow-xl border border-gray-200 min-h-[550px]">
+                    <div className="overflow-hidden rounded-[40px] shadow-2xl border border-white/10 min-h-[550px] relative group">
+                        <div className="absolute inset-0 bg-primary/20 mix-blend-overlay pointer-events-none z-10 group-hover:opacity-0 transition-opacity duration-700" />
                         <iframe
                             title="Navoyantra Location"
                             src="https://maps.google.com/maps?q=Subhash%20Park%2C%20Naveen%20Shahdara%2C%20Delhi%20110032&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                            className="w-full h-full border-0"
+                            className="w-full h-full border-0 grayscale invert contrast-125 group-hover:grayscale-0 group-hover:invert-0 transition-all duration-700 relative z-0"
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
                         />
                     </div>
 
-                    {/* Contact Content */}
-                    <div className="flex flex-col justify-center lg:pl-6">
+                    {/* Form Section */}
+                    <div className="flex flex-col justify-center lg:pl-6 bg-white/[0.02] border border-white/10 rounded-[40px] p-8 md:p-12">
 
-                        <span className="uppercase tracking-[0.2em] text-blue-500 text-sm font-semibold">
-                            Get In Touch
-                        </span>
-
-                        <h2 className="text-5xl font-bold mt-3 leading-tight">
-                            Let's Talk
-                            <br />
-                            Technology
+                        <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-8">
+                            Send us a message
                         </h2>
 
-                        <p className="text-gray-500 mt-6 leading-8">
-                            Have an idea or looking for a technology partner?
-                            Connect with our engineering team and let's turn your
-                            ideas into innovative solutions.
-                        </p>
-
-                        {/* Pointers */}
-                        <div className="mt-10 space-y-6">
-
-                            {/* Engineering Expertise */}
-                            <div className="flex items-start gap-4">
-                                <div className="shrink-0 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100">
-                                    <Cpu
-                                        className="text-blue-500"
-                                        size={22}
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            {/* Web3forms subject field */}
+                            <input type="hidden" name="subject" value="New Contact Form Submission from NavoYantra Website" />
+                            {/* Web3forms redirect prevention */}
+                            <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-2">
+                                    <label htmlFor="name" className="text-sm font-semibold text-slate-300">Your Name</label>
+                                    <input 
+                                        type="text" 
+                                        id="name" 
+                                        name="name" 
+                                        required 
+                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                                        placeholder="John Doe"
                                     />
                                 </div>
-
-                                <div>
-                                    <h3 className="font-semibold text-lg">
-                                        Engineering Expertise
-                                    </h3>
-
-                                    <p className="text-gray-500 mt-1 leading-7">
-                                        Get expert guidance for IoT, Embedded Systems,
-                                        Drone Technology and custom hardware solutions.
-                                    </p>
+                                <div className="space-y-2">
+                                    <label htmlFor="email" className="text-sm font-semibold text-slate-300">Email Address</label>
+                                    <input 
+                                        type="email" 
+                                        id="email" 
+                                        name="email" 
+                                        required 
+                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                                        placeholder="john@example.com"
+                                    />
                                 </div>
                             </div>
 
-                            {/* Custom Solutions */}
-                            <div className="flex items-start gap-4">
-                                <div className="shrink-0 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100">
-                                    <Settings
-                                        className="text-blue-500"
-                                        size={22}
-                                    />
-                                </div>
-
-                                <div>
-                                    <h3 className="font-semibold text-lg">
-                                        Custom Solutions
-                                    </h3>
-
-                                    <p className="text-gray-500 mt-1 leading-7">
-                                        We design and develop technology solutions
-                                        tailored specifically to your project requirements.
-                                    </p>
-                                </div>
+                            <div className="space-y-2">
+                                <label htmlFor="phone" className="text-sm font-semibold text-slate-300">Phone Number (Optional)</label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                                    placeholder="+91 00000 00000"
+                                />
                             </div>
 
-                            {/* Fast Response */}
-                            <div className="flex items-start gap-4">
-                                <div className="shrink-0 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100">
-                                    <Zap
-                                        className="text-blue-500"
-                                        size={22}
-                                    />
-                                </div>
-
-                                <div>
-                                    <h3 className="font-semibold text-lg">
-                                        Fast Response
-                                    </h3>
-
-                                    <p className="text-gray-500 mt-1 leading-7">
-                                        Reach out to our team and we'll get back to you
-                                        as soon as possible to discuss your project.
-                                    </p>
-                                </div>
+                            <div className="space-y-2">
+                                <label htmlFor="message" className="text-sm font-semibold text-slate-300">Your Message</label>
+                                <textarea 
+                                    id="message" 
+                                    name="message" 
+                                    required 
+                                    rows={5}
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none"
+                                    placeholder="Tell us about your requirements..."
+                                />
                             </div>
 
-                            {/* End-to-End Support */}
-                            <div className="flex items-start gap-4">
-                                <div className="shrink-0 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100">
-                                    <CheckCircle
-                                        className="text-blue-500"
-                                        size={22}
-                                    />
-                                </div>
-
-                                <div>
-                                    <h3 className="font-semibold text-lg">
-                                        End-to-End Support
-                                    </h3>
-
-                                    <p className="text-gray-500 mt-1 leading-7">
-                                        From initial concept and prototyping to development
-                                        and deployment, we're here to support you.
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        {/* Contact Button */}
-                        <div className="mt-10">
-                            <a
-                                href="mailto:contact@navoyantra.com?subject=Project%20Inquiry"
-                                className="inline-flex items-center gap-3 bg-blue-500 px-8 py-4 font-semibold text-white transition hover:bg-blue-600"
+                            <button
+                                type="submit"
+                                disabled={status === "submitting"}
+                                className={`w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 ${status === "submitting" ? "opacity-70 cursor-not-allowed" : ""}`}
                             >
-                                <Mail size={20} />
+                                {status === "submitting" ? (
+                                    "Sending..."
+                                ) : (
+                                    <>
+                                        Send Message
+                                        <ArrowRight size={20} />
+                                    </>
+                                )}
+                            </button>
 
-                                Contact Us
-
-                                <ArrowRight size={18} />
-                            </a>
-                        </div>
-
-                        {/* Email Text */}
-                        <p className="mt-4 text-sm text-gray-400">
-                            Or email us directly at contact@navoyantra.com
-                        </p>
+                            {status === "success" && (
+                                <p className="text-green-500 text-sm text-center font-semibold mt-4">
+                                    Message sent successfully! We'll get back to you soon.
+                                </p>
+                            )}
+                            {status === "error" && (
+                                <p className="text-red-500 text-sm text-center font-semibold mt-4">
+                                    There was an error sending your message. Please try again or email us directly.
+                                </p>
+                            )}
+                        </form>
 
                     </div>
 
                 </div>
 
             </div>
-        </section>
+        </main>
     );
 }

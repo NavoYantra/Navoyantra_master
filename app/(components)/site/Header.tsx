@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {useState} from "react";
 import {HiOutlineMenuAlt3, HiOutlineX} from "react-icons/hi";
-import {Heart} from "react-feather";
 import {usePathname} from "next/navigation";
 
 const poppins = Poppins({
@@ -16,7 +15,7 @@ const poppins = Poppins({
 
 export default function Header() {
     const headerOptions = [
-        "services",
+        "Services",
         "Lab Setup",
         "About",
         "Contact",
@@ -24,10 +23,7 @@ export default function Header() {
     ];
 
     const [open, setOpen] = useState(false);
-    const [wishlistOpen, setWishlistOpen] = useState(false);
-    const [wishlistItems, _] = useState<any[]>([]);
     const pathname = usePathname();
-
 
     const toggleMenu = () => {
         setOpen(!open);
@@ -36,81 +32,76 @@ export default function Header() {
     return (
         <>
             <header
-                className={`${poppins.className} z-50 sticky top-0 w-full bg-white/20 backdrop-blur-2xl flex items-center justify-between px-5 py-4 lg:px-10`}
+                className={`${poppins.className} z-50 sticky top-0 w-full bg-surface/60 border-b border-foreground/10 backdrop-blur-2xl px-5 py-4 lg:px-10 transition-colors duration-300`}
             >
-                <Link href="/">
-                    <motion.div
-                        initial={{ y: -30, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                    >
-                        {/* Desktop Logo */}
-                        <Image
-                            src="/logo.webp"
-                            width={220}
-                            height={70}
-                            alt="Logo"
-                            priority
-                            className="logo-img hidden md:block w-36 h-auto lg:w-48"
-                        />
-                        {/* Mobile Logo */}
-                        <Image
-                            src="/mobile-logo.web"
-                            width={124}
-                            height={26}
-                            alt="Logo"
-                            priority
-                            className="logo-img block md:hidden w-auto h-8"
-                        />
-                    </motion.div>
-                </Link>
-
-                <nav className="hidden md:block">
-                    <ul className="flex items-center gap-8">
-                        {headerOptions.map((option, index) => (
-                            <motion.li
-                                key={option}
-                                initial={{ y: -20, opacity: 0 }}
+                <div className="flex items-center justify-between w-full">
+                    {/* Left: Logo */}
+                    <div className="flex-1 flex justify-start">
+                        <Link href="/">
+                            <motion.div
+                                initial={{ y: -30, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
-                                transition={{ delay: index * 0.15, duration: 0.7 }}
-                                className="nav-item overflow-hidden h-6 cursor-pointer group"
+                                transition={{ duration: 0.8, ease: "easeOut" }}
                             >
-                                <Link
-                                    href={option === "Home" ? "/" : `/${option.toLowerCase().replace(/\s+/g, "-")}`}
-                                    className={`text-wrapper flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-1/2 ${pathname === `/${option.toLowerCase().replace(/\s+/g, "-")}` ? "text-blue-500 underline font-semibold" : ""}`}
-                                >
-                                    <span>{option}</span>
-                                    <span>{option}</span>
-                                </Link>
-                            </motion.li>
-                        ))}
-
-                        {/* Shopping Cart */}
-                       <Link
-                           className={"bg-blue-700 p-4 rounded-lg text-white"}
-                           href={"https://shop.navoyantra.com"}>Explore Store
-                       </Link>
-                    </ul>
-                </nav>
-
-                <div className="flex items-center gap-4 md:hidden">
-                    <div className="relative wishlist-container">
-                        <button
-                            onClick={() => setWishlistOpen(!wishlistOpen)}
-                            className="hover:text-red-500 flex items-center"
-                        >
-                            <Heart size={24} className={wishlistItems.length > 0 ? "text-red-500 fill-current" : ""} />
-                        </button>
-                        {wishlistItems.length > 0 && (
-                            <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-semibold text-white">
-                                {wishlistItems.length}
-                            </span>
-                        )}
+                                {/* Desktop Logo */}
+                                <Image
+                                    src="/logo.webp"
+                                    width={350}
+                                    height={110}
+                                    alt="Logo"
+                                    priority
+                                    className="logo-img hidden md:block w-64 h-auto lg:w-80 dark:invert transition-all duration-300"
+                                />
+                                {/* Mobile Logo */}
+                                <Image
+                                    src="/mobile-logo.web"
+                                    width={150}
+                                    height={32}
+                                    alt="Logo"
+                                    priority
+                                    className="logo-img block md:hidden w-auto h-12 dark:invert transition-all duration-300"
+                                />
+                            </motion.div>
+                        </Link>
                     </div>
 
-                    <button onClick={toggleMenu} className="text-3xl">
-                        <HiOutlineMenuAlt3 />
-                    </button>
+                    {/* Center: Navbar */}
+                    <nav className="hidden md:flex flex-1 justify-center">
+                        <ul className="flex items-center gap-10">
+                            {headerOptions.map((option, index) => (
+                                <motion.li
+                                    key={option}
+                                    initial={{ y: -20, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ delay: index * 0.15, duration: 0.7 }}
+                                    className="nav-item overflow-hidden h-10 cursor-pointer group text-xl whitespace-nowrap"
+                                >
+                                    <Link
+                                        href={option === "Home" ? "/" : `/${option.toLowerCase().replace(/\s+/g, "-")}`}
+                                        className={`text-wrapper flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-1/2 ${pathname === `/${option.toLowerCase().replace(/\s+/g, "-")}` ? "text-accent underline font-semibold" : "text-foreground"}`}
+                                    >
+                                        <span className="py-1">{option}</span>
+                                        <span className="py-1 text-accent">{option}</span>
+                                    </Link>
+                                </motion.li>
+                            ))}
+                        </ul>
+                    </nav>
+
+                    {/* Right: CTA & Mobile Menu */}
+                    <div className="flex-1 flex items-center justify-end gap-4">
+                        {/* Explore Store Button (Desktop) */}
+                        <div className="hidden md:block">
+                            <Link
+                                className={"bg-primary hover:bg-primary/90 transition-colors px-6 py-3 rounded-lg text-white font-semibold shadow-lg hover:shadow-xl text-lg whitespace-nowrap"}
+                                href={"https://shop.navoyantra.com"}>Explore Store
+                            </Link>
+                        </div>
+                        
+                        <button onClick={toggleMenu} className="text-3xl text-foreground md:hidden">
+                            <HiOutlineMenuAlt3 />
+                        </button>
+                    </div>
                 </div>
             </header>
 
@@ -123,17 +114,17 @@ export default function Header() {
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.2 }}
                             onClick={toggleMenu}
-                            className="fixed inset-0 bg-black/40 z-40 md:hidden"
+                            className="fixed inset-0 bg-black/60 z-40 md:hidden backdrop-blur-sm"
                         />
                         <motion.aside
                             initial={{ x: "100%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
                             transition={{ type: "tween", ease: "easeOut", duration: 0.4 }}
-                            className="fixed right-0 top-0 z-50 h-screen w-72 bg-white shadow-xl p-8 md:hidden"
+                            className="fixed right-0 top-0 z-50 h-screen w-72 bg-surface shadow-xl p-8 md:hidden"
                         >
                             <div className="flex justify-end">
-                                <button onClick={toggleMenu} className="text-3xl">
+                                <button onClick={toggleMenu} className="text-3xl text-foreground">
                                     <HiOutlineX />
                                 </button>
                             </div>
@@ -162,12 +153,25 @@ export default function Header() {
                                         <Link
                                             href={option === "Home" ? "/" : `/${option.toLowerCase().replace(/\s+/g, "-")}`}
                                             onClick={toggleMenu}
-                                            className="text-2xl font-semibold"
+                                            className={`text-2xl font-semibold ${pathname === `/${option.toLowerCase().replace(/\s+/g, "-")}` ? "text-accent" : "text-foreground"}`}
                                         >
                                             {option}
                                         </Link>
                                     </motion.li>
                                 ))}
+                                <motion.li
+                                    variants={{
+                                        hidden: { x: 40, opacity: 0 },
+                                        show: { x: 0, opacity: 1, transition: { type: "tween", ease: "easeOut", duration: 0.35 } },
+                                    }}
+                                >
+                                    <Link
+                                        className={"bg-primary hover:bg-primary/90 transition-colors block text-center mt-8 px-6 py-3 rounded-lg text-white font-semibold shadow-lg text-lg"}
+                                        href={"https://shop.navoyantra.com"}
+                                    >
+                                        Explore Store
+                                    </Link>
+                                </motion.li>
                             </motion.ul>
                         </motion.aside>
                     </>

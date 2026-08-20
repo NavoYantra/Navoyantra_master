@@ -1,99 +1,117 @@
+"use client";
+
 import Image from "next/image";
 import Badge from "@/app/(components)/site/Badge";
+import { motion } from "framer-motion";
 
 export default function WhatWeOfferSection() {
     const categories = [
         {
-            icn: "/vector-icons/roboauto.svg",
-            title: "Robotics & Automation",
-            description: "Robotic systems, automation platforms and custom engineering.",
-            accent: "blue",
+            icn: "/vector-icons/labsetup.svg",
+            title: "STEM & Robotics Lab Setup",
+            description: "Complete turnkey laboratory solutions",
         },
         {
             icn: "/vector-icons/aiiot.svg",
-            title: "AI & IoT Solutions",
-            description: "Connected devices, intelligent systems and edge applications.",
-            accent: "orange",
-        },
-        {
-            icn: "/vector-icons/embedded.svg",
-            title: "Embedded Systems",
-            description: "Electronics, firmware, PCB and microcontroller-based development.",
-            accent: "orange",
+            title: "AI, IoT & Drone Labs",
+            description: "Future-ready technology infrastructure",
         },
         {
             icn: "/vector-icons/stem.svg",
-            title: "STEM & Robotics Education",
-            description: "Hands-on kits, programs and project-based technology learning.",
-            accent: "blue",
-        },
-        {
-            icn: "/vector-icons/labsetup.svg",
-            title: "Robotics Lab Setup",
-            description: "Complete lab planning, equipment, installation and training.",
-            accent: "orange",
-        },
-        {
-            icn: "/vector-icons/industrialpro.svg",
-            title: "Industrial Projects",
-            description: "Custom automation, electronics and engineering solutions.",
-            accent: "orange",
-        },
-        {
-            icn: "/vector-icons/oem.svg",
-            title: "OEM / ODM Solutions",
-            description: "Prototype-to-product engineering and manufacturing support.",
-            accent: "blue",
+            title: "Curriculum + LMS",
+            description: "Digital learning with assessments & certification",
         },
         {
             icn: "/vector-icons/custom.svg",
-            title: "Custom Technology",
-            description: "End-to-end development of tailored hardware and software.",
-            accent: "orange",
+            title: "Teacher Training & Workshops",
+            description: "Professional development for educators",
+        },
+        {
+            icn: "/vector-icons/embedded.svg",
+            title: "DIY Kits Manufacturing",
+            description: "Educational electronics designed in-house",
+        },
+        {
+            icn: "/vector-icons/industrialpro.svg",
+            title: "Government & Custom Projects",
+            description: "Tender execution and industry solutions",
         },
     ];
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    };
+
     return (
-        <section className="p-16">
-            {/*----------------------------BADGE------------------------------*/}
-            <Badge text="SOLUTIONS" />
+        <section className="w-full bg-slate-50 py-24 px-5 md:px-10 lg:px-16">
+            <div className="max-w-[90rem] mx-auto">
+                
+                {/* Header */}
+                <div className="flex flex-col items-center text-center mb-16">
+                    <Badge text="OUR SERVICES" />
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mt-6 mb-6">
+                        Our Core <span className="text-primary">Services</span>
+                    </h2>
+                    <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
+                        End-to-end educational solutions designed for learning, innovation, and real-world deployment.
+                    </p>
+                </div>
 
-            {/*-------------------------SECTION HEADING------------------------*/}
-            <div className="my-8">
-                <h2 className="text-4xl font-bold text-gray-900">Solutions for Every Industry</h2>
-                <p className="text-sm text-blue-700 mt-1">Practical engineering solutions designed for learning, innovation and real-world deployment.</p>
-            </div>
-
-            {/*------------------------CARDS GRID--------------------------*/}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-                {categories.map((category, index) => (
-                    <div
-                        key={`${category.title}-${index}`}
-                        id={`card-${index}`}
-                        className={`bg-white rounded-md border border-gray-200 border-l-4 ${(index+1) % 2 === 0 ? 'border-l-blue-700':'border-l-orange-500'} p-5 flex flex-col justify-between min-h-42.5`}
-                    >
-                        <div>
-                            <h5 className="text-base font-semibold text-gray-900 mb-2">
-                                {category.title}
-                            </h5>
-                            <p className="text-xs text-gray-500 leading-relaxed pr-2">
-                                {category.description}
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-end mt-4">
-                            <div
-                                className={`w-14 h-14 rounded-md flex items-center justify-center`}
+                {/* Cards Grid */}
+                <motion.div 
+                    key="what-we-offer-grid-fixed"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8"
+                >
+                    {categories.map((category, index) => {
+                        const isBlue = index % 2 !== 0; 
+                        
+                        return (
+                            <motion.div
+                                variants={itemVariants}
+                                key={`${category.title}-${index}`}
+                                className="group relative bg-white p-8 rounded-3xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col"
                             >
-                                <Image
-                                    width={32}
-                                    height={32}
-                                    src={category.icn}
-                                    alt={category.title}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                ))}
+                                {/* Top colored border */}
+                                <div className={`absolute top-0 left-0 w-full h-1.5 ${isBlue ? 'bg-primary' : 'bg-accent'} opacity-80 group-hover:opacity-100 transition-opacity duration-300`} />
+                                
+                                {/* Icon Box */}
+                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 ${isBlue ? 'bg-primary/10' : 'bg-accent/10'}`}>
+                                    <Image
+                                        width={32}
+                                        height={32}
+                                        src={category.icn}
+                                        alt={category.title}
+                                        className="opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                                    />
+                                </div>
+                                
+                                {/* Content */}
+                                <h5 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors duration-300">
+                                    {category.title}
+                                </h5>
+                                <p className="text-sm text-slate-500 leading-relaxed mt-auto">
+                                    {category.description}
+                                </p>
+                            </motion.div>
+                        );
+                    })}
+                </motion.div>
+                
             </div>
         </section>
     );

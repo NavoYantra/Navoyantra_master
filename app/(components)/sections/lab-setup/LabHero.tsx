@@ -1,9 +1,9 @@
 "use client";
 
-import {useRef} from "react";
-import {useGSAP} from "@gsap/react";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import {Compass, Download} from "react-feather";
+import { Compass, Download } from "react-feather";
 
 export default function LabHero() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -35,7 +35,7 @@ export default function LabHero() {
         >
             {/* Background grid lines for a boxy technical schematic feel */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-40 pointer-events-none" />
-            
+
             {/* Boxy layout container */}
             <div className="max-w-4xl w-full text-center relative z-10 space-y-8">
                 {/* Accent Tag */}
@@ -55,7 +55,7 @@ export default function LabHero() {
                 </div>
 
                 {/* Staggered boxy CTA buttons */}
-                <div
+                {/*<div
                     ref={buttonsRef}
                     className="animate-item flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
                 >
@@ -73,7 +73,7 @@ export default function LabHero() {
                     >
                         <span>Get free consultation</span>
                     </button>
-                </div>
+                </div>*/}
             </div>
 
             {/* Corner styling elements to enforce boxy aesthetics */}

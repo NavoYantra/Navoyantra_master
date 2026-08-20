@@ -7,16 +7,16 @@ import {ArrowRight, BookOpen, Calendar, Clock, Heart, Search, Share2, Tag, User,
 const blogPosts = [
     {
         id: 1,
-        title: "Building the Future of STEM in India",
-        author: "Dr. A. K. Sharma",
-        date: "July 05, 2026",
-        category: "STEM Education",
-        summary: "An in-depth look at how hands-on learning labs are transforming schools and fostering the spirit of innovation under AtmaNirbhar Bharat.",
+        title: "What is STEM Education? The Complete Guide for India",
+        author: "NavoYantra Team",
+        date: "August 10, 2026",
+        category: "STEM Education India",
+        summary: "Understanding the core philosophy of Science, Technology, Engineering, and Mathematics (STEM) in the Indian educational context.",
         readTime: "5 Min Read",
         highlights: [
-            "Atal Tinkering Lab success stories across schools",
-            "Why physical hardware loops beat theoretical textbooks",
-            "The vital role of indigenized custom microcontrollers"
+            "Why practical learning is replacing rote memorization",
+            "The impact of STEM Education India initiatives",
+            "How hardware kits accelerate student comprehension"
         ],
         content: `Traditional education in India has long leaned on rote learning and blackboard instruction. However, the modern industrial landscapes of AI, IIoT, and advanced robotics demand a massive paradigm shift towards hands-on engineering from the classroom level.
 
@@ -26,88 +26,109 @@ The success of programs like the Atal Tinkering Labs (ATL) highlights the potent
     },
     {
         id: 2,
-        title: "Getting Started with Edge AI on Microcontrollers",
-        author: "Samir Sen (Lead Hardware Architect)",
-        date: "June 28, 2026",
-        category: "Robotics",
-        summary: "How low-power microprocessors are now capable of running deep neural networks for real-time sensor processing and computer vision.",
+        title: "The Ultimate Robotics Lab Setup Guide",
+        author: "Samir Sen",
+        date: "August 05, 2026",
+        category: "Robotics Lab Setup for Schools",
+        summary: "A step-by-step blueprint for schools and institutions to plan, procure, and install a state-of-the-art robotics laboratory.",
         readTime: "8 Min Read",
         highlights: [
-            "TinyML frameworks and model quantization",
-            "Deploying object detection on localized dual-core chips",
-            "Power-consumption benchmarks for battery operations"
+            "Essential hardware components for a basic vs advanced lab",
+            "Safety protocols for soldering and mechanical tools",
+            "Choosing the right curriculum for different age groups"
+        ],
+        content: `Setting up a Robotics Lab Setup for Schools requires more than just buying a few DIY kits. It demands a structured approach to curriculum mapping, hardware selection, and physical infrastructure planning to ensure long-term success and student engagement.
+
+First, schools must designate a dedicated workspace with proper ventilation, ample power outlets, and secure storage for electronic components. The hardware selection should scale with the students' learning curve—starting with block-based programmable kits for juniors and progressing to Arduino or Raspberry Pi-based embedded systems for seniors.
+
+At NavoYantra, our Robotics Lab Setup for Schools includes everything from the physical workbenches to the proprietary LMS and teacher training. By providing end-to-end support, we ensure that the lab doesn't become a neglected room of broken toys, but rather a thriving hub of continuous innovation.`
+    },
+    {
+        id: 3,
+        title: "Integrating AI in School Education",
+        author: "Dr. A. K. Sharma",
+        date: "July 22, 2026",
+        category: "AI Learning for Students",
+        summary: "How teaching artificial intelligence at the school level is preparing students for the careers of tomorrow.",
+        readTime: "6 Min Read",
+        highlights: [
+            "Demystifying machine learning for young minds",
+            "Practical AI projects using edge computing modules",
+            "Ethical considerations in AI education"
         ],
         content: `Artificial intelligence has historically been synonymous with heavy server racks, massive GPU clusters, and high-wattage power lines. However, a silent revolution is happening at the very edge of the hardware layer: TinyML.
 
 TinyML refers to the deployment of compressed machine learning models onto microcontrollers with only kilobytes of RAM. Using modern optimization techniques like model quantization—converting 32-bit floating-point weights into 8-bit integers—we can shrink complex neural nets by 75% or more with negligible loss in accuracy.
 
-Our latest AI Edge Camera Module is powered by a dual-core RISC-V processor running localized object classification. Instead of streaming video feeds over bandwidth-heavy networks to the cloud, the sensor classifies frames locally, communicating outcomes in simple bytes via UART/I2C. This significantly decreases latency, increases user privacy, and allows devices to operate for months on standard lithium batteries.`
-    },
-    {
-        id: 3,
-        title: "Architecting a Scalable IoT Smart Factory",
-        author: "NavoYantra Engineering Team",
-        date: "June 14, 2026",
-        category: "IoT & Automation",
-        summary: "A blueprint for deploying sensor meshes in manufacturing lines to monitor vibrations, temperature, and predict failures before they happen.",
-        readTime: "12 Min Read",
-        highlights: [
-            "Modbus/RS485 industrial protocol integration",
-            "Designing robust MQTT message payloads",
-            "Edge-gateway architecture for secure offline routing"
-        ],
-        content: `Industrial IoT (IIoT) requires a different mindset compared to standard smart-home consumer electronics. In a factory environment, sensors must withstand extreme electromagnetic interference, high temperatures, physical vibration, and strictly guarantee uptime.
-
-In our latest smart factory deployment, we designed a unified mesh network using custom industrial-grade nodes. Each node collects motor vibration profiles (using high-g accelerometers) and bearing temperatures. The collected data is routed through a central edge-gateway where local thresholding is performed.
-
-Should a motor show early signatures of bearing misalignment, an alert is dispatched instantly. By coupling edge calculations with lightweight MQTT brokers, we keep bandwidth footprints low while feeding diagnostic dashboards. This predictive maintenance setup has successfully prevented costly line-stoppages for our partners, showing the true ROI of practical IIoT.`
+Our latest AI Edge Camera Module is powered by a dual-core RISC-V processor running localized object classification. Instead of streaming video feeds over bandwidth-heavy networks to the cloud, the sensor classifies frames locally. This is how we make AI Learning for Students accessible, affordable, and deeply practical.`
     },
     {
         id: 4,
-        title: "The Rise of Autonomous Drones in Agriculture",
-        author: "Rohan Das (Drone Division)",
-        date: "May 22, 2026",
-        category: "Robotics",
-        summary: "Exploring the engineering hurdles and software algorithms that allow drones to autonomously map and spray crop fields.",
-        readTime: "6 Min Read",
+        title: "Top 5 IoT Projects for Beginners",
+        author: "NavoYantra Engineering Team",
+        date: "July 10, 2026",
+        category: "IoT School Projects",
+        summary: "Engaging and practical Internet of Things projects that students can build in their school innovation labs.",
+        readTime: "7 Min Read",
         highlights: [
-            "Precision GPS-denied autonomous navigation loops",
-            "Carbon-fiber quadcopter payload optimizations",
-            "Indian DGCA compliance and flight logging procedures"
+            "Smart Weather Station with real-time cloud dashboard",
+            "Automated Plant Watering System using soil moisture sensors",
+            "RFID-based Student Attendance tracking prototype"
         ],
-        content: `Agriculture is ripe for robotic automation. With vast areas to cover, manual pesticide spraying and crop health monitoring are highly inefficient. Enter custom quadcopters built specifically for industrial farming.
+        content: `Industrial IoT (IIoT) requires a different mindset compared to standard smart-home consumer electronics. But the core concepts of sensing, processing, and transmitting data remain the same, making IoT School Projects the perfect entry point for students learning network protocols.
 
-Developing agricultural drones presents unique engineering challenges. Unlike hobbyist drones, agricultural drones carry liquid payloads that shift dynamically during flight, altering the drone's center of gravity. To compensate, flight control loops must run custom adaptive algorithms that constantly adjust motor outputs.
+In our introductory IoT School Projects curriculum, students start by reading basic analog sensors—like temperature or light—and transmitting that data to a local Wi-Fi network using ESP32 microcontrollers. They learn how to structure lightweight MQTT message payloads and visualize their data on free dashboard platforms.
 
-Additionally, to prevent pesticide drift, the spray must be dispersed precisely. Utilizing downward-facing distance sensors, the drone automatically locks height profiles relative to crop canopy, maintaining constant altitude even on hilly terrains. When combined with localized multispectral imaging cameras, these UAVs provide farmers with exact crop stress maps, dramatically optimizing fertilizer utilization.`
+Should a sensor detect an anomaly, the students learn to write logic that triggers a local actuator, like a buzzer or a relay. These hands-on IoT School Projects bridge the gap between software programming and physical hardware, demonstrating the true power of connected devices in the real world.`
     },
     {
         id: 5,
-        title: "Why We Manufacture Locally (GeM OEM Advantage)",
-        author: "Divya Patel (Director of Operations)",
-        date: "May 09, 2026",
-        category: "Tech Culture",
-        summary: "Our journey to becoming a DPIIT-recognized GeM OEM manufacturer and how it benefits the Indian STEM ecosystem.",
-        readTime: "4 Min Read",
+        title: "ATL Lab vs Standard STEM Lab",
+        author: "Divya Patel",
+        date: "June 30, 2026",
+        category: "ATL Lab Setup",
+        summary: "Understanding the differences between government-funded Atal Tinkering Labs and private school STEM infrastructure.",
+        readTime: "5 Min Read",
         highlights: [
-            "MSME support networks and domestic component supply chains",
-            "Immediate engineering iterations and QA feedback loops",
-            "Fostering local tech jobs in high-value electronic assembly"
+            "NITI Aayog compliance and ATL equipment lists",
+            "Funding structures for government vs private institutions",
+            "How NavoYantra executes compliant ATL Lab Setups"
         ],
-        content: `Establishing local hardware manufacturing in India is a path filled with obstacles. Sourcing high-quality FR4 boards, ensuring consistent solder paste stencils, and organizing surface mount technology (SMT) supply lines require robust local networks.
+        content: `Establishing local hardware manufacturing in India is a path filled with obstacles. However, the advantages of local manufacturing are massive, especially when executing an ATL Lab Setup for government schools. Being a DPIIT-recognized MSME and registered GeM OEM manufacturer allows us to design, prototype, and manufacture hardware that strictly adheres to NITI Aayog guidelines.
 
-However, the advantages of local manufacturing are massive. Being a DPIIT-recognized MSME and registered GeM OEM manufacturer allows us to design, prototype, and manufacture hardware under one roof. When a school or institution gives feedback on a pin header placement or a connector type, we don't wait months for foreign revisions—we modify PCB schematics and run batches in our own facility in days.
+The primary difference between a standard STEM lab and an ATL Lab Setup lies in the compliance requirements and the mandated equipment packages (P1, P2, P3, P4). An ATL requires specific prototyping tools, 3D printers, and electronics assortments designed to foster a culture of tinkering and ideation.
 
-This localized control guarantees that our STEM kits are tailored perfectly to the local syllabus and hardware constraints. By fabricating boards locally, we also build key technician skills in electronics testing and assembly, actively supporting India's transition from a consumer of technology to an architect of global hardware solutions.`
+NavoYantra streamlines the ATL Lab Setup process by manufacturing compliant kits locally. This localized control guarantees that our STEM kits are tailored perfectly to the syllabus. By fabricating boards locally, we actively support India's transition from a consumer of technology to an architect of global hardware solutions.`
+    },
+    {
+        id: 6,
+        title: "NEP 2020 & The Future of STEM Learning",
+        author: "Rohan Das",
+        date: "June 15, 2026",
+        category: "NEP STEM Education",
+        summary: "Analyzing the National Education Policy 2020 and its mandate for integrating coding, robotics, and vocational skills into the curriculum.",
+        readTime: "6 Min Read",
+        highlights: [
+            "The shift from summative to formative, experiential assessments",
+            "Mandatory coding and computational thinking from Class 6",
+            "Integrating vocational crafts and hardware prototyping"
+        ],
+        content: `The National Education Policy (NEP) 2020 is a watershed moment for the Indian education system. By explicitly mandating the integration of 21st-century skills—including coding, computational thinking, and hands-on vocational training—from the middle school level, the policy validates the core mission of NEP STEM Education.
+
+Under NEP STEM Education guidelines, the focus shifts entirely from rote memorization to experiential, project-based learning. Schools are now encouraged to establish physical spaces where students can build, break, and iterate on practical hardware projects.
+
+At NavoYantra, our entire product ecosystem—from the physical robotics kits to our digital Learning Management System—is architected to align seamlessly with NEP STEM Education goals. We provide the comprehensive infrastructure that schools need to confidently adopt these new governmental mandates and empower the next generation of Indian innovators.`
     }
 ];
 
 const categories = [
     "All",
-    "Robotics",
-    "IoT & Automation",
-    "STEM Education",
-    "Tech Culture"
+    "STEM Education India",
+    "Robotics Lab Setup for Schools",
+    "AI Learning for Students",
+    "IoT School Projects",
+    "ATL Lab Setup",
+    "NEP STEM Education"
 ];
 
 export default function BlogPage() {

@@ -1,151 +1,111 @@
 "use client";
 
-import {useRef} from "react";
-import {useGSAP} from "@gsap/react";
-import gsap from "gsap";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {ArrowRight} from "react-feather";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { ArrowRight, Cpu, Globe, Target } from "react-feather";
 import Link from "next/link";
 
-gsap.registerPlugin(ScrollTrigger);
-
-function AboutSection() {
-    const sectionRef = useRef<HTMLDivElement>(null);
-    useGSAP(
-        () => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 70%",
-                    toggleActions: "play none none reverse",
-                },
-            });
-
-            tl.from(".info-heading", {
-                y: 80,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power3.out",
-            });
-
-            tl.from(
-                ".info-card",
-                {
-                    y: 80,
-                    opacity: 0,
-                    scale: 0.95,
-                    stagger: 0.15,
-                    duration: 0.7,
-                    ease: "power3.out",
-                },
-                "-=0.3"
-            );
-
-            gsap.utils.toArray<HTMLElement>(".info-card").forEach((card) => {
-                card.addEventListener("mouseenter", () => {
-                    gsap.to(card, {
-                        y: -10,
-                        scale: 1.03,
-                        duration: 0.3,
-                        ease: "power2.out",
-                    });
-                });
-
-                card.addEventListener("mouseleave", () => {
-                    gsap.to(card, {
-                        y: 0,
-                        scale: 1,
-                        duration: 0.3,
-                        ease: "power2.out",
-                    });
-                });
-            });
+export default function AboutSection() {
+    const features = [
+        {
+            title: "Advanced STEM Labs",
+            description: "End-to-end laboratory setups for schools and universities featuring modern robotics and AI curriculum.",
+            icon: <Cpu className="w-6 h-6 text-primary" />
         },
-        {scope: sectionRef}
-    );
+        {
+            title: "Industrial Automation",
+            description: "Custom IoT platforms, PLC programming, ESP32 hardware, and embedded systems for the defense and private sectors.",
+            icon: <Globe className="w-6 h-6 text-accent" />
+        },
+        {
+            title: "Vision & Mission",
+            description: "Transforming theoretical ideas into real-world innovations by bridging the gap between academia and industry.",
+            icon: <Target className="w-6 h-6 text-emerald-500" />
+        }
+    ];
 
     return (
-        <section
-            ref={sectionRef}
-            id="info-section"
-            className="min-h-screen bg-zinc-100 px-8 py-20 bg-cover"
-            style={{backgroundImage: 'url(/hc.webp)'}}
-        >
-            <div className="mx-auto max-w-7xl">
-                <div className="info-heading mb-16">
+        <section id="about" className="w-full bg-white py-24 md:py-32 px-5 md:px-10 lg:px-16 overflow-hidden">
+            <div className="max-w-[90rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                
+                {/* LEFT - Images / Visuals */}
+                <motion.div 
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square flex justify-center items-center"
+                >
+                    {/* Background Blob/Shape */}
+                    <div className="absolute inset-0 bg-primary/5 rounded-[40px] rotate-6 scale-95 z-0" />
+                    <div className="absolute inset-0 bg-accent/5 rounded-[40px] -rotate-3 scale-95 z-0" />
+                    
+                    {/* Main Image Grid */}
+                    <div className="relative w-full h-full grid grid-cols-2 gap-4 p-4 z-10">
+                        <div className="col-span-1 h-[85%] mt-auto relative rounded-3xl overflow-hidden shadow-2xl">
+                            <Image src="/about-robo.webp" alt="Robotics Education" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                        </div>
+                        <div className="col-span-1 h-[90%] mb-auto relative rounded-3xl overflow-hidden shadow-2xl">
+                            <Image src="/hero.webp" alt="Industrial Automation" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                        </div>
+                        
+                    </div>
+                </motion.div>
 
-                    <h2 className="mt-4 text-5xl font-bold text-zinc-900">
-                        About Us
+                {/* RIGHT - Content */}
+                <motion.div 
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="flex flex-col items-start"
+                >
+                    <div className="flex items-center gap-3 mb-6">
+                        <div className="w-12 h-1 bg-accent rounded-full" />
+                        <span className="text-accent font-extrabold uppercase tracking-widest text-sm">About NavoYantra</span>
+                    </div>
+                    
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
+                        Bridging the Gap Between <span className="text-primary">Ideas & Innovation.</span>
                     </h2>
-
-                    <p className="mt-6 max-w-2xl text-lg text-zinc-600">
-                        We build IoT products, automation systems,
-                        intelligent monitoring platforms and setup labs for
-                        industries and educational institutions.
+                    
+                    <p className="text-lg text-slate-600 leading-relaxed mb-10">
+                        At <strong className="text-primary font-bold">NavoYantra Technology</strong>, we don't just build hardware—we engineer the future. 
+                        We are a leading provider of end-to-end infrastructure in Robotics, Artificial Intelligence, IoT, Embedded Systems, and Automation. 
+                        Whether it is empowering students in the classroom or delivering rugged solutions for the defense sector, we create technology that matters.
                     </p>
-                </div>
 
-                <div className="grid auto-rows-55 grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-                    {/* Large Card */}
-                    <div
-                        style={{backgroundImage: `url(/card-bg.webp)`}}
-                        className="info-card col-span-1 row-span-2 backdrop-blur-3xl bg-blend-overlay bg-zinc-900/60 p-14 text-white lg:col-span-2">
-                        <h3 className="text-3xl font-bold">
-                            Building the Future
-                        </h3>
-
-                        <p className="mt-5 text-zinc-300 leading-relaxed">
-                            NavoYantra Technology empowers schools, colleges, industries, and innovators with Robotics,
-                            Artificial Intelligence, IoT, Embedded Systems, Automation, and STEM Education solutions.
-                            From educational robotics kits and complete innovation labs to advanced learning platforms,
-                            we help transform ideas into real-world innovations.
-                        </p>
-
-                        <Link
-                            href={"/contact"}
-                            className={"mt-24 w-max flex items-center justify-center gap-2 bg-blue-700 text-white cursor-pointer p-2 px-5"}>
-                            <span>Get Custom Quote</span>
-                            <ArrowRight/>
-                        </Link>
+                    <div className="flex flex-col gap-8 mb-12">
+                        {features.map((feature, idx) => (
+                            <motion.div 
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 + (idx * 0.1), duration: 0.5 }}
+                                className="flex gap-5 group cursor-default"
+                            >
+                                <div className="w-16 h-16 rounded-2xl bg-white border border-slate-100 shadow-lg flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
+                                    {feature.icon}
+                                </div>
+                                <div className="flex flex-col justify-center">
+                                    <h4 className="text-xl font-bold text-slate-900 mb-1">{feature.title}</h4>
+                                    <p className="text-slate-500 leading-relaxed">{feature.description}</p>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
 
-                    {/* Card */}
-                    <div className="info-card  bg-white p-6 shadow-sm">
-                        <h3 className="mt-5 text-xl font-bold">
-                            Robotics Kit
-                        </h3>
+                    <Link
+                        href="/contact"
+                        className="group flex items-center gap-3 bg-slate-900 hover:bg-primary text-white py-4 px-10 rounded-xl font-semibold transition-all duration-300 shadow-xl shadow-slate-900/20 hover:shadow-primary/30 text-lg"
+                    >
+                        <span>Partner With Us</span>
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </Link>
+                </motion.div>
 
-                        <p className="mt-3 text-zinc-600">
-                            PLC programming, embedded systems and industrial automation.
-                        </p>
-                    </div>
-
-                    {/* Card */}
-                    <div className="info-card  bg-blue-600 p-6 text-white">
-                        <h3 className="mt-5 text-xl font-bold">
-                            ESP 32
-                        </h3>
-
-                        <p className="mt-3 text-blue-100">
-                            Ready-to-use IoT kits and automation hardware.
-                        </p>
-                    </div>
-
-                    {/* Wide Card */}
-                    <div className="info-card  bg-white p-6 shadow-sm lg:col-span-2">
-                        <h3 className="mt-5 text-2xl font-bold">
-                            Arduino Nano
-                        </h3>
-
-                        <p className="mt-3 text-zinc-600">
-                            Complete laboratory infrastructure for engineering colleges and
-                            universities with modern curriculum support.
-                        </p>
-                    </div>
-                </div>
             </div>
         </section>
     );
 }
-
-export default AboutSection;

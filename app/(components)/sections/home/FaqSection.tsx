@@ -39,18 +39,22 @@ const faqs = [
 
 function FaqSection() {
     return (
-        <section className="w-full py-16">
-            {/*-------------------------SECTION HEADER-----------------------*/}
-            <div className="mx-auto max-w-4xl px-4">
-                <div className="mb-10 text-center flex flex-col gap-6">
+        <section className="w-full py-24 bg-slate-50 relative overflow-hidden">
+            
+            {/* Background elements for depth */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 translate-y-1/2" />
+
+            <div className="mx-auto max-w-4xl px-5 relative z-10">
+                {/*-------------------------SECTION HEADER-----------------------*/}
+                <div className="mb-16 text-center flex flex-col items-center gap-4">
                     <Badge text="FAQs" />
-                    <h2 className="text-3xl font-bold tracking-tight">
+                    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mt-4">
                         Frequently Asked Questions
                     </h2>
 
-                    <p className="mt-3 text-gray-600">
-                        Everything you need to know about NavoYantra's
-                        robotics, AI, IoT and STEM solutions.
+                    <p className="mt-4 text-lg md:text-xl text-slate-500 max-w-2xl font-light leading-relaxed">
+                        Everything you need to know about NavoYantra's robotics, AI, IoT and STEM solutions.
                     </p>
                 </div>
 
