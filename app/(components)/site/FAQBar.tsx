@@ -15,7 +15,6 @@ interface IFaqBarProps {
 
 function FaqBar({ faqs }: IFaqBarProps) {
     const [pinned, setPinned] = useState<number[]>([]);
-    const [hovered, setHovered] = useState<number | null>(null);
 
     const handleTogglePin = (index: number) => {
         setPinned((prev) =>
@@ -26,16 +25,12 @@ function FaqBar({ faqs }: IFaqBarProps) {
     return (
         <div className="w-full mt-10 space-y-4">
             {faqs.map((faq, index) => {
-                const isPinned = pinned.includes(index);
-                const isHovered = hovered === index;
-                const isOpen = isPinned || isHovered;
+                const isOpen = pinned.includes(index);
 
                 return (
                     <div
                         key={index}
-                        onMouseEnter={() => setHovered(index)}
-                        onMouseLeave={() => setHovered(null)}
-                        className={`rounded-2xl transition-all duration-300 border ${
+                        className={`group rounded-2xl transition-all duration-300 border ${
                             isOpen 
                                 ? "bg-white border-primary/20 shadow-[0_10px_40px_rgba(37,99,235,0.08)]" 
                                 : "bg-white border-slate-100 hover:border-slate-200 hover:shadow-md"
