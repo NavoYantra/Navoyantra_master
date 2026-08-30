@@ -82,7 +82,7 @@ function FooterCTASection() {
                                             type="submit" 
                                             className="bg-primary hover:bg-blue-600 text-white px-6 py-3 sm:py-2 rounded-xl font-bold transition-colors mt-2 sm:mt-0"
                                         >
-                                            Join Now
+                                            Submit
                                         </button>
                                     </form>
                                 </motion.div>
