@@ -97,7 +97,7 @@ function Hero() {
                                 Explore Store
                             </Link>
                             <Link
-                                href="#"
+                                href="/contact"
                                 className="w-full sm:w-auto text-center capitalize font-semibold py-4 px-10 rounded-xl bg-white/5 border-2 border-primary/30 text-white hover:bg-primary/20 hover:border-primary transition-all duration-300 text-lg backdrop-blur-sm"
                             >
                                 Talk to Us

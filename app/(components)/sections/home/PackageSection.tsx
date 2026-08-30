@@ -52,7 +52,7 @@ const PackageSection = () => {
                         </p>
                         
                         <Link 
-                            href="#"
+                            href="/blog?category=Robotics+Lab+Setup+for+Schools"
                             className="group flex items-center gap-4 px-8 py-5 bg-primary hover:bg-blue-600 text-white rounded-full font-bold text-lg shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] transition-all duration-300 hover:-translate-y-1"
                         >
                             <span>Explore Lab Setup Solutions</span>

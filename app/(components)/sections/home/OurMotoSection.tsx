@@ -8,24 +8,28 @@ const data = [
     {
         heading: "Robotics Labs",
         btnText: "Build Your Lab",
+        link: "/lab-setup",
         desc: ["Robotics Labs", "STEM & ATL", "Educational Kits", "Teacher Training"],
         accent: "blue"
     },
     {
         heading: "College & Universities",
         btnText: "Explore Solutions",
+        link: "/services",
         desc: ["Advanced Labs", "AI & IOT", "Embedded Systems", "Automation"],
         accent: "orange"
     },
     {
         heading: "Industries & OEMs",
         btnText: "Discuss Project",
+        link: "/contact",
         desc: ["Industrial Projects", "Product Development", "OEM / ODM", "Custom Tech"],
         accent: "blue"
     },
     {
         heading: "Govt. & Institutions",
         btnText: "Partner With Us",
+        link: "/contact",
         desc: ["Tender Projects", "Technology Supply", "Infrastructure", "Training"],
         accent: "orange"
     },
@@ -110,7 +114,7 @@ export default function OurMoto() {
                                 {/* CTA Button */}
                                 <div className="mt-auto relative z-10 pt-4">
                                     <Link
-                                        href="/contact"
+                                        href={crd.link}
                                         className={`flex w-full items-center justify-between px-6 py-4 rounded-xl bg-white/10 hover:bg-white text-white hover:text-slate-900 font-bold transition-all duration-300 group/btn border border-white/5 hover:shadow-lg ${isBlue ? 'hover:shadow-primary/30' : 'hover:shadow-accent/30'}`}
                                     >
                                         <span>{crd.btnText}</span>

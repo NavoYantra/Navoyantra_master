@@ -1,6 +1,6 @@
 "use client";
 
-import {useMemo, useState} from "react";
+import {useMemo, useState, useEffect} from "react";
 import Image from "next/image";
 import {ArrowRight, BookOpen, Calendar, Clock, Heart, Search, Share2, Tag, User, X} from "react-feather";
 
@@ -136,6 +136,16 @@ export default function BlogPage() {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedPost, setSelectedPost] = useState<any | null>(null);
     const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const params = new URLSearchParams(window.location.search);
+            const cat = params.get("category");
+            if (cat && categories.includes(cat)) {
+                setSelectedCategory(cat);
+            }
+        }
+    }, []);
 
     // Filter posts
     const filteredPosts = useMemo(() => {

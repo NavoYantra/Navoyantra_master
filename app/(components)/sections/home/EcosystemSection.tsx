@@ -12,6 +12,7 @@ const branches = [
         title: "LMS Platform",
         description: "Structured learning paths in Robotics, AI, IOT, Embedded Systems and Automation. Master future skills from anywhere.",
         btnText: "Visit Learning Platform",
+        href: "#",
         icon: <BookOpen size={24} />,
         theme: "blue"
     },
@@ -20,6 +21,7 @@ const branches = [
         title: "LABs Setup",
         description: "Hands-on robotics and technology laboratory solutions for institutions. We build the physical spaces where innovation happens.",
         btnText: "Setup a Lab",
+        href: "/lab-setup",
         icon: <Tool size={24} />,
         theme: "orange"
     },
@@ -28,6 +30,8 @@ const branches = [
         title: "Hardware STORE",
         description: "Robotics kits, development boards, sensors and educational technology products available at your fingertips.",
         btnText: "Visit Store",
+        href: "https://shop.navoyantra.com",
+        target: "_blank",
         icon: <ShoppingCart size={24} />,
         theme: "blue"
     },
@@ -36,6 +40,7 @@ const branches = [
         title: "COMMUNITY",
         description: "Join thousands of makers and engineers. Participate in exclusive workshops, hackathons, and technology forums.",
         btnText: "Join Community",
+        href: "/blog",
         icon: <Users size={24} />,
         theme: "orange"
     },
@@ -44,6 +49,7 @@ const branches = [
         title: "INDUSTRY Solutions",
         description: "Custom industrial automation, product development, and OEM/ODM manufacturing for real-world deployments.",
         btnText: "Explore Solutions",
+        href: "/blog?category=Industrial+Solutions",
         icon: <Briefcase size={24} />,
         theme: "blue"
     }
@@ -110,7 +116,9 @@ export default function EcosystemSection() {
                                     </p>
 
                                     <Link 
-                                        href="#"
+                                        href={activeBranch.href || "#"}
+                                        target={activeBranch.target || "_self"}
+                                        rel={activeBranch.target === "_blank" ? "noopener noreferrer" : undefined}
                                         className={`group flex items-center gap-3 px-6 py-3 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg ${isOrange ? 'bg-accent hover:bg-orange-600 shadow-accent/30' : 'bg-primary hover:bg-blue-700 shadow-primary/30'}`}
                                     >
                                         <span>{activeBranch.btnText}</span>
