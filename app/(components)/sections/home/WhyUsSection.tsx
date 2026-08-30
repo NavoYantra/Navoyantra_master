@@ -38,7 +38,11 @@ const strengths = [
         description: "We design and manufacture our own STEM kits, robotics hardware and electronics in-house for better quality, customization and affordability.",
     },
     {
-        paths: ["M22 12h-4l-3 9L9 3l-3 9H2", "M12 3v18", "M8 7l4-4 4 4"],
+        paths: [
+            "M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z",
+            "M8 21h8",
+            "M12 17v4"
+        ],
         title: "Certified LMS Platform",
         description: "Every lab can be integrated with our LMS where schools manage students, track progress and issue certificates.",
     },
