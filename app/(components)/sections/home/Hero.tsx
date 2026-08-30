@@ -89,7 +89,9 @@ function Hero() {
                     <motion.div variants={itemVariants} className="flex flex-col gap-4 w-full sm:w-auto">
                         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full">
                             <Link
-                                href="#"
+                                href="https://shop.navoyantra.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="w-full sm:w-auto text-center capitalize font-semibold py-4 px-10 rounded-xl bg-primary text-white hover:bg-primary/90 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 text-lg"
                             >
                                 Explore Store

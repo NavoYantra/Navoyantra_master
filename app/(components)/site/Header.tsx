@@ -93,8 +93,12 @@ export default function Header() {
                         {/* Explore Store Button (Desktop) */}
                         <div className="hidden md:block">
                             <Link
-                                className={"bg-primary hover:bg-primary/90 transition-colors px-6 py-3 rounded-lg text-white font-semibold shadow-lg hover:shadow-xl text-lg whitespace-nowrap"}
-                                href={"https://shop.navoyantra.com"}>Explore Store
+                                className="bg-primary hover:bg-primary/90 transition-colors px-6 py-3 rounded-lg text-white font-semibold shadow-lg hover:shadow-xl text-lg whitespace-nowrap"
+                                href="https://shop.navoyantra.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Explore Store
                             </Link>
                         </div>
                         
@@ -166,8 +170,10 @@ export default function Header() {
                                     }}
                                 >
                                     <Link
-                                        className={"bg-primary hover:bg-primary/90 transition-colors block text-center mt-8 px-6 py-3 rounded-lg text-white font-semibold shadow-lg text-lg"}
-                                        href={"https://shop.navoyantra.com"}
+                                        className="bg-primary hover:bg-primary/90 transition-colors block text-center mt-8 px-6 py-3 rounded-lg text-white font-semibold shadow-lg text-lg"
+                                        href="https://shop.navoyantra.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         Explore Store
                                     </Link>
