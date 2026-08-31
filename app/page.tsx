@@ -1,14 +1,16 @@
-import AboutSection from "@/app/(components)/sections/home/AboutSection";
+import dynamic from "next/dynamic";
 import Hero from "@/app/(components)/sections/home/Hero";
-import WhatWeOfferSection from "@/app/(components)/sections/home/WhatWeOfferSection";
-import ProductCategorySection from "@/app/(components)/sections/home/PackageSection";
-import OurMoto from "@/app/(components)/sections/home/OurMotoSection";
 import StatsSection from "@/app/(components)/sections/home/Stats";
-import EcosystemSection from "@/app/(components)/sections/home/EcosystemSection";
-import FooterCTASection from "@/app/(components)/sections/home/FooterCTASection";
-import WhyUsSection from "@/app/(components)/sections/home/WhyUsSection";
-import IndustrialSection from "@/app/(components)/sections/home/IndustrialSection";
-import FaqSection from "@/app/(components)/sections/home/FaqSection";
+
+const AboutSection = dynamic(() => import("@/app/(components)/sections/home/AboutSection"));
+const WhatWeOfferSection = dynamic(() => import("@/app/(components)/sections/home/WhatWeOfferSection"));
+const OurMoto = dynamic(() => import("@/app/(components)/sections/home/OurMotoSection"));
+const ProductCategorySection = dynamic(() => import("@/app/(components)/sections/home/PackageSection"));
+const EcosystemSection = dynamic(() => import("@/app/(components)/sections/home/EcosystemSection"));
+const IndustrialSection = dynamic(() => import("@/app/(components)/sections/home/IndustrialSection"));
+const WhyUsSection = dynamic(() => import("@/app/(components)/sections/home/WhyUsSection"));
+const FaqSection = dynamic(() => import("@/app/(components)/sections/home/FaqSection"));
+const FooterCTASection = dynamic(() => import("@/app/(components)/sections/home/FooterCTASection"));
 
 export default function Home() {
     return (
