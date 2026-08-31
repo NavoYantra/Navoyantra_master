@@ -92,9 +92,8 @@ export default function Page() {
                         </div>
                         <h3 className="text-xl font-bold mb-4">Call Us</h3>
                         <div className="flex flex-col gap-2 text-slate-400 font-light">
-                            <a href="tel:+918796599974" className="hover:text-white transition-colors">+91 87965 99974</a>
                             <a href="tel:+919582528010" className="hover:text-white transition-colors">+91 95825 28010</a>
-                            <a href="tel:+919773667712" className="hover:text-white transition-colors">+91 97736 67712</a>
+                            <a href="tel:+918796599974" className="hover:text-white transition-colors">+91 87965 99974</a>
                         </div>
                     </div>
 
