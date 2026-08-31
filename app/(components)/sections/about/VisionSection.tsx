@@ -67,13 +67,13 @@ export default function Vision2030Section() {
 
                         {/* Right */}
 
-                        <div className="relative flex justify-center">
+                        <div className="relative w-full h-[400px] md:h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10" />
                             <Image
-                                src="/mobile-logo.webp"
-                                alt="Vision 2030"
-                                width={500}
-                                height={500}
-                                className="relative z-10 object-contain hover:scale-105 transition duration-500"
+                                src="/about-robo.webp"
+                                alt="India's Tech Future Vision 2030"
+                                fill
+                                className="object-cover group-hover:scale-110 transition duration-700 ease-in-out"
                             />
                         </div>
 

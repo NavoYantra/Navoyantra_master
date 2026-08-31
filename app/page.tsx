@@ -3,6 +3,7 @@ import Hero from "@/app/(components)/sections/home/Hero";
 import StatsSection from "@/app/(components)/sections/home/Stats";
 
 const AboutSection = dynamic(() => import("@/app/(components)/sections/home/AboutSection"));
+const OffersSlider = dynamic(() => import("@/app/(components)/sections/lab-setup/OffersSlider"));
 const WhatWeOfferSection = dynamic(() => import("@/app/(components)/sections/home/WhatWeOfferSection"));
 const OurMoto = dynamic(() => import("@/app/(components)/sections/home/OurMotoSection"));
 const ProductCategorySection = dynamic(() => import("@/app/(components)/sections/home/PackageSection"));
@@ -18,6 +19,12 @@ export default function Home() {
             <Hero/>
             <StatsSection />
             <AboutSection/>
+            
+            {/* Added OffersSlider above Core Services */}
+            <div className="pt-24 bg-slate-50">
+                <OffersSlider />
+            </div>
+
             <WhatWeOfferSection/>
             <OurMoto />
             <ProductCategorySection />

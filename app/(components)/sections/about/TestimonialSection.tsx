@@ -10,6 +10,7 @@ const testimonials = [
             "Implementing navoyantra's Industrial IoT gateways allowed us to track OEE in real-time and reduce our machine downtime by 40%. Their vertical integration means the hardware is perfectly synced with our custom logic.",
         name: "Vikram Singhania",
         designation: "CEO, Precision Parts NCR",
+        image: "https://randomuser.me/api/portraits/men/43.jpg"
     },
     {
         title: "Excellent Support",
@@ -17,6 +18,7 @@ const testimonials = [
             "The engineering team helped us deploy our complete automation stack within days. Their support and technical expertise have been exceptional throughout the project.",
         name: "Ankit Sharma",
         designation: "Director, Smart Industries",
+        image: "https://randomuser.me/api/portraits/men/32.jpg"
     },
     {
         title: "Reliable Technology",
@@ -24,6 +26,7 @@ const testimonials = [
             "We've been using their IIoT devices across multiple production lines. Stable performance, great documentation, and outstanding after-sales support.",
         name: "Priya Mehta",
         designation: "Operations Head, TechFab",
+        image: "https://randomuser.me/api/portraits/women/44.jpg"
     },
 ];
 
@@ -43,106 +46,82 @@ export default function TestimonialSection() {
     };
 
     return (
-        <section
-            className="relative bg-fixed bg-center bg-cover mt-10"
-            style={{
-                backgroundImage: "url('/mobile-logo.webp')",
-            }}
-        >
-            {/* Overlay */}
+        <section className="relative bg-[#040b16] py-32 overflow-hidden">
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
 
-            <div className="absolute inset-0 bg-black/70" />
-
-            <div className="relative max-w-7xl mx-auto px-6 py-32">
-
+            <div className="relative max-w-7xl mx-auto px-6 z-10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
-
                     {/* Left */}
-
                     <div className="text-white">
-
-            <span className="uppercase tracking-widest text-sm text-blue-500 font-semibold">
-              Testimonials
-            </span>
-
-                        <h2 className="text-6xl font-bold leading-tight mt-5">
-                            Trusted By
-                            <br />
-                            Leaders
+                        <span className="uppercase tracking-widest text-sm text-primary font-bold">
+                            Testimonials
+                        </span>
+                        <h2 className="text-5xl md:text-6xl font-extrabold leading-tight mt-5">
+                            Trusted By <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Industry Leaders</span>
                         </h2>
-
-                        <p className="text-gray-300 mt-8 leading-8 max-w-md">
-                            Across India, from government-run Atal Tinkering Labs to
-                            manufacturing units, our customers trust us for quality,
-                            innovation and reliable engineering solutions.
+                        <p className="text-gray-400 mt-8 leading-relaxed max-w-md text-lg">
+                            Across India, from government-run Atal Tinkering Labs to manufacturing units, our customers trust us for quality, innovation and reliable engineering solutions.
                         </p>
-
                     </div>
 
                     {/* Right */}
-
                     <div className="relative">
-
-                        <div className="bg-blue-500 p-14 md:p-16 text-white shadow-2xl">
-
-                            <h3 className="text-4xl font-bold text-center">
-                                {testimonials[active].title}
+                        <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-10 md:p-14 text-white rounded-3xl shadow-2xl">
+                            <h3 className="text-3xl font-bold text-center mb-8 text-primary">
+                                "{testimonials[active].title}"
                             </h3>
-
-                            <p className="text-center leading-8 mt-8">
+                            <p className="text-center leading-relaxed text-lg text-gray-200 italic mb-10">
                                 "{testimonials[active].description}"
                             </p>
-
-                            <div className="mt-10 text-center">
-
-                                <h4 className="font-bold uppercase">
+                            <div className="flex flex-col items-center justify-center text-center mt-6">
+                                <img 
+                                    src={testimonials[active].image} 
+                                    alt={testimonials[active].name} 
+                                    className="w-20 h-20 rounded-full border-2 border-primary object-cover mb-4 shadow-lg"
+                                />
+                                <h4 className="font-bold text-xl tracking-wide">
                                     {testimonials[active].name}
-                                </h4>
-
-                                <p className="uppercase text-sm mt-1 opacity-90">
+                               </h4>
+                                <p className="text-accent text-sm font-medium mt-1">
                                     {testimonials[active].designation}
                                 </p>
-
                             </div>
-
                         </div>
 
                         {/* Navigation */}
-
                         <button
                             onClick={prev}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:scale-110 transition"
+                            aria-label="Previous testimonial"
+                            className="absolute -left-6 md:-left-8 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white hover:scale-110 hover:bg-blue-600 transition shadow-xl"
                         >
-                            <ChevronLeft size={42} />
+                            <ChevronLeft size={28} />
                         </button>
-
                         <button
                             onClick={next}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:scale-110 transition"
+                            aria-label="Next testimonial"
+                            className="absolute -right-6 md:-right-8 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white hover:scale-110 hover:bg-blue-600 transition shadow-xl"
                         >
-                            <ChevronRight size={42} />
+                            <ChevronRight size={28} />
                         </button>
 
                         {/* Dots */}
-
-                        <div className="flex justify-center gap-3 mt-6">
-
+                        <div className="flex justify-center gap-3 mt-8">
                             {testimonials.map((_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setActive(index)}
-                                    className={`w-3 h-3 rounded-full transition ${
+                                    aria-label={`Go to testimonial ${index + 1}`}
+                                    className={`h-3 rounded-full transition-all duration-300 ${
                                         index === active
-                                            ? "bg-blue-500"
-                                            : "bg-white/50"
+                                            ? "bg-primary w-8"
+                                            : "bg-white/30 w-3 hover:bg-white/50"
                                     }`}
                                 />
                             ))}
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </section>

@@ -107,10 +107,46 @@ export default function Page() {
                                 <div key={idx} className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
                                     <CheckCircle className="text-primary shrink-0" size={24} />
                                     <span className="font-semibold text-lg">{diff}</span>
-                                    <span className="ml-auto text-accent text-sm font-bold bg-accent/10 px-3 py-1 rounded-full">NavoYantra</span>
+                                    <span className="ml-auto text-accent text-sm font-bold bg-accent/10 px-3 py-1 rounded-full hidden sm:block">NavoYantra</span>
                                 </div>
                             ))}
                         </div>
+                    </div>
+                </div>
+
+                {/* Our Manufacturing & R&D */}
+                <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
+                    <div className="order-2 lg:order-1">
+                        <p className="uppercase text-accent font-bold tracking-widest text-sm mb-4">Made in India</p>
+                        <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-slate-900">In-House R&D and <br/>Manufacturing.</h2>
+                        
+                        <p className="text-slate-600 text-lg leading-relaxed mb-6 font-light">
+                            We take pride in our robust Research & Development facility. By designing our PCBs, mechanical chassis, and coding curriculum entirely in-house, we ensure unparalleled quality control and cost-effectiveness.
+                        </p>
+                        <p className="text-slate-600 text-lg leading-relaxed mb-8 font-light">
+                            From the initial sketch to the final assembly line, every NavoYantra educational kit and IoT gateway is a testament to Indian engineering capabilities.
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-6">
+                            <div className="bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
+                                <h4 className="text-4xl font-black text-primary mb-2">50+</h4>
+                                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Proprietary Products</p>
+                            </div>
+                            <div className="bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
+                                <h4 className="text-4xl font-black text-accent mb-2">100%</h4>
+                                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide">In-House Design</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="relative h-[500px] rounded-[40px] overflow-hidden shadow-2xl order-1 lg:order-2">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent z-10 mix-blend-overlay" />
+                        <Image
+                            src="/hero.webp"
+                            alt="NavoYantra Manufacturing"
+                            fill
+                            className="object-cover hover:scale-105 transition-transform duration-700"
+                        />
                     </div>
                 </div>
 

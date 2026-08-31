@@ -193,6 +193,7 @@ export default function EcosystemSection() {
                                         <button
                                             onClick={() => setActiveIndex(i)}
                                             onMouseEnter={() => setActiveIndex(i)}
+                                            aria-label={`Select ${branch.title}`}
                                             className={`relative flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full transition-all duration-500 outline-none
                                                 ${isActive 
                                                     ? (isNodeOrange 

@@ -54,7 +54,7 @@ export default function Header() {
                                 />
                                 {/* Mobile Logo */}
                                 <Image
-                                    src="/mobile-logo.web"
+                                    src="/mobile-logo.webp"
                                     width={150}
                                     height={32}
                                     alt="Logo"
@@ -102,7 +102,7 @@ export default function Header() {
                             </Link>
                         </div>
                         
-                        <button onClick={toggleMenu} className="text-3xl text-foreground md:hidden">
+                        <button onClick={toggleMenu} className="text-3xl text-foreground md:hidden" aria-label="Open menu">
                             <HiOutlineMenuAlt3 />
                         </button>
                     </div>
@@ -128,7 +128,7 @@ export default function Header() {
                             className="fixed right-0 top-0 z-50 h-screen w-72 bg-surface shadow-xl p-8 md:hidden"
                         >
                             <div className="flex justify-end">
-                                <button onClick={toggleMenu} className="text-3xl text-foreground">
+                                <button onClick={toggleMenu} className="text-3xl text-foreground" aria-label="Close menu">
                                     <HiOutlineX />
                                 </button>
                             </div>

@@ -466,7 +466,7 @@ export default function StorePage() {
             {toastMessage && (
                 <div className="fixed bottom-5 right-5 z-9999 bg-zinc-900 text-white border-l-4 border-blue-600 p-4 shadow-xl flex items-center justify-between gap-4 max-w-sm rounded-none animate-in slide-in-from-bottom-5">
                     <span className="text-xs font-bold uppercase tracking-wider">{toastMessage}</span>
-                    <button onClick={() => setToastMessage(null)} className="text-zinc-400 hover:text-white transition-colors">
+                    <button onClick={() => setToastMessage(null)} className="text-zinc-400 hover:text-white transition-colors" aria-label="Close toast">
                         <X size={14} />
                     </button>
                 </div>
