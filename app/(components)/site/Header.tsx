@@ -10,6 +10,7 @@ import {Search, User} from "react-feather";
 import {usePathname} from "next/navigation";
 import {supabase} from "@/lib/supabase";
 import AuthModal from "./AuthModal";
+import SearchModal from "./SearchModal";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function Header() {
 
     const [open, setOpen] = useState(false);
     const [authModalOpen, setAuthModalOpen] = useState(false);
+    const [searchModalOpen, setSearchModalOpen] = useState(false);
     const [user, setUser] = useState<any>(null);
     const pathname = usePathname();
 
@@ -110,7 +112,11 @@ export default function Header() {
                     {/* Right: CTA & Mobile Menu */}
                     <div className="flex-1 flex items-center justify-end gap-3 md:gap-4">
                         {/* Search Icon */}
-                        <button className="text-foreground hover:text-accent transition-colors p-2" aria-label="Search">
+                        <button 
+                            onClick={() => setSearchModalOpen(true)}
+                            className="text-foreground hover:text-accent transition-colors p-2" 
+                            aria-label="Search"
+                        >
                             <Search size={22} />
                         </button>
 
@@ -227,6 +233,9 @@ export default function Header() {
 
             {/* Auth Modal Overlay */}
             <AuthModal isOpen={authModalOpen} onClose={() => setAuthModalOpen(false)} />
+            
+            {/* Search Modal Overlay */}
+            <SearchModal isOpen={searchModalOpen} onClose={() => setSearchModalOpen(false)} />
         </>
     );
 }
