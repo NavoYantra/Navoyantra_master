@@ -4,17 +4,16 @@ import {FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaYoutube} from "react
 
 export default function Footer() {
     const companyLinks = [
-        "About",
-        "Products",
-        "Services",
-        "Contact",
+        { title: "About Us", url: "/#about" },
+        { title: "Lab Setup Services", url: "/#lab-setup" },
+        { title: "Shop STEM Kits", url: "https://shop.navoyantra.com" },
+        { title: "Contact Us", url: "/contact" },
     ];
 
     const resources = [
-        "Blogs",
-        "Gallery",
-        "FAQs",
-        "Privacy Policy",
+        { title: "Tech Community", url: "/community" },
+        { title: "Gallery", url: "/#gallery" },
+        { title: "Privacy Policy", url: "#" },
     ];
 
     const social = [
@@ -40,7 +39,7 @@ export default function Footer() {
                             priority
                             className="logo-img w-36 lg:w-48"
                         />
-                        <p className="max-w-sm text-neutral-600 leading-8">Empowering Education thorught Technology.</p>
+                        <p className="max-w-sm text-neutral-600 leading-8">Empowering Education through Technology.</p>
                         <div>
                             <p className="mb-3 text-xs uppercase tracking-[0.35em] text-neutral-500">Office</p>
                             <p className="mt-4 text-gray-500 leading-7">
@@ -62,11 +61,12 @@ export default function Footer() {
 
                             {companyLinks.map((item) => (
                                 <Link
-                                    key={item}
-                                    href="/"
-                                    className="block transition hover:translate-x-2 hover:text-black text-neutral-700"
+                                    key={item.title}
+                                    href={item.url}
+                                    target={item.url.startsWith("http") ? "_blank" : "_self"}
+                                    className="block transition hover:translate-x-2 hover:text-blue-600 font-medium text-neutral-700"
                                 >
-                                    {item}
+                                    {item.title}
                                 </Link>
                             ))}
                         </div>
@@ -78,11 +78,11 @@ export default function Footer() {
                         <div className="space-y-4">
                             {resources.map((item) => (
                                 <Link
-                                    key={item}
-                                    href="/"
-                                    className="block transition hover:translate-x-2 hover:text-black text-neutral-700"
+                                    key={item.title}
+                                    href={item.url}
+                                    className="block transition hover:translate-x-2 hover:text-blue-600 text-neutral-700"
                                 >
-                                    {item}
+                                    {item.title}
                                 </Link>
                             ))}
                         </div>
