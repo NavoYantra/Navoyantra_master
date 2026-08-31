@@ -6,6 +6,7 @@ import Footer from "@/app/(components)/site/Footer";
 import ScrollToTop from "@/app/(components)/site/ScrollToTop";
 import ThemeProvider from "@/app/(components)/providers/ThemeProvider";
 import {Poppins} from "next/font/google";
+import Script from "next/script";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -85,6 +86,16 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
                 <ScrollToTop />
             </LenisProvider>
         </ThemeProvider>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-68R3WD7YTH" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-68R3WD7YTH');
+            `}
+        </Script>
         </body>
         </html>
     );
