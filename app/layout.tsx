@@ -28,6 +28,14 @@ export const metadata: Metadata = {
         title: "NavoYantra Technologies | STEM, Robotics & AI Lab Setup India",
         description: "NavoYantra provides cutting-edge educational solutions, bringing Robotics, AI, and comprehensive STEM Lab setups directly to your institution.",
         siteName: "NavoYantra",
+        images: [
+            {
+                url: "https://www.navoyantra.com/mobile-logo.webp",
+                width: 800,
+                height: 600,
+                alt: "NavoYantra Technologies",
+            }
+        ]
     },
     twitter: {
         card: "summary_large_image",
