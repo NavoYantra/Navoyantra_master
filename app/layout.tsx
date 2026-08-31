@@ -13,6 +13,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://www.navoyantra.com'),
+    alternates: {
+        canonical: '/',
+    },
     title: {
         default: "NavoYantra Technologies | STEM, Robotics & AI Lab Setup India",
         template: "%s | NavoYantra"
