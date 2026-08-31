@@ -4,9 +4,12 @@ import {Poppins} from "next/font/google";
 import {AnimatePresence, motion} from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {HiOutlineMenuAlt3, HiOutlineX} from "react-icons/hi";
+import {Search, User} from "react-feather";
 import {usePathname} from "next/navigation";
+import {supabase} from "@/lib/supabase";
+import AuthModal from "./AuthModal";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -19,11 +22,27 @@ export default function Header() {
         "Lab Setup",
         "About",
         "Contact",
-        "Blog",
+        "Community",
     ];
 
     const [open, setOpen] = useState(false);
+    const [authModalOpen, setAuthModalOpen] = useState(false);
+    const [user, setUser] = useState<any>(null);
     const pathname = usePathname();
+
+    useEffect(() => {
+        const checkUser = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            setUser(session?.user || null);
+        };
+        checkUser();
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+            setUser(session?.user || null);
+        });
+
+        return () => subscription.unsubscribe();
+    }, []);
 
     const toggleMenu = () => {
         setOpen(!open);
@@ -89,9 +108,31 @@ export default function Header() {
                     </nav>
 
                     {/* Right: CTA & Mobile Menu */}
-                    <div className="flex-1 flex items-center justify-end gap-4">
+                    <div className="flex-1 flex items-center justify-end gap-3 md:gap-4">
+                        {/* Search Icon */}
+                        <button className="text-foreground hover:text-accent transition-colors p-2" aria-label="Search">
+                            <Search size={22} />
+                        </button>
+
+                        {/* User / Login */}
+                        <div>
+                            {user ? (
+                                <div className="block w-9 h-9 md:w-10 md:h-10 rounded-full overflow-hidden border-2 border-primary/30 hover:border-primary transition-all cursor-pointer">
+                                    <img 
+                                        src={user.user_metadata?.avatar_url || `https://ui-avatars.com/api/?name=${user.email || 'User'}&background=random`} 
+                                        alt="User Avatar" 
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            ) : (
+                                <button onClick={() => setAuthModalOpen(true)} className="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-surface border border-foreground/10 hover:border-primary/50 text-foreground hover:text-primary transition-all" title="Login / Sign up">
+                                    <User size={18} />
+                                </button>
+                            )}
+                        </div>
+
                         {/* Explore Store Button (Desktop) */}
-                        <div className="hidden md:block">
+                        <div className="hidden lg:block">
                             <Link
                                 className="bg-primary hover:bg-primary/90 transition-colors px-6 py-3 rounded-lg text-white font-semibold shadow-lg hover:shadow-xl text-lg whitespace-nowrap"
                                 href="https://shop.navoyantra.com"
@@ -183,6 +224,9 @@ export default function Header() {
                     </>
                 )}
             </AnimatePresence>
+
+            {/* Auth Modal Overlay */}
+            <AuthModal isOpen={authModalOpen} onClose={() => setAuthModalOpen(false)} />
         </>
     );
 }

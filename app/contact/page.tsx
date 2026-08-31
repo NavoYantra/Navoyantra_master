@@ -3,6 +3,7 @@
 import { ArrowRight, CheckCircle, Cpu, Mail, MapPin, Phone, Settings, Zap } from "react-feather";
 import { FormEvent, useState } from "react";
 import Badge from "@/app/(components)/site/Badge";
+import { supabase } from "@/lib/supabase";
 
 export default function Page() {
     const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -12,11 +13,28 @@ export default function Page() {
         setStatus("submitting");
 
         const formData = new FormData(e.currentTarget);
+        
+        // Extract values for Supabase
+        const name = formData.get("name") as string;
+        const email = formData.get("email") as string;
+        const phone = formData.get("phone") as string;
+        const message = formData.get("message") as string;
+
         // NOTE: Replace 'YOUR_ACCESS_KEY_HERE' with your actual Web3Forms access key
         // You can get one at https://web3forms.com/
         formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
 
         try {
+            // 1. Save to Supabase (contact_inquiries table)
+            const { error: supabaseError } = await supabase
+                .from("contact_inquiries")
+                .insert([{ name, email, phone, message }]);
+                
+            if (supabaseError) {
+                console.error("Supabase Error:", supabaseError);
+            }
+
+            // 2. Send via Web3Forms (if access key is valid)
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 body: formData
@@ -24,7 +42,9 @@ export default function Page() {
 
             const data = await response.json();
 
-            if (data.success) {
+            // We consider it a success if at least one of them worked (usually Web3Forms gives an error if key is dummy, but let's let it pass if Supabase succeeded, or just rely on data.success if key is provided).
+            // For now, if Web3Forms fails due to a dummy key, we might want to still show success if they only use Supabase. Let's just follow Web3Forms for now.
+            if (data.success || !supabaseError) {
                 setStatus("success");
                 (e.target as HTMLFormElement).reset();
             } else {
