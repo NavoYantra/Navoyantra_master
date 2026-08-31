@@ -1,54 +1,73 @@
 import { Metadata } from "next";
 import Badge from "@/app/(components)/site/Badge";
 import Image from "next/image";
+import { CheckCircle } from "react-feather";
 
 export const metadata: Metadata = {
     title: "STEM Lab Setup, AI, Robotics & IoT Solutions",
     description: "NavoYantra offers end-to-end services for educational institutions, government organizations and private sector innovation programs.",
 };
 
-const services = [
+const detailedServices = [
     {
         title: "STEM & Robotics Lab Setup",
-        desc: "Complete planning, infrastructure, hardware installation, safety, curriculum and implementation.",
+        shortDesc: "End-to-end laboratory development.",
+        fullDesc: "We provide complete, turnkey solutions for establishing state-of-the-art STEM and Robotics laboratories in schools and colleges. From conceptualization and space planning to hardware procurement, installation, and safety checks, we handle everything. Our goal is to create an inspiring environment where students can turn their theoretical knowledge into practical innovation.",
+        features: ["Space Planning & Interior Design", "Hardware & Equipment Procurement", "Safety Checks & Commissioning", "Customized Curriculum Integration"],
         icon: "/vector-icons/labsetup.svg",
-        color: "from-blue-500/20 to-transparent",
-        colSpan: "md:col-span-2",
+        color: "from-blue-500/10 to-transparent",
+        borderColor: "border-blue-500/20",
+        accent: "text-blue-500",
     },
     {
         title: "AI, Machine Learning & IoT Labs",
-        desc: "Practical learning environments with sensors, embedded systems and intelligent automation projects.",
+        shortDesc: "Intelligent automation learning.",
+        fullDesc: "Empower students with the skills of the future. Our AI and IoT labs come equipped with specialized hardware, sensors, and embedded systems designed for practical machine learning projects. Students learn to train models, build smart city prototypes, and understand the integration of software with physical devices.",
+        features: ["AI Development Kits & Edge Computing", "Industrial IoT Sensors & Actuators", "Real-world Project Scenarios", "Cloud & Local Server Setup"],
         icon: "/vector-icons/aiiot.svg",
-        color: "from-orange-500/20 to-transparent",
-        colSpan: "md:col-span-1",
+        color: "from-orange-500/10 to-transparent",
+        borderColor: "border-orange-500/20",
+        accent: "text-orange-500",
     },
     {
         title: "Drone Technology Labs",
-        desc: "Drone assembly, programming, flight concepts and aerial innovation curriculum.",
+        shortDesc: "Aerial innovation & programming.",
+        fullDesc: "Take learning to the skies with our Drone Technology labs. We provide complete kits for drone assembly, flight dynamics, and programming. Students learn aerodynamics, electronics, and coding by building and flying their own programmable drones.",
+        features: ["Drone Assembly & Repair", "Flight Dynamics & Physics", "Programmable Flight Controllers", "Safety Nets & Indoor Testing Zones"],
         icon: "/vector-icons/roboauto.svg",
-        color: "from-purple-500/20 to-transparent",
-        colSpan: "md:col-span-1",
+        color: "from-purple-500/10 to-transparent",
+        borderColor: "border-purple-500/20",
+        accent: "text-purple-500",
     },
     {
         title: "LMS & Digital Curriculum",
-        desc: "Student dashboard, teacher dashboard, assessments, progress tracking and certification.",
+        shortDesc: "Complete digital learning ecosystem.",
+        fullDesc: "Our proprietary Learning Management System (LMS) seamlessly integrates with our physical labs. It offers a structured digital curriculum for robotics, AI, and coding. Features include progress tracking, interactive quizzes, video lectures, and separate dashboards for students, teachers, and administrators.",
+        features: ["Student & Teacher Dashboards", "NEP-aligned Digital Content", "Assessment & Certification", "Progress Tracking Analytics"],
         icon: "/vector-icons/stem.svg",
-        color: "from-green-500/20 to-transparent",
-        colSpan: "md:col-span-2",
+        color: "from-green-500/10 to-transparent",
+        borderColor: "border-green-500/20",
+        accent: "text-green-500",
     },
     {
         title: "Teacher Training Programs",
-        desc: "Hands-on educator certification for STEM, Robotics, AI and IoT teaching methodologies.",
+        shortDesc: "Empowering educators.",
+        fullDesc: "A lab is only as good as the teachers running it. Our comprehensive Capacity Building Programs train educators in STEM pedagogy, robotics hardware, and coding. We ensure your teaching staff is confident, skilled, and ready to lead the next generation of innovators.",
+        features: ["Hands-on Hardware Training", "STEM Pedagogy & Classroom Management", "Ongoing Mentorship & Support", "Educator Certification"],
         icon: "/vector-icons/custom.svg",
-        color: "from-primary/20 to-transparent",
-        colSpan: "md:col-span-2",
+        color: "from-blue-400/10 to-transparent",
+        borderColor: "border-blue-400/20",
+        accent: "text-blue-400",
     },
     {
         title: "OEM Manufacturing",
-        desc: "Custom educational electronics, Arduino-compatible boards, sensors and DIY learning kits.",
+        shortDesc: "Custom electronics & kits.",
+        fullDesc: "As an original equipment manufacturer (OEM), we design and produce our own educational electronics, Arduino-compatible boards, sensors, and DIY kits. This allows us to provide high-quality, cost-effective, and fully customized hardware solutions for specific institutional needs.",
+        features: ["Custom PCB Design & Printing", "Proprietary Educational Kits", "White-labeling Options", "Bulk Supply & Manufacturing"],
         icon: "/vector-icons/embedded.svg",
-        color: "from-accent/20 to-transparent",
-        colSpan: "md:col-span-1",
+        color: "from-orange-400/10 to-transparent",
+        borderColor: "border-orange-400/20",
+        accent: "text-orange-400",
     }
 ];
 
@@ -62,42 +81,59 @@ export default function ServicesPage() {
             </div>
 
             <div className="relative z-10 max-w-[90rem] mx-auto">
-                <div className="flex flex-col items-center text-center mb-16">
+                <div className="flex flex-col items-center text-center mb-20">
                     <Badge text="OUR SERVICES" />
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mt-6 mb-6">
                         Complete <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Innovation Solutions</span> Under One Roof
                     </h1>
                     <p className="text-lg md:text-xl text-slate-300 max-w-3xl leading-relaxed font-light">
-                        We offer end-to-end services for educational institutions, government organizations and private sector innovation programs.
+                        We offer end-to-end services for educational institutions, government organizations and private sector innovation programs. Dive into our detailed service domains below.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {services.map((service, idx) => (
+                <div className="flex flex-col gap-12">
+                    {detailedServices.map((service, idx) => (
                         <div 
                             key={idx}
-                            className={`group relative bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/[0.06] transition-all duration-300 overflow-hidden hover:-translate-y-1 ${service.colSpan}`}
+                            className={`group relative bg-white/[0.02] backdrop-blur-sm border ${service.borderColor} rounded-[32px] p-8 md:p-12 transition-all duration-300 overflow-hidden hover:bg-white/[0.04]`}
                         >
-                            <div className={`absolute top-0 left-0 w-full h-full bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                            <div className={`absolute top-0 left-0 w-full h-full bg-gradient-to-br ${service.color} opacity-50`} />
                             
-                            <div className="relative z-10 flex flex-col h-full">
-                                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                                    <Image 
-                                        src={service.icon}
-                                        alt={service.title}
-                                        width={32}
-                                        height={32}
-                                        className="brightness-200"
-                                    />
+                            <div className="relative z-10 flex flex-col lg:flex-row gap-10 items-start">
+                                {/* Left Side: Icon & Title */}
+                                <div className="lg:w-1/3 flex flex-col shrink-0">
+                                    <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6">
+                                        <Image 
+                                            src={service.icon}
+                                            alt={service.title}
+                                            width={40}
+                                            height={40}
+                                            className="brightness-200"
+                                        />
+                                    </div>
+                                    <h2 className="text-3xl font-bold text-white mb-2">
+                                        {service.title}
+                                    </h2>
+                                    <p className={`text-lg font-semibold ${service.accent} mb-4`}>
+                                        {service.shortDesc}
+                                    </p>
                                 </div>
                                 
-                                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">
-                                    {service.title}
-                                </h3>
-                                
-                                <p className="text-slate-400 font-light leading-relaxed mt-auto">
-                                    {service.desc}
-                                </p>
+                                {/* Right Side: Description & Features */}
+                                <div className="lg:w-2/3 flex flex-col">
+                                    <p className="text-slate-300 text-lg leading-relaxed font-light mb-8">
+                                        {service.fullDesc}
+                                    </p>
+                                    
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        {service.features.map((feature, fIdx) => (
+                                            <div key={fIdx} className="flex items-center gap-3 bg-white/5 border border-white/5 rounded-xl p-4">
+                                                <CheckCircle className={service.accent} size={20} />
+                                                <span className="text-slate-200 font-medium">{feature}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     ))}
