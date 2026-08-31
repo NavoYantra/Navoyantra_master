@@ -120,7 +120,7 @@ export default function Footer() {
                             className="logo-img w-36 lg:w-48"
                         />
                     </div>
-                    <p>© {new Date().getFullYear()} All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} NavoYantra Technology, All rights reserved.</p>
                     <Link
                         href="/contact"
                         className="tracking-[0.3em] uppercase transition hover:translate-x-2 hover:text-blue-500 hover:font-semibold"

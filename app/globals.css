@@ -28,6 +28,16 @@
     --surface: #0a192f;
 }
 
+html {
+    font-size: 15px; /* Default desktop (shrinks everything slightly from 16px) */
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px; /* Slightly smaller on mobile for better fit */
+    }
+}
+
 html.lenis,
 html.lenis body {
     height: auto;

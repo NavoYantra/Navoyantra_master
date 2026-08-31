@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/app/(components)/site/Header";
 import LenisProvider from "@/app/(components)/providers/LenisProvider";
 import Footer from "@/app/(components)/site/Footer";
+import ScrollToTop from "@/app/(components)/site/ScrollToTop";
 import ThemeProvider from "@/app/(components)/providers/ThemeProvider";
 import {Poppins} from "next/font/google";
 
@@ -69,6 +70,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
                 <Header />
                 {children}
                 <Footer />
+                <ScrollToTop />
             </LenisProvider>
         </ThemeProvider>
         </body>
