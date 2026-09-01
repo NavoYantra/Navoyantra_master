@@ -35,26 +35,37 @@ export default function Page() {
         // Access Key for Web3Forms
         formData.append("access_key", "486d0c7a-5af6-463e-9432-b9e32e15b392");
 
+        let supabaseError = null;
         try {
             // 1. Save to Supabase (contact_inquiries table)
-            const { error: supabaseError } = await supabase
+            const { error } = await supabase
                 .from("contact_inquiries")
                 .insert([{ name, email, phone, message }]);
+            supabaseError = error;
                 
             if (supabaseError) {
                 console.error("Supabase Error:", supabaseError);
             }
+        } catch (e) {
+            console.error("Supabase Exception:", e);
+        }
 
-            // 2. Send via Web3Forms (if access key is valid)
+        try {
+            // 2. Send via Web3Forms using JSON
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
-                body: formData
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: json
             });
 
             const data = await response.json();
 
-            // We consider it a success if at least one of them worked (usually Web3Forms gives an error if key is dummy, but let's let it pass if Supabase succeeded, or just rely on data.success if key is provided).
-            // For now, if Web3Forms fails due to a dummy key, we might want to still show success if they only use Supabase. Let's just follow Web3Forms for now.
             if (data.success || !supabaseError) {
                 setStatus("success");
                 (e.target as HTMLFormElement).reset();
@@ -62,6 +73,7 @@ export default function Page() {
                 setStatus("error");
             }
         } catch (error) {
+            console.error("Web3Forms Exception:", error);
             setStatus("error");
         }
     };
