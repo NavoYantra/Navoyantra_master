@@ -57,8 +57,8 @@ export default function OurMoto() {
     return (
         <section className="w-full bg-[#040b16] py-24 px-5 md:px-10 lg:px-16 overflow-hidden relative">
             {/* Background Glows */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
+            
+            
 
             <div className="max-w-[90rem] mx-auto relative z-10">
                 {/* Header */}

@@ -19,7 +19,7 @@ export default function AboutSection() {
         },
         {
             title: "Vision & Mission",
-            description: "Transforming theoretical ideas into real-world innovations by bridging the gap between academia and industry.",
+            description: "Bridging the gap between academic theory and industrial application through hands-on educational infrastructure.",
             icon: <Target className="w-6 h-6 text-emerald-500" />
         }
     ];
@@ -36,16 +36,15 @@ export default function AboutSection() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square flex justify-center items-center"
                 >
-                    {/* Background Blob/Shape */}
-                    <div className="absolute inset-0 bg-primary/5 rounded-[40px] rotate-6 scale-95 z-0" />
-                    <div className="absolute inset-0 bg-accent/5 rounded-[40px] -rotate-3 scale-95 z-0" />
+                    {/* Background Structure */}
+                    <div className="absolute inset-0 bg-slate-50 border border-slate-100 rounded-2xl z-0 scale-[0.98]" />
                     
                     {/* Main Image Grid */}
                     <div className="relative w-full h-full grid grid-cols-2 gap-4 p-4 z-10">
-                        <div className="col-span-1 h-[85%] mt-auto relative rounded-3xl overflow-hidden shadow-2xl">
+                        <div className="col-span-1 h-[85%] mt-auto relative rounded-xl overflow-hidden shadow-lg border border-slate-200">
                             <Image src="/about-robo.webp" alt="Robotics Education" fill className="object-cover hover:scale-105 transition-transform duration-700" />
                         </div>
-                        <div className="col-span-1 h-[90%] mb-auto relative rounded-3xl overflow-hidden shadow-2xl">
+                        <div className="col-span-1 h-[90%] mb-auto relative rounded-xl overflow-hidden shadow-lg border border-slate-200">
                             <Image src="/hero.webp" alt="Industrial Automation" fill className="object-cover hover:scale-105 transition-transform duration-700" />
                         </div>
                         
@@ -66,13 +65,13 @@ export default function AboutSection() {
                     </div>
                     
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
-                        Bridging the Gap Between <span className="text-primary">Ideas & Innovation.</span>
+                        Delivering Industrial-Grade <span className="text-primary">STEM Infrastructure.</span>
                     </h2>
                     
                     <p className="text-lg text-slate-600 leading-relaxed mb-10">
-                        At <strong className="text-primary font-bold">NavoYantra Technology</strong>, we don't just build hardware—we engineer the future. 
+                        At <strong className="text-primary font-bold">NavoYantra Technology</strong>, we provide specialized hardware and curriculum solutions. 
                         We are a leading provider of end-to-end infrastructure in Robotics, Artificial Intelligence, IoT, Embedded Systems, and Automation. 
-                        Whether it is empowering students in the classroom or delivering rugged solutions for the defense sector, we create technology that matters.
+                        From establishing advanced STEM labs in schools to supplying robust automation systems for the defense sector, we focus on practical, measurable outcomes.
                     </p>
 
                     <div className="flex flex-col gap-8 mb-12">
@@ -85,7 +84,7 @@ export default function AboutSection() {
                                 transition={{ delay: 0.2 + (idx * 0.1), duration: 0.5 }}
                                 className="flex gap-5 group cursor-default"
                             >
-                                <div className="w-16 h-16 rounded-2xl bg-white border border-slate-100 shadow-lg flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
+                                <div className="w-16 h-16 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-primary/50 transition-all duration-300">
                                     {feature.icon}
                                 </div>
                                 <div className="flex flex-col justify-center">

@@ -47,8 +47,8 @@ export default function TestimonialSection() {
 
     return (
         <section className="relative bg-[#040b16] py-32 overflow-hidden">
-            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
+            
+            
 
             <div className="relative max-w-7xl mx-auto px-6 z-10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">

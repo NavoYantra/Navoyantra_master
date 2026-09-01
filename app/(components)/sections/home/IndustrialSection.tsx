@@ -68,8 +68,8 @@ export default function IndustrialSection() {
                     
                     {/* Background Glows safely constrained */}
                     <div className="absolute inset-0 overflow-hidden rounded-[40px] pointer-events-none">
-                        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px]" />
-                        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px]" />
+                        
+                        
                     </div>
 
                     <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 mb-16 md:mb-24">

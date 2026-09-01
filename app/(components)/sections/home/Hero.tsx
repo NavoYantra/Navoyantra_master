@@ -5,8 +5,6 @@ import Image from "next/image";
 import Badge from "@/app/(components)/site/Badge";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import InteractiveBubbles from "./InteractiveBubbles";
-
 const images = [
     "/hero.webp",
     "/about-robo.webp",
@@ -42,21 +40,9 @@ function Hero() {
     return (
         <section className="w-full bg-[#040b16] text-white flex items-center justify-center px-5 md:px-10 lg:px-16 py-20 lg:py-32 overflow-hidden relative">
             
-            {/* Background Decorative Elements */}
-            <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-                <InteractiveBubbles />
-                <motion.div 
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-                    className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary/20 blur-3xl opacity-30"
-                />
-                <motion.div 
-                    animate={{ rotate: -360 }}
-                    transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-[40%] -right-[10%] w-[40%] h-[60%] rounded-full bg-accent/10 blur-3xl opacity-30"
-                />
-            </div>
-
+            {/* Background Texture/Pattern instead of neon blobs */}
+            <div className="absolute inset-0 w-full h-full opacity-[0.03] z-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+            
             {/* Content Wrapper */}
             <div className="relative z-10 w-full max-w-[90rem] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12 xl:gap-20">
                 
@@ -75,13 +61,13 @@ function Hero() {
 
                     <div className="flex flex-col gap-6">
                         <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-extrabold leading-[1.15] tracking-tight">
-                            <span className="text-white">Empowering</span><br />
+                            <span className="text-white">Equipping</span><br />
                             <span className="text-primary">Schools with</span><br />
-                            <span className="text-accent">Next-Gen STEM.</span>
+                            <span className="text-accent">Advanced STEM.</span>
                         </motion.h1>
                         
                         <motion.p variants={itemVariants} className="text-white/80 max-w-3xl text-lg sm:text-xl lg:text-2xl leading-relaxed font-light">
-                            From in-house manufactured STEM kits to complete <strong className="font-semibold text-primary">AI, Robotics, Drone & IoT Lab Setup</strong>, NavoYantra helps schools, colleges, government institutions and industries build future-ready innovation labs backed by curriculum, LMS and expert training.
+                            From in-house manufactured STEM kits to complete <strong className="font-semibold text-primary">AI, Robotics, Drone & IoT Lab Setup</strong>, NavoYantra helps schools, colleges, government institutions and industries establish comprehensive innovation labs backed by curriculum, LMS and expert training.
                         </motion.p>
                     </div>
 
@@ -131,7 +117,7 @@ function Hero() {
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -20 }}
                                     transition={{ duration: 0.6, ease: "easeInOut" }}
-                                    className="absolute inset-0 w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm"
+                                    className="absolute inset-0 w-full h-full rounded-xl overflow-hidden shadow-2xl bg-white/5 border border-white/10"
                                 >
                                     <Image
                                         src={images[currentIndex]}
@@ -142,9 +128,6 @@ function Hero() {
                                     />
                                 </motion.div>
                             </AnimatePresence>
-
-                            {/* Decorative glow behind image */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/20 blur-3xl -z-10 transform scale-110 rounded-full" />
                         </motion.div>
 
                         {/* Slider Indicators */}

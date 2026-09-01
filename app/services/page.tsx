@@ -76,8 +76,8 @@ export default function ServicesPage() {
         <main className="w-full bg-[#040b16] min-h-screen pt-28 pb-20 px-5 md:px-10 lg:px-16 overflow-hidden relative">
             {/* Background Effects */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px]" />
+                
+                
             </div>
 
             <div className="relative z-10 max-w-[90rem] mx-auto">

@@ -42,8 +42,8 @@ function FaqSection() {
         <section className="w-full py-24 bg-slate-50 relative overflow-hidden">
             
             {/* Background elements for depth */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 translate-y-1/2" />
+            
+            
 
             <div className="mx-auto max-w-4xl px-5 relative z-10">
                 {/*-------------------------SECTION HEADER-----------------------*/}

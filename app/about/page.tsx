@@ -33,17 +33,16 @@ export default function Page() {
 
     return (
         <main className="min-h-screen py-24 bg-slate-50 relative overflow-hidden">
-            {/* Background elements */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+            {/* Background elements - Clean geometric background */}
+            <div className="absolute inset-0 w-full h-full opacity-[0.03] z-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, black 1px, transparent 0)', backgroundSize: '32px 32px' }} />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
 
                 {/* Heading */}
                 <div className="text-center mb-24 max-w-4xl mx-auto">
                     <h1 className="text-5xl md:text-6xl font-extrabold mb-8 text-slate-900 leading-tight">
-                        Innovating Education. <br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Manufacturing the Future.</span>
+                        Advanced STEM Infrastructure & <br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Industrial Manufacturing.</span>
                     </h1>
                     <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">
                         NavoYantra Technologies is a Delhi-based education technology and manufacturing company specializing in STEM, Robotics, Artificial Intelligence, Drone and IoT solutions.
@@ -54,8 +53,8 @@ export default function Page() {
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-32">
 
                     {/* Left Image */}
-                    <div className="relative h-[600px] rounded-[40px] overflow-hidden shadow-2xl">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent z-10 mix-blend-overlay" />
+                    <div className="relative h-[600px] rounded-xl overflow-hidden shadow-xl border border-slate-200">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 mix-blend-overlay" />
                         <Image
                             src="/about-robo.webp"
                             alt="About NavoYantra"
@@ -70,7 +69,7 @@ export default function Page() {
                         <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-slate-900">Practical, Future-Ready Education.</h2>
                         
                         <p className="text-slate-600 text-lg leading-relaxed mb-6 font-light">
-                            We believe innovation begins with hands-on learning. That's why we manufacture our own educational electronics, develop industry-relevant curriculum, and provide a certified LMS platform that transforms classrooms into innovation ecosystems.
+                            We believe technical education requires industrial-grade infrastructure. That's why we manufacture our own educational electronics, develop rigorous curriculum, and provide a comprehensive LMS platform that converts classrooms into advanced, hands-on learning centers.
                         </p>
                         <p className="text-slate-600 text-lg leading-relaxed mb-12 font-semibold">
                             Our mission is simple: enable every institution to deliver practical, future-ready education through technology.
@@ -79,7 +78,7 @@ export default function Page() {
                         <div className="space-y-10">
                             {aboutPoints.map((item, index) => (
                                 <div key={index} className="flex gap-6 items-start group">
-                                    <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary font-bold text-2xl shrink-0 group-hover:scale-110 transition-transform duration-300 group-hover:bg-primary group-hover:text-white">
+                                    <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary font-bold text-2xl shrink-0 group-hover:scale-110 transition-transform duration-300 group-hover:bg-primary group-hover:text-white">
                                         #{index + 1}
                                     </div>
                                     <div>
@@ -93,27 +92,30 @@ export default function Page() {
 
                 </div>
 
-                {/* What Makes Us Different? */}
-                <div className="bg-[#040b16] rounded-[40px] p-10 md:p-16 shadow-2xl relative overflow-hidden mb-24 text-white">
-                    <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/20 rounded-full blur-[100px]" />
-                    <div className="relative z-10">
-                        <div className="text-center mb-12">
-                            <h2 className="text-4xl font-extrabold mb-4">What Makes Us <span className="text-accent">Different?</span></h2>
-                            <p className="text-slate-400 max-w-2xl mx-auto">Unlike traditional vendors who rely on third-party products, NavoYantra controls the entire ecosystem.</p>
-                        </div>
+            </div> {/* Close max-w container */}
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                            {differences.map((diff, idx) => (
-                                <div key={idx} className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
-                                    <CheckCircle className="text-primary shrink-0" size={24} />
-                                    <span className="font-semibold text-lg">{diff}</span>
-                                    <span className="ml-auto text-accent text-sm font-bold bg-accent/10 px-3 py-1 rounded-full hidden sm:block">NavoYantra</span>
-                                </div>
-                            ))}
-                        </div>
+            {/* What Makes Us Different? - Full Width */}
+            <div className="w-full bg-[#040b16] py-20 md:py-28 shadow-2xl relative overflow-hidden mb-24 text-white">
+                <div className="absolute inset-0 w-full h-full opacity-[0.03] z-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+                <div className="relative z-10 max-w-7xl mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-extrabold mb-6">What Makes Us <span className="text-accent">Different?</span></h2>
+                        <p className="text-slate-400 max-w-2xl mx-auto text-lg md:text-xl font-light">Unlike traditional vendors who rely on third-party products, NavoYantra controls the entire ecosystem.</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                        {differences.map((diff, idx) => (
+                            <div key={idx} className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all hover:-translate-y-1 duration-300 shadow-sm">
+                                <CheckCircle className="text-primary shrink-0" size={24} />
+                                <span className="font-semibold text-lg">{diff}</span>
+                                <span className="ml-auto text-accent text-sm font-bold bg-accent/10 px-3 py-1 rounded-full hidden sm:block">NavoYantra</span>
+                            </div>
+                        ))}
                     </div>
                 </div>
+            </div>
 
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Our Manufacturing & R&D */}
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
                     <div className="order-2 lg:order-1">
@@ -124,23 +126,23 @@ export default function Page() {
                             We take pride in our robust Research & Development facility. By designing our PCBs, mechanical chassis, and coding curriculum entirely in-house, we ensure unparalleled quality control and cost-effectiveness.
                         </p>
                         <p className="text-slate-600 text-lg leading-relaxed mb-8 font-light">
-                            From the initial sketch to the final assembly line, every NavoYantra educational kit and IoT gateway is a testament to Indian engineering capabilities.
+                            From the initial hardware schematics to the final assembly line, every NavoYantra product demonstrates rigorous Indian engineering standards.
                         </p>
 
                         <div className="grid grid-cols-2 gap-6">
-                            <div className="bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
+                            <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                                 <h4 className="text-4xl font-black text-primary mb-2">50+</h4>
                                 <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Proprietary Products</p>
                             </div>
-                            <div className="bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
+                            <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                                 <h4 className="text-4xl font-black text-accent mb-2">100%</h4>
                                 <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide">In-House Design</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="relative h-[500px] rounded-[40px] overflow-hidden shadow-2xl order-1 lg:order-2">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent z-10 mix-blend-overlay" />
+                    <div className="relative h-[500px] rounded-xl overflow-hidden shadow-xl border border-slate-200 order-1 lg:order-2">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent z-10 mix-blend-overlay" />
                         <Image
                             src="/hero.webp"
                             alt="NavoYantra Manufacturing"

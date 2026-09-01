@@ -12,8 +12,8 @@ function FooterCTASection() {
         <section className="relative w-full py-24 md:py-32 px-5 md:px-10 lg:px-16 overflow-hidden bg-[#040b16]">
             
             {/* Background glowing orbs */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px] pointer-events-none" />
+            
+            
             
             {/* Inner Glass Container */}
             <div className="max-w-[85rem] mx-auto relative z-10">

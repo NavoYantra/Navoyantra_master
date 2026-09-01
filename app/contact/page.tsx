@@ -14,15 +14,26 @@ export default function Page() {
 
         const formData = new FormData(e.currentTarget);
         
+        // Honeypot check: If the hidden 'website' field is filled, it's likely a bot.
+        const honeypot = formData.get("website") as string;
+        if (honeypot) {
+            // Silently reject to confuse the bot
+            setStatus("success");
+            (e.target as HTMLFormElement).reset();
+            return;
+        }
+        
         // Extract values for Supabase
         const name = formData.get("name") as string;
         const email = formData.get("email") as string;
         const phone = formData.get("phone") as string;
-        const message = formData.get("message") as string;
+        const topic = formData.get("topic") as string;
+        const rawMessage = formData.get("message") as string;
+        
+        const message = `Topic: ${topic}\n\n${rawMessage}`;
 
-        // NOTE: Replace 'YOUR_ACCESS_KEY_HERE' with your actual Web3Forms access key
-        // You can get one at https://web3forms.com/
-        formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+        // Access Key for Web3Forms
+        formData.append("access_key", "486d0c7a-5af6-463e-9432-b9e32e15b392");
 
         try {
             // 1. Save to Supabase (contact_inquiries table)
@@ -57,8 +68,8 @@ export default function Page() {
 
     return (
         <main className="w-full bg-[#040b16] min-h-screen pt-28 pb-20 overflow-hidden relative text-white">
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
+            
+            
 
             <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
 
@@ -142,6 +153,9 @@ export default function Page() {
                         </h2>
 
                         <form onSubmit={handleSubmit} className="space-y-6">
+                            {/* Honeypot field for spam protection */}
+                            <input type="text" name="website" className="hidden" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+                            
                             {/* Web3forms subject field */}
                             <input type="hidden" name="subject" value="New Contact Form Submission from NavoYantra Website" />
                             {/* Web3forms redirect prevention */}
@@ -172,15 +186,35 @@ export default function Page() {
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
-                                <label htmlFor="phone" className="text-sm font-semibold text-slate-300">Phone Number (Optional)</label>
-                                <input 
-                                    type="tel" 
-                                    id="phone" 
-                                    name="phone" 
-                                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
-                                    placeholder="+91 00000 00000"
-                                />
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-2">
+                                    <label htmlFor="phone" className="text-sm font-semibold text-slate-300">Phone Number (Optional)</label>
+                                    <input 
+                                        type="tel" 
+                                        id="phone" 
+                                        name="phone" 
+                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                                        placeholder="+91 00000 00000"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label htmlFor="topic" className="text-sm font-semibold text-slate-300">Inquiry Topic</label>
+                                    <select 
+                                        id="topic" 
+                                        name="topic" 
+                                        required 
+                                        defaultValue=""
+                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer"
+                                        style={{ backgroundImage: "url(\"data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e\")", backgroundRepeat: "no-repeat", backgroundPosition: "right 1rem center", backgroundSize: "1em" }}
+                                    >
+                                        <option value="" disabled className="text-slate-900">Select a topic...</option>
+                                        <option value="Lab Setup" className="text-slate-900">Complete Lab Setup</option>
+                                        <option value="STEM Kits" className="text-slate-900">STEM & Robotics Kits</option>
+                                        <option value="Teacher Training" className="text-slate-900">Teacher Training</option>
+                                        <option value="LMS Platform" className="text-slate-900">LMS Platform</option>
+                                        <option value="General Inquiry" className="text-slate-900">General Inquiry</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div className="space-y-2">

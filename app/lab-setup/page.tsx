@@ -75,8 +75,8 @@ export default function LabSetupPage() {
 
     return (
         <main className="w-full bg-slate-50 min-h-screen pt-28 pb-20 overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+            {/* Background elements - Clean geometric background */}
+            <div className="absolute inset-0 w-full h-full opacity-[0.03] z-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, black 1px, transparent 0)', backgroundSize: '32px 32px' }} />
 
             <div className="relative z-10 max-w-[90rem] mx-auto px-5 md:px-10 lg:px-16">
                 
@@ -90,8 +90,14 @@ export default function LabSetupPage() {
                         We build innovation labs tailored to your institution—not a one-size-fits-all package. Explore our customized environments designed to inspire the next generation.
                     </p>
                 </div>
+            </div>
 
+            {/* Full Width Offers Slider */}
+            <div className="w-full relative z-20 mb-24">
                 <OffersSlider />
+            </div>
+
+            <div className="relative z-10 max-w-[90rem] mx-auto px-5 md:px-10 lg:px-16">
 
                 {/* Our Process */}
                 <div className="mb-24 relative">
@@ -165,8 +171,7 @@ export default function LabSetupPage() {
 
             {/* Every Lab Includes - Full Width */}
             <div className="w-full bg-[#040b16] text-white py-20 md:py-28 shadow-2xl relative overflow-hidden mt-12">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute inset-0 w-full h-full opacity-[0.03] z-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
                 
                 <div className="relative z-10 max-w-[90rem] mx-auto px-5 md:px-10 lg:px-16 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
                     <div className="flex-1">

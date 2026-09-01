@@ -16,7 +16,6 @@ const ShieldCheck = ({ className }: { className?: string }) => (
 export default function BlogPage() {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedPost, setSelectedPost] = useState<any | null>(null);
-    const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
     const [posts, setPosts] = useState<any[]>([]); 
     const [loading, setLoading] = useState(true);
 
@@ -75,33 +74,41 @@ export default function BlogPage() {
     }, [selectedCategory, posts]);
 
     return (
-        <main className="bg-[#f8f9fa] min-h-screen pb-24 font-sans text-slate-900 pt-24">
-            
-            {/* Hero Section */}
-            <section className="max-w-4xl mx-auto px-6 text-center pt-10 pb-16">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-purple-600 text-xs font-bold tracking-wider uppercase mb-6 border border-purple-100">
-                    <span className="text-lg leading-none">✨</span>
-                    Navoyantra Knowledge & Robotics Hub
-                </div>
+        <main className="bg-[#f8f9fa] min-h-screen pb-24 font-sans text-slate-900 pt-20">
+            {/* Dark Theme Full-Width Hero Section */}
+            <section className="w-full bg-[#040b16] text-white py-24 md:py-32 relative overflow-hidden mb-16 shadow-2xl">
                 
-                <h1 className="text-4xl md:text-6xl font-extrabold text-[#1a202c] tracking-tight leading-tight mb-6">
-                    STEM & Robotics <br />Education Blog
-                </h1>
                 
-                <p className="text-slate-500 text-sm md:text-base max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Insights, step-by-step tutorial guides, AI vision breakdowns, and school Atal Tinkering Lab setup articles written by STEM educators.
-                </p>
+                
+                <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-bold tracking-wider uppercase mb-8 shadow-sm backdrop-blur-sm">
+                        <span className="text-lg leading-none">✨</span>
+                        Navoyantra Knowledge & Robotics Hub
+                    </div>
+                    
+                    <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-8">
+                        STEM & Robotics <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Education Blog</span>
+                    </h1>
+                    
+                    <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                        Insights, step-by-step tutorial guides, AI vision breakdowns, and school Atal Tinkering Lab setup articles written by expert STEM educators.
+                    </p>
 
-                <div className="flex items-center justify-center gap-4">
-                    <button 
-                        onClick={() => setIsSubmitModalOpen(true)}
-                        className="bg-[#2563eb] hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold text-sm transition-colors shadow-lg shadow-blue-500/30"
-                    >
-                        Submit Your Blog
-                    </button>
-                    <Link href="/" className="bg-white hover:bg-gray-50 text-slate-700 border border-slate-200 px-8 py-3 rounded-full font-semibold text-sm transition-colors shadow-sm">
-                        Go to Home Page
-                    </Link>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <Link 
+                            href="https://shop.navoyantra.com"
+                            className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white px-8 py-4 rounded-xl font-bold text-sm transition-all duration-300 shadow-lg"
+                        >
+                            Explore Our Kits
+                        </Link>
+                        <Link 
+                            href="/" 
+                            className="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-xl font-bold text-sm transition-colors shadow-sm backdrop-blur-sm"
+                        >
+                            Go to Home Page
+                        </Link>
+                    </div>
                 </div>
             </section>
 
@@ -278,42 +285,6 @@ export default function BlogPage() {
                 </div>
             )}
 
-            {/* Submit Blog Modal */}
-            {isSubmitModalOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
-                <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 p-8 w-full max-w-2xl animate-in zoom-in-95 duration-200">
-                    <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-2xl font-bold font-heading text-slate-900">Submit a Blog</h2>
-                    <button onClick={() => setIsSubmitModalOpen(false)} className="text-slate-400 hover:text-slate-900"><X className="w-5 h-5"/></button>
-                    </div>
-                    <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Blog submitted for admin approval!'); setIsSubmitModalOpen(false); }}>
-                    <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">Title</label>
-                        <input type="text" required className="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="My Awesome Project" />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">Category</label>
-                        <select className="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option>Community Projects</option>
-                            <option>Robotics</option>
-                            <option>IoT</option>
-                        </select>
-                        </div>
-                        <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">Author Name</label>
-                        <input type="text" required className="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="John Doe" />
-                        </div>
-                    </div>
-                    <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">Content</label>
-                        <textarea required rows={5} className="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your tutorial here..."></textarea>
-                    </div>
-                    <button type="submit" className="w-full py-3 rounded-xl bg-blue-600 text-white font-bold text-sm hover:bg-blue-700 transition-colors">Submit for Review</button>
-                    </form>
-                </div>
-                </div>
-            )}
         </main>
     );
 }

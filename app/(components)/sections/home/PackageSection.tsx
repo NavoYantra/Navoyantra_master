@@ -20,8 +20,8 @@ const PackageSection = () => {
     return (
         <section className="w-full bg-[#040b16] min-h-[80vh] flex items-center py-24 overflow-hidden relative">
             {/* Background Accents */}
-            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px] pointer-events-none" />
+            
+            
 
             <div className="max-w-[90rem] mx-auto w-full px-5 md:px-10 lg:px-16 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
