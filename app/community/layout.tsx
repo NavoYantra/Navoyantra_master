@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Blog",
+    title: "Community",
     description: "Read the latest news, tutorials, and insights on Robotics, AI, IoT, and STEM education from the experts at NavoYantra.",
     keywords: ["Robotics Blog", "AI Tutorials", "STEM Education News", "IoT Articles", "NavoYantra Updates", "EdTech Insights"],
     openGraph: {
-        title: "Blog & Insights | NavoYantra",
+        title: "Community & Insights | NavoYantra",
         description: "Read the latest news, tutorials, and insights on Robotics, AI, IoT, and STEM education from the experts at NavoYantra.",
     }
 };
 
-export default function BlogLayout({
+export default function CommunityLayout({
     children,
 }: {
     children: React.ReactNode;
