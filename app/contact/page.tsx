@@ -67,6 +67,32 @@ export default function Page() {
             const data = await response.json();
 
             if (data.success || !supabaseError) {
+                // 3. Trigger EmailJS Auto-Reply
+                try {
+                    const emailJsPayload = {
+                        service_id: "service_56soeal",
+                        template_id: "template_uxdehb5",
+                        user_id: "1PQDMxg5v0kwuJoko",
+                        template_params: {
+                            name,
+                            email,
+                            phone,
+                            topic,
+                            message: rawMessage
+                        }
+                    };
+                    
+                    fetch("https://api.emailjs.com/api/v1.0/email/send", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(emailJsPayload)
+                    }).catch(err => console.error("EmailJS Error:", err));
+                } catch (e) {
+                    console.error("EmailJS setup error:", e);
+                }
+
                 setStatus("success");
                 (e.target as HTMLFormElement).reset();
             } else {
