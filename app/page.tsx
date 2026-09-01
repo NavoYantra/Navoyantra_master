@@ -10,6 +10,7 @@ const ProductCategorySection = dynamic(() => import("@/app/(components)/sections
 const EcosystemSection = dynamic(() => import("@/app/(components)/sections/home/EcosystemSection"));
 const IndustrialSection = dynamic(() => import("@/app/(components)/sections/home/IndustrialSection"));
 const WhyUsSection = dynamic(() => import("@/app/(components)/sections/home/WhyUsSection"));
+const LatestBlogsSection = dynamic(() => import("@/app/(components)/sections/home/LatestBlogsSection"));
 const FaqSection = dynamic(() => import("@/app/(components)/sections/home/FaqSection"));
 const FooterCTASection = dynamic(() => import("@/app/(components)/sections/home/FooterCTASection"));
 
@@ -31,6 +32,7 @@ export default function Home() {
             <EcosystemSection />
             <IndustrialSection />
             <WhyUsSection />
+            <LatestBlogsSection />
             <FaqSection />
             <FooterCTASection />
         </>

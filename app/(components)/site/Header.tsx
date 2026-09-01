@@ -19,6 +19,7 @@ const poppins = Poppins({
 
 export default function Header() {
     const headerOptions = [
+        "Home",
         "Services",
         "Lab Setup",
         "About",
@@ -99,7 +100,7 @@ export default function Header() {
                                 >
                                     <Link
                                         href={option === "Home" ? "/" : `/${option.toLowerCase().replace(/\s+/g, "-")}`}
-                                        className={`text-wrapper flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-1/2 ${pathname === `/${option.toLowerCase().replace(/\s+/g, "-")}` ? "text-accent underline font-semibold" : "text-foreground"}`}
+                                        className={`text-wrapper flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-1/2 ${(option === "Home" ? pathname === "/" : pathname === `/${option.toLowerCase().replace(/\s+/g, "-")}`) ? "text-accent underline font-semibold" : "text-foreground"}`}
                                     >
                                         <span className="py-1">{option}</span>
                                         <span className="py-1 text-accent">{option}</span>
@@ -204,7 +205,7 @@ export default function Header() {
                                         <Link
                                             href={option === "Home" ? "/" : `/${option.toLowerCase().replace(/\s+/g, "-")}`}
                                             onClick={toggleMenu}
-                                            className={`text-2xl font-semibold ${pathname === `/${option.toLowerCase().replace(/\s+/g, "-")}` ? "text-accent" : "text-foreground"}`}
+                                            className={`text-2xl font-semibold ${(option === "Home" ? pathname === "/" : pathname === `/${option.toLowerCase().replace(/\s+/g, "-")}`) ? "text-accent" : "text-foreground"}`}
                                         >
                                             {option}
                                         </Link>
