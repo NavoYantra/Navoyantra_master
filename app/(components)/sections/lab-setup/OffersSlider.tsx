@@ -10,7 +10,7 @@ const offers = [
         id: 1,
         title: "Exclusive Lab Setup Offer",
         badge: "Most Popular",
-        description: "Get a complete base STEM Lab Setup for just ₹50,000 (without GST). Includes premium School LMS Account for all students.",
+        description: "Get a complete base STEM Lab Setup for just ₹50,000 (without GST). Includes in-house manufactured electronics and essential tools.",
         icon: <Tool size={32} />,
         price: "₹50,000",
         tagline: "Excl. GST",
@@ -20,15 +20,15 @@ const offers = [
     },
     {
         id: 2,
-        title: "LMS Subscription Discount",
+        title: "Bulk STEM Kits Discount",
         badge: "Special 15% Off",
-        description: "Enhance your students' learning with our Learning Management System. Get a flat 15% discount on all annual LMS subscriptions.",
-        icon: <Monitor size={32} />,
+        description: "Equip your school or lab with our complete DIY robotics & IoT kits. Get a flat 15% discount on bulk institutional kit orders.",
+        icon: <Tag size={32} />,
         price: "15% OFF",
-        tagline: "On Annual Plans",
+        tagline: "On Bulk Orders",
         theme: "from-orange-500 to-orange-700",
-        btnText: "Explore LMS",
-        btnLink: "/contact"
+        btnText: "Explore Kits",
+        btnLink: "https://shop.navoyantra.com"
     },
     {
         id: 3,

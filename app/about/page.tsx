@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, CheckCircle } from "react-feather";
 import TestimonialSection from "@/app/(components)/sections/about/TestimonialSection";
 import Vision2030Section from "@/app/(components)/sections/about/VisionSection";
@@ -25,7 +26,7 @@ export default function Page() {
         "In-house Electronics Manufacturing",
         "Custom STEM Kits",
         "AI, Robotics, Drone & IoT Labs",
-        "LMS with Student Accounts",
+        "Online Hardware & Kit Store",
         "Teacher Training",
         "Competition Project Support",
         "Custom Lab Design"
@@ -69,7 +70,7 @@ export default function Page() {
                         <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-slate-900">Practical, Future-Ready Education.</h2>
                         
                         <p className="text-slate-600 text-lg leading-relaxed mb-6 font-light">
-                            We believe technical education requires industrial-grade infrastructure. That's why we manufacture our own educational electronics, develop rigorous curriculum, and provide a comprehensive LMS platform that converts classrooms into advanced, hands-on learning centers.
+                            We believe technical education requires industrial-grade infrastructure. That's why we manufacture our own educational electronics, design turnkey lab setups, and deliver hands-on STEM kits that convert classrooms into advanced, practical innovation centers.
                         </p>
                         <p className="text-slate-600 text-lg leading-relaxed mb-12 font-semibold">
                             Our mission is simple: enable every institution to deliver practical, future-ready education through technology.
@@ -152,6 +153,49 @@ export default function Page() {
                     </div>
                 </div>
 
+            </div>
+
+            {/* Parent Company & Brand Lineage Section */}
+            <div className="w-full max-w-7xl mx-auto px-6 mb-24 relative z-10">
+                <div className="bg-gradient-to-br from-slate-900 via-[#0a192f] to-slate-900 text-white rounded-[2.5rem] p-8 md:p-14 lg:p-16 border border-blue-500/20 shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/15 rounded-full blur-3xl pointer-events-none" />
+
+                    <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 border border-primary/40 text-blue-300 text-xs font-bold tracking-widest uppercase">
+                            CORPORATE BACKING & LINEAGE
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">
+                            NavoYantra is an Official Selling Brand of <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-primary to-accent">
+                                YuvaYantra Technology Pvt. Ltd.
+                            </span>
+                        </h2>
+                        <p className="text-slate-300 text-base md:text-lg leading-relaxed font-light">
+                            Operating under the corporate aegis of <strong className="text-white font-semibold">YuvaYantra Technology Pvt. Ltd.</strong>, NavoYantra acts as the dedicated commercial and retail brand delivering turnkey STEM laboratories, Atal Tinkering Labs (ATL), robotics hardware kits, and IoT systems across educational institutions in India.
+                        </p>
+                        <p className="text-slate-400 text-sm md:text-base leading-relaxed font-light">
+                            With YuvaYantra’s proven technological heritage and industrial engineering backing, NavoYantra ensures schools, colleges, and training institutes receive certified, compliant, and future-ready innovation ecosystems.
+                        </p>
+                        <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+                            <a
+                                href="https://www.yuvayantra.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 px-8 py-4 bg-primary hover:bg-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-primary/50 transition-all hover:-translate-y-0.5"
+                            >
+                                <span>Visit YuvaYantra Corporate Website (www.yuvayantra.com)</span>
+                                <ArrowRight size={18} />
+                            </a>
+                            <Link
+                                href="/contact"
+                                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl border border-white/20 transition-all hover:bg-white/15"
+                            >
+                                <span>Contact Commercial Team</span>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <TestimonialSection />

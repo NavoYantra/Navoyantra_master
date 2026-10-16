@@ -63,7 +63,7 @@ export default function StatsSection() {
         { target: 5, suffix: "+", label: "Partner Schools" },
         { target: 1, suffix: "", label: "Govt. IoT Tender Executed" },
         { target: 100, suffix: "%", label: "In-House Electronics" },
-        { target: 365, suffix: "", label: "Days LMS Access" },
+        { target: 365, suffix: "", label: "Days Lab Support" },
     ];
 
     return (

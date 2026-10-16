@@ -8,12 +8,13 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const branches = [
     {
-        badgeName: "learn",
-        title: "LMS Platform",
-        description: "Structured learning paths in Robotics, AI, IOT, Embedded Systems and Automation. Master future skills from anywhere.",
-        btnText: "Visit Learning Platform",
-        href: "#",
-        icon: <BookOpen size={24} />,
+        badgeName: "innovate",
+        title: "STEM Kits & Hardware",
+        description: "High-grade DIY robotics, AI, and IoT project kits designed with in-house manufactured electronics and step-by-step guides.",
+        btnText: "Explore STEM Kits",
+        href: "https://shop.navoyantra.com",
+        target: "_blank",
+        icon: <ShoppingCart size={24} />,
         theme: "blue"
     },
     {
@@ -38,9 +39,9 @@ const branches = [
     {
         badgeName: "connect",
         title: "COMMUNITY",
-        description: "Join thousands of makers and engineers. Participate in exclusive workshops, hackathons, and technology forums.",
+        description: "Join thousands of makers and engineers. Explore exclusive technology articles, tutorials, and project showcases.",
         btnText: "Join Community",
-        href: "/blog",
+        href: "/community",
         icon: <Users size={24} />,
         theme: "orange"
     },

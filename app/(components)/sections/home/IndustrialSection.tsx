@@ -27,8 +27,8 @@ const pipelineSteps = [
         icon: <Box size={20} />
     },
     {
-        title: "Curriculum",
-        desc: "Deployment of NEP-aligned digital learning and LMS.",
+        title: "Curriculum & Manuals",
+        desc: "Structured project manuals, experiment kits, and student guides.",
         icon: <Code size={20} />
     },
     {
@@ -52,13 +52,13 @@ export default function IndustrialSection() {
                 {/*---------------------------- HEADER --------------------------------*/}
                 <div className="flex flex-col items-center text-center mb-16">
                     <div className="px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase mb-6 shadow-[0_0_15px_rgba(37,99,235,0.3)]">
-                        FEATURED PROJECT
+                        TURNKEY LAB EXECUTION
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mt-6 mb-6 leading-tight">
-                        Greater Noida <span className="text-primary">Government</span><br/> <span className="text-accent">IoT Lab Project</span>
+                        Advanced <span className="text-primary">STEM & Robotics</span><br/> <span className="text-accent">Lab Infrastructure</span>
                     </h2>
                     <p className="text-lg md:text-xl text-slate-300 max-w-4xl leading-relaxed font-light">
-                        NavoYantra successfully executed a government IoT laboratory project featuring custom-designed educational kits and large-scale real-world use-case models (up to 2 feet), enabling students to learn practical smart city and industrial IoT applications.
+                        NavoYantra engineers and delivers complete, turnkey STEM, Robotics, AI, and IoT laboratories for schools, colleges, and educational institutions—featuring custom in-house hardware kits, real-world working models, and structured hands-on project ecosystems.
                     </p>
                 </div>
 
@@ -75,10 +75,10 @@ export default function IndustrialSection() {
                     <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 mb-16 md:mb-24">
                         <div>
                             <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-                                Government-grade <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">execution</span>.
+                                Institutional-grade <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">execution</span>.
                             </h3>
                             <p className="text-slate-400 text-lg max-w-2xl font-light">
-                                Hover over our end-to-end laboratory development pipeline below to see how we bring technology education to life with curriculum, hardware and project-based learning.
+                                Hover over our end-to-end laboratory development pipeline below to see how we bring technical education to life with turnkey hardware, project manuals, and hands-on learning.
                             </p>
                         </div>
                         <Link 

@@ -20,8 +20,9 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     const router = useRouter();
 
     const staticLinks = [
-        { title: "Lab Setup Services", path: "/#lab-setup", icon: <Layout size={16} /> },
-        { title: "About Us", path: "/#about", icon: <Info size={16} /> },
+        { title: "Lab Setup Services", path: "/lab-setup", icon: <Layout size={16} /> },
+        { title: "STEM Kits Store", path: "/store", icon: <Layout size={16} /> },
+        { title: "About Us", path: "/about", icon: <Info size={16} /> },
         { title: "Contact NavoYantra", path: "/contact", icon: <Mail size={16} /> },
         { title: "Community & Blogs", path: "/community", icon: <FileText size={16} /> }
     ];

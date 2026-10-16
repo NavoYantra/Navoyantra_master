@@ -65,23 +65,14 @@ export default function Header() {
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ duration: 0.8, ease: "easeOut" }}
                             >
-                                {/* Desktop Logo */}
+                                {/* Full Brand Logo */}
                                 <Image
-                                    src="/logo.webp"
-                                    width={350}
-                                    height={110}
-                                    alt="Logo"
+                                    src="/navoyantra-logo.png"
+                                    width={280}
+                                    height={73}
+                                    alt="NavoYantra - STEM Kits & Lab Solutions"
                                     priority
-                                    className="logo-img hidden md:block w-64 h-auto lg:w-80 dark:invert transition-all duration-300"
-                                />
-                                {/* Mobile Logo */}
-                                <Image
-                                    src="/mobile-logo.webp"
-                                    width={150}
-                                    height={32}
-                                    alt="Logo"
-                                    priority
-                                    className="logo-img block md:hidden w-auto h-12 dark:invert transition-all duration-300"
+                                    className="logo-img w-44 sm:w-52 md:w-60 lg:w-64 h-auto transition-all duration-300"
                                 />
                             </motion.div>
                         </Link>

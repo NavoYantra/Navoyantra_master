@@ -61,7 +61,7 @@ export default function AboutSection() {
                 >
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-12 h-1 bg-accent rounded-full" />
-                        <span className="text-accent font-extrabold uppercase tracking-widest text-sm">About NavoYantra</span>
+                        <span className="text-accent font-extrabold uppercase tracking-widest text-sm">About NavoYantra • A Brand by YuvaYantra</span>
                     </div>
                     
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
@@ -69,9 +69,17 @@ export default function AboutSection() {
                     </h2>
                     
                     <p className="text-lg text-slate-600 leading-relaxed mb-10">
-                        At <strong className="text-primary font-bold">NavoYantra Technology</strong>, we provide specialized hardware and curriculum solutions. 
-                        We are a leading provider of end-to-end infrastructure in Robotics, Artificial Intelligence, IoT, Embedded Systems, and Automation. 
-                        From establishing advanced STEM labs in schools to supplying robust automation systems for the defense sector, we focus on practical, measurable outcomes.
+                        <strong className="text-primary font-bold">NavoYantra</strong> is an official commercial selling brand of{" "}
+                        <a 
+                            href="https://www.yuvayantra.com" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="font-bold text-accent hover:underline"
+                        >
+                            YuvaYantra Technology Pvt. Ltd.
+                        </a>
+                        . We engineer and deliver specialized turnkey infrastructure in Robotics, Artificial Intelligence, IoT, Embedded Systems, and Atal Tinkering Labs (ATL). 
+                        From establishing advanced innovation labs in schools and universities to manufacturing robust electronic kits, we focus on practical, future-ready outcomes.
                     </p>
 
                     <div className="flex flex-col gap-8 mb-12">

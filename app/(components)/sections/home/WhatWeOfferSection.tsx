@@ -18,8 +18,8 @@ export default function WhatWeOfferSection() {
         },
         {
             icn: "/vector-icons/stem.svg",
-            title: "Curriculum + LMS",
-            description: "Digital learning with assessments & certification",
+            title: "STEM Kits Store & E-Commerce",
+            description: "Robotics, AI & IoT hands-on project kits shipped pan-India",
         },
         {
             icn: "/vector-icons/custom.svg",

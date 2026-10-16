@@ -13,7 +13,7 @@ const faqs = [
     },
     {
         question: "Is curriculum included?",
-        answer: "Yes. Practical curriculum and project manuals are included. Each lab module ships with structured lesson plans, student worksheets, assessment rubrics, and access to our LMS with video tutorials.",
+        answer: "Yes. Practical project manuals and experiment guides are included. Each lab module ships with structured step-by-step assembly guides, experiment worksheets, and practical hardware manuals.",
     },
     {
         question: "Do you offer installation?",

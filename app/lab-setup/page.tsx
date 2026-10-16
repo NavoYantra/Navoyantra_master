@@ -66,9 +66,9 @@ export default function LabSetupPage() {
         "In-house manufactured kits",
         "Installation & commissioning",
         "Teacher training",
-        "Student curriculum",
-        "LMS access",
-        "Assessment & certification",
+        "Project manuals & experiment guides",
+        "Component & spares supply",
+        "Hardware warranty & calibration",
         "Technical support",
         "Competition mentorship"
     ];
@@ -83,6 +83,17 @@ export default function LabSetupPage() {
                 {/* Hero Section */}
                 <div className="flex flex-col items-center text-center mb-24">
                     <Badge text="LAB SETUP" />
+                    <div className="mt-3 text-xs md:text-sm font-semibold text-slate-500 uppercase tracking-widest">
+                        A Selling Brand of{" "}
+                        <a 
+                            href="https://www.yuvayantra.com" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="text-primary hover:text-accent underline transition-colors font-bold"
+                        >
+                            YuvaYantra Technology Pvt. Ltd.
+                        </a>
+                    </div>
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 mt-6 mb-6 leading-tight">
                         End-to-End <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">STEM Laboratory</span> Development
                     </h1>

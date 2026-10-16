@@ -43,8 +43,8 @@ const strengths = [
             "M8 21h8",
             "M12 17v4"
         ],
-        title: "Certified LMS Platform",
-        description: "Every lab can be integrated with our LMS where schools manage students, track progress and issue certificates.",
+        title: "E-Commerce & Component Supply",
+        description: "Direct supply of high-grade robotics kits, microcontrollers, and electronic spare parts with fast pan-India shipping.",
     },
     {
         paths: ["M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z", "M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"],

@@ -4,9 +4,10 @@ import {FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaYoutube} from "react
 
 export default function Footer() {
     const companyLinks = [
-        { title: "About Us", url: "/#about" },
-        { title: "Lab Setup Services", url: "/#lab-setup" },
+        { title: "About Us", url: "/about" },
+        { title: "Lab Setup Services", url: "/lab-setup" },
         { title: "Shop STEM Kits", url: "https://shop.navoyantra.com" },
+        { title: "Parent Company (YuvaYantra)", url: "https://www.yuvayantra.com" },
         { title: "Contact Us", url: "/contact" },
     ];
 
@@ -32,14 +33,27 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="space-y-6">
                         <Image
-                            src="/logo.webp"
-                            width={220}
-                            height={70}
-                            alt="Logo"
+                            src="/navoyantra-logo.png"
+                            width={260}
+                            height={68}
+                            alt="NavoYantra - STEM Kits & Lab Solutions"
                             priority
-                            className="logo-img w-36 lg:w-48"
+                            className="logo-img w-48 lg:w-56 h-auto"
                         />
-                        <p className="max-w-sm text-neutral-600 leading-8">Empowering Education through Technology.</p>
+                        <p className="max-w-sm text-neutral-600 leading-relaxed text-sm">
+                            Empowering schools, institutions & learners with turnkey STEM, Robotics, AI & IoT lab infrastructure.
+                        </p>
+                        <p className="max-w-sm text-neutral-500 text-xs">
+                            A brand of{" "}
+                            <a 
+                                href="https://www.yuvayantra.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="font-semibold text-primary hover:text-accent underline transition-colors"
+                            >
+                                YuvaYantra Technology Pvt. Ltd.
+                            </a>
+                        </p>
                         <div>
                             <p className="mb-3 text-xs uppercase tracking-[0.35em] text-neutral-500">Office</p>
                             <p className="mt-4 text-gray-500 leading-7">
@@ -112,15 +126,25 @@ export default function Footer() {
                 <div className="flex flex-col items-center justify-between gap-5 text-sm text-neutral-500 md:flex-row">
                     <div className="flex items-center gap-3">
                         <Image
-                            src="/logo.webp"
-                            width={220}
-                            height={70}
-                            alt="Logo"
+                            src="/navoyantra-logo.png"
+                            width={200}
+                            height={52}
+                            alt="NavoYantra - STEM Kits & Lab Solutions"
                             priority
-                            className="logo-img w-36 lg:w-48"
+                            className="logo-img w-36 lg:w-44 h-auto"
                         />
                     </div>
-                    <p>© {new Date().getFullYear()} NavoYantra Technology, All rights reserved.</p>
+                    <p className="text-center md:text-left text-xs md:text-sm text-neutral-600">
+                        © {new Date().getFullYear()} NavoYantra. All rights reserved by{" "}
+                        <a 
+                            href="https://www.yuvayantra.com" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="font-semibold text-neutral-800 hover:text-primary transition-colors underline"
+                        >
+                            YuvaYantra Technology Pvt. Ltd.
+                        </a>
+                    </p>
                     <Link
                         href="/contact"
                         className="tracking-[0.3em] uppercase transition hover:translate-x-2 hover:text-blue-500 hover:font-semibold"

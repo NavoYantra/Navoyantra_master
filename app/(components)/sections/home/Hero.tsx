@@ -1,32 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import Badge from "@/app/(components)/site/Badge";
-import { motion, Variants, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
-const images = [
-    "/hero.webp",
-    "/about-robo.webp",
-    "/our-moto.webp",
-];
+import { motion, Variants } from "framer-motion";
+import SpaceBackground from "./SpaceBackground";
+import SpaceHeroScene from "./SpaceHeroScene";
 
 function Hero() {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % images.length);
-        }, 4000);
-        return () => clearInterval(timer);
-    }, []);
-
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2,
+                staggerChildren: 0.18,
                 delayChildren: 0.1,
             },
         },
@@ -38,10 +24,10 @@ function Hero() {
     };
 
     return (
-        <section className="w-full bg-[#040b16] text-white flex items-center justify-center px-5 md:px-10 lg:px-16 py-20 lg:py-32 overflow-hidden relative">
+        <section className="w-full bg-[#02040a] text-white flex items-center justify-center px-5 md:px-10 lg:px-16 py-20 lg:py-28 overflow-hidden relative min-h-[92vh]">
             
-            {/* Background Texture/Pattern instead of neon blobs */}
-            <div className="absolute inset-0 w-full h-full opacity-[0.03] z-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+            {/* Deep Space Background with Realistic Twinkling Stars & Shooting Stars (Tootte Taare) */}
+            <SpaceBackground />
             
             {/* Content Wrapper */}
             <div className="relative z-10 w-full max-w-[90rem] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12 xl:gap-20">
@@ -52,102 +38,67 @@ function Hero() {
                     initial="hidden"
                     animate="visible"
                     id="left-section" 
-                    className="w-full lg:w-[55%] flex flex-col items-start gap-8 z-10"
+                    className="w-full lg:w-[50%] xl:w-[52%] flex flex-col items-start gap-8 z-10"
                 >
-                    {/* Top Left Badge */}
-                    <motion.div variants={itemVariants}>
-                        <Badge text="Made in India | STEM • AI • Robotics • IoT" />
+                    {/* Top Left Badge with Cosmic Glow */}
+                    <motion.div variants={itemVariants} className="relative">
+                        <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-sky-500/40 via-blue-600/30 to-amber-500/20 blur-sm pointer-events-none" />
+                        <Badge text="Made in India | STEM • AI • Robotics • Aerospace • IoT" />
                     </motion.div>
 
                     <div className="flex flex-col gap-6">
-                        <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-extrabold leading-[1.15] tracking-tight">
-                            <span className="text-white">Equipping</span><br />
-                            <span className="text-primary">Schools with</span><br />
-                            <span className="text-accent">Advanced STEM.</span>
+                        <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl lg:text-7xl xl:text-[5.4rem] font-extrabold leading-[1.12] tracking-tight">
+                            <span className="text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]">Equipping</span><br />
+                            <span className="text-sky-400 drop-shadow-[0_0_25px_rgba(56,189,248,0.3)]">Schools with</span><br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500 drop-shadow-[0_0_30px_rgba(251,146,60,0.3)]">
+                                Advanced STEM.
+                            </span>
                         </motion.h1>
                         
-                        <motion.p variants={itemVariants} className="text-white/80 max-w-3xl text-lg sm:text-xl lg:text-2xl leading-relaxed font-light">
-                            From in-house manufactured STEM kits to complete <strong className="font-semibold text-primary">AI, Robotics, Drone & IoT Lab Setup</strong>, NavoYantra helps schools, colleges, government institutions and industries establish comprehensive innovation labs backed by curriculum, LMS and expert training.
+                        <motion.p variants={itemVariants} className="text-slate-300 max-w-2xl text-lg sm:text-xl lg:text-2xl leading-relaxed font-light">
+                            From in-house manufactured STEM kits to complete <strong className="font-semibold text-sky-400">AI, Robotics, Drone & IoT Lab Setup</strong>, NavoYantra helps schools, colleges, government institutions and industries establish comprehensive innovation labs backed by turnkey hardware, manufacturing and expert training.
                         </motion.p>
                     </div>
 
-                    {/* left CTA's */}
+                    {/* Left CTAs */}
                     <motion.div variants={itemVariants} className="flex flex-col gap-4 w-full sm:w-auto">
                         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full">
                             <Link
                                 href="https://shop.navoyantra.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-full sm:w-auto text-center capitalize font-semibold py-4 px-10 rounded-xl bg-primary text-white hover:bg-primary/90 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 text-lg"
+                                className="w-full sm:w-auto text-center capitalize font-semibold py-4 px-10 rounded-xl bg-gradient-to-r from-blue-600 via-sky-500 to-blue-700 text-white hover:opacity-95 hover:scale-105 hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] transition-all duration-300 text-lg border border-sky-400/30"
                             >
                                 Explore Store
                             </Link>
                             <Link
                                 href="/contact"
-                                className="w-full sm:w-auto text-center capitalize font-semibold py-4 px-10 rounded-xl bg-white/5 border-2 border-primary/30 text-white hover:bg-primary/20 hover:border-primary transition-all duration-300 text-lg backdrop-blur-sm"
+                                className="w-full sm:w-auto text-center capitalize font-semibold py-4 px-10 rounded-xl bg-white/5 border border-sky-400/30 text-white hover:bg-sky-500/10 hover:border-sky-400 hover:shadow-[0_0_20px_rgba(56,189,248,0.25)] transition-all duration-300 text-lg backdrop-blur-md"
                             >
                                 Talk to Us
                             </Link>
                         </div>
-                        <p className="text-sm font-medium text-white/60 mt-2">
+                        <p className="text-sm font-medium text-slate-400 mt-2 flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
                             Trusted by Principals &middot; Directors &middot; Govt &middot; Army
                         </p>
                     </motion.div>
 
                 </motion.div>
 
-                {/*-------------------- RIGHT SECTION (Slider) ---------------------------*/}
+                {/*-------------------- RIGHT SECTION (Space Scene) ---------------------------*/}
                 <motion.div 
-                    initial={{ opacity: 0, x: 50, scale: 0.9 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
                     id="right-section" 
-                    className="w-full lg:w-[45%] flex justify-center lg:justify-end z-10"
+                    className="w-full lg:w-[50%] xl:w-[48%] flex justify-center lg:justify-end z-10"
                 >
-                    <div className="relative w-full max-w-lg lg:max-w-2xl aspect-square">
-                        <motion.div
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                            className="w-full h-full relative"
-                        >
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={currentIndex}
-                                    initial={{ opacity: 0, x: 20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -20 }}
-                                    transition={{ duration: 0.6, ease: "easeInOut" }}
-                                    className="absolute inset-0 w-full h-full rounded-xl overflow-hidden shadow-2xl bg-white/5 border border-white/10"
-                                >
-                                    <Image
-                                        src={images[currentIndex]}
-                                        alt="NavoYantra robotics and AI graphic"
-                                        priority
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </motion.div>
-                            </AnimatePresence>
-                        </motion.div>
-
-                        {/* Slider Indicators */}
-                        <div className="absolute -bottom-10 left-0 right-0 flex justify-center gap-2">
-                            {images.map((_, idx) => (
-                                <button
-                                    key={idx}
-                                    onClick={() => setCurrentIndex(idx)}
-                                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                        idx === currentIndex ? "bg-primary w-8" : "bg-primary/30"
-                                    }`}
-                                    aria-label={`Go to slide ${idx + 1}`}
-                                />
-                            ))}
-                        </div>
-                    </div>
+                    <SpaceHeroScene />
                 </motion.div>
             </div>
         </section>
     );
 }
 
-export default Hero;
+export default Hero;

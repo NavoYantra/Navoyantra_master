@@ -33,7 +33,7 @@ export default function WhyChooseSetups() {
         "Sensors & Actuators Components",
         "Project-Based Curriculums",
         "Teacher Training Programs",
-        "LMS & Digital Learning Portals",
+        "E-Commerce & Spare Parts Supply",
         "Technical Assembly Manuals",
         "MSME Verification Support",
         "Annual Maintenance Packages"

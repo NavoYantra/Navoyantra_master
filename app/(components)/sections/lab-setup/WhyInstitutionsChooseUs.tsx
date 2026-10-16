@@ -16,7 +16,7 @@ const reasons = [
     },
     {
         title: "Complete Ecosystem",
-        description: "Hardware + Software + Curriculum + LMS + Teacher Training + Support. A single-vendor, fully integrated solution with no third-party dependency.",
+        description: "Turnkey Hardware + Custom Lab Design + In-house Kits + Teacher Training + Support. A single-vendor, fully integrated solution with no third-party dependency.",
     },
     {
         title: "Scalable Solutions",
@@ -36,7 +36,7 @@ export default function WhyInstitutionsChooseUs() {
             {/* Parallax background with fixed attachment */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-fixed"
-                style={{ backgroundImage: "url(/mobile-logo.webp)" }}
+                style={{ backgroundImage: "url(/about-robo.webp)" }}
             />
             <div className="absolute inset-0 bg-zinc-950/85" />
 

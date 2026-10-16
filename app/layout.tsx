@@ -35,10 +35,10 @@ export const metadata: Metadata = {
         siteName: "NavoYantra",
         images: [
             {
-                url: "https://www.navoyantra.com/mobile-logo.webp",
-                width: 800,
-                height: 600,
-                alt: "NavoYantra Technologies",
+                url: "https://www.navoyantra.com/navoyantra-logo.png",
+                width: 980,
+                height: 255,
+                alt: "NavoYantra Technologies - STEM Kits & Lab Solutions",
             }
         ]
     },

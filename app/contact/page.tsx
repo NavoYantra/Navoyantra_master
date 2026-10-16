@@ -120,7 +120,16 @@ export default function Page() {
                     </h1>
 
                     <p className="max-w-3xl mx-auto mt-6 text-slate-400 text-lg md:text-xl font-light leading-relaxed">
-                        Whether you're planning a new STEM lab, upgrading an existing laboratory or implementing LMS for your institution, our team is ready to help.
+                        NavoYantra is the official commercial selling brand of{" "}
+                        <a 
+                            href="https://www.yuvayantra.com" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="text-primary hover:text-accent font-semibold underline underline-offset-4 transition-colors"
+                        >
+                            YuvaYantra Technology Pvt. Ltd.
+                        </a>
+                        . Whether you&apos;re planning a new STEM lab, procuring ATL packages, or ordering hardware kits, our team is ready to assist.
                     </p>
                 </div>
 
@@ -132,8 +141,9 @@ export default function Page() {
                         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 mb-6">
                             <MapPin className="text-primary" size={28} />
                         </div>
-                        <h3 className="text-xl font-bold mb-4">Head Office</h3>
-                        <p className="text-slate-400 leading-relaxed font-light">
+                        <h3 className="text-xl font-bold mb-2">Corporate Office</h3>
+                        <p className="text-xs text-primary font-bold uppercase tracking-wider mb-3">YuvaYantra Technology Pvt. Ltd.</p>
+                        <p className="text-slate-400 leading-relaxed font-light text-sm">
                             1/10726-A KH No. 1622/62,<br />
                             Gali No. 2, Subhash Park,<br />
                             Naveen Shahdara,<br />
@@ -248,8 +258,8 @@ export default function Page() {
                                         <option value="" disabled className="text-slate-900">Select a topic...</option>
                                         <option value="Lab Setup" className="text-slate-900">Complete Lab Setup</option>
                                         <option value="STEM Kits" className="text-slate-900">STEM & Robotics Kits</option>
+                                        <option value="E-Commerce & Orders" className="text-slate-900">E-Commerce & Bulk Orders</option>
                                         <option value="Teacher Training" className="text-slate-900">Teacher Training</option>
-                                        <option value="LMS Platform" className="text-slate-900">LMS Platform</option>
                                         <option value="General Inquiry" className="text-slate-900">General Inquiry</option>
                                     </select>
                                 </div>

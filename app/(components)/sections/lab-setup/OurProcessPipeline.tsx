@@ -41,7 +41,7 @@ const steps = [
         step: 5,
         title: "Student Learning",
         description:
-            "Access to curriculum, project manuals, LMS, and practical learning resources designed for progressive skill-building.",
+            "Access to comprehensive project manuals, experiment kits, and practical learning resources designed for progressive skill-building.",
         icon: BookOpen,
     },
     {
